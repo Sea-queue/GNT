@@ -1,0 +1,26 @@
+------------------------------------------- Ruby On Rails -----------------------------------------
+
+- to start Rails Web server:
+% rails s
+
+- to create a new page called home:
+% rails g controller home index
+
+- to list all the routes we have:
+% rails routes
+
+- <%= %> = means output on the screen, <% %> without = means don't put on the screen
+
+- to generate a database
+% rails g scaffold friend first_name:string last_name:string phone:string instgram:string
+
+- to migrate the above table detail to database
+% rails db:migrate
+
+- single line comment in erb: 
+<%# commented line %>
+
+- block comment in erb:
+<% if false %>
+code to comment
+<% end %>
