@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   root "home#index"
   # get 'home/index'
   get 'home/about'
+  get 'home/terms_of_use'
+  get 'home/privacy_policy'
+  get 'home/state_law_privacy_policy'
 end
