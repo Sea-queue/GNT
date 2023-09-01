@@ -24,3 +24,15 @@
 <% if false %>
 code to comment
 <% end %>
+
+
+--------------------------------------------- Tech Stack ------------------------------------------
+
+Source Code / Version Control:  GitHub
+Server Host: Render (has free web host and database plan, 0.1 CPU / slow)
+Website Structure and Language used: Ruby on Rails
+Database: SQLite3 (about to change to postgreSQL because it's consistent on Render, and SQLite3 is not)
+SVG creation: 
+
+Possible Server Host: Heroku (need to pay)
+Possible Website Structure and Language:  React -- TypeScript
