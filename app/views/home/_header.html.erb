@@ -18,31 +18,39 @@
             <a class="nav-link active" aria-current="page">Apply</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page">Find Nurses</a>
-          </li>
+          <% if gnt_user_signed_in? %>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page">Find Nurses</a>
+            </li>
 
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page">News Feed</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page">News Feed</a>
+            </li>
 
-          <li class="nav-item">
-          <a class="nav-link active" aria-current="page">Resources</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page">Resources</a>
+            </li>
+          <% end %>
           
           <li class="nav-item">
-          <a class="nav-link active" aria-current="page">FAQ</a>
+            <a class="nav-link active" aria-current="page">FAQ</a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link active" aria-current="page">Contact Us</a>
           </li>
         </ul>
-
-        <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">Login</button>
-          <button type="button" class="btn btn-warning">Sign-up</button>
-        </div>
+        <% if gnt_user_signed_in? %>
+          <div class="text-end">
+            <%= link_to 'Sign Out', destroy_gnt_user_session_path, data: { turbo_method: :delete }, class:'btn btn-warning' %>
+            <%= link_to 'Edit Profile', edit_gnt_user_registration_path, class:'btn btn-outline-light me-2' %>
+          </div>
+        <% else %>
+          <div class="text-end">
+            <%= link_to 'Sign In', new_gnt_user_session_path, class:'btn btn-outline-light me-2' %>
+            <%= link_to 'Sign Up', new_gnt_user_registration_path, class:'btn btn-warning' %>
+          </div>
+        <% end %>
       </div>
     </div>
   </header>
