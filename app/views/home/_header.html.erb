@@ -1,43 +1,31 @@
-<header class="p-3 text-bg-dark">
+<header class="p-3 text-bg-info">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li class="nav-item">
-            <%= image_tag 'gnt_logo.png', style:'width:40px; height:40px' %>
+            <%= image_tag 'gnt_logo_transparent.png', style:'width:45px; height:45px' %>
           </li>
 
           <li class="nav-item" >
             <%= link_to 'GNT', root_path, class:'nav-link active', style:"color:white" %>
           </li>
 
+          <% if current_gnt_user && current_gnt_user.admin? %>
+            <li class="nav-item">
+              <%= link_to 'Statistics', admin_pages_statistics_path, class:"nav-link active"%>
+            </li>
+          <% end %>
+
           <li class="nav-item">
             <%= link_to 'About Us', home_about_path, class:'nav-link active' %>
           </li>
-
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page">Apply</a>
-          </li>
-
-          <% if gnt_user_signed_in? %>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page">Find Nurses</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page">News Feed</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page">Resources</a>
-            </li>
-          <% end %>
           
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page">FAQ</a>
+            <%= link_to 'FAQ', home_faq_path, class:"nav-link active" %>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page">Contact Us</a>
+            <%= link_to 'Contact Us', home_contact_us_path, class:"nav-link active" %>
           </li>
         </ul>
         <% if gnt_user_signed_in? %>
@@ -48,7 +36,7 @@
         <% else %>
           <div class="text-end">
             <%= link_to 'Sign In', new_gnt_user_session_path, class:'btn btn-outline-light me-2' %>
-            <%= link_to 'Sign Up', new_gnt_user_registration_path, class:'btn btn-warning' %>
+            <%= link_to 'Apply', new_gnt_user_registration_path, class:'btn btn-warning' %>
           </div>
         <% end %>
       </div>

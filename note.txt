@@ -25,6 +25,16 @@
 code to comment
 <% end %>
 
+- to access rails console and database
+rails c
+- (Use the model name defined in gnt_users.rb)
+GntUser.all
+GntUser.create({email:"seaqueue@gmail.com", password:"123456", password_confirmation:"123456", role:"admin"})
+GntUser.find(4).destroy
+
+- to print out the value for debugging
+flash[:notice].inspect 
+flash.now[:notice]
 
 --------------------------------------------- Tech Stack ------------------------------------------
 
