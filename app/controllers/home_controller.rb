@@ -5,6 +5,12 @@ class HomeController < ApplicationController
   def about
   end
 
+  def faq
+  end
+
+  def contact_us
+  end
+
   def terms_of_use
   end
 

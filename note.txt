@@ -36,6 +36,14 @@ GntUser.find(4).destroy
 flash[:notice].inspect 
 flash.now[:notice]
 
+- to add a column in database
+rails g migrate add_role_to_gnt_user role:string 
+rake db:migrate
+
+- to change column in database
+rails g migration change_defualt_role
+rake db:migrate
+
 --------------------------------------------- Tech Stack ------------------------------------------
 
 Source Code / Version Control:  GitHub
