@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get 'home/terms_of_use'
   get 'home/privacy_policy'
   get 'home/state_law_privacy_policy'
-  devise_for :gnt_users, controllers: { sessions: 'gnt_users/sessions' }
+  # devise_for :gnt_users, controllers: { sessions: 'gnt_users/sessions' }
+  devise_for :gnt_users, controllers: { registrations: 'gnt_users/registrations' }
   get 'admin_pages/statistics'
+  get 'sign_up', to: 'registrations#new'
+  post 'sign_up', to: 'registrations#create'
 end
