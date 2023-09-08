@@ -23,10 +23,12 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"go_rails" %>
   </div>
   
+  <% if false %>
   <div class="field">
     <%= f.label :user_type %><br /> 
     <%= f.text_field :role, autocomplete: "candidate", placeholder:"candidate" %>
   </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit "Sign up", class:"btn btn-primary"%>
