@@ -7,5 +7,9 @@ class GntUser < ApplicationRecord
   def admin?
     role == "admin"
   end
+
+  def candidate?
+    role == 'candidate'
+  end
   # validates :email, presence: true, format: {with: /\A[^@\s]+@[^@\s]+\z/, message: "must be a valid email address"}
 end

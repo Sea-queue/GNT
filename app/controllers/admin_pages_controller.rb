@@ -1,4 +1,7 @@
 class AdminPagesController < ApplicationController
-  def Statistics
+  def statistics
+  end
+
+  def application_status
   end
 end

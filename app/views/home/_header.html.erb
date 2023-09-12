@@ -14,7 +14,24 @@
             <li class="nav-item">
               <%= link_to 'Statistics', admin_pages_statistics_path, class:"nav-link active"%>
             </li>
+            <li class="nav-item">
+              <%= link_to 'Application Status', admin_pages_application_status_path, class:"nav-link active"%>
+            </li>
           <% end %>
+
+          <% if current_gnt_user && current_gnt_user.candidate? %>
+            <li class="nav-item">
+              <%= link_to 'Application Status', candidates_pages_application_status_path, class:'nav-link active' %>
+            </li>
+          <% end %>
+
+          <li class="nav-item">
+            <%= link_to 'News Feed', home_news_feed_path, class:'nav-link active' %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to 'Resources', home_resources_path, class:'nav-link active' %>
+          </li>
 
           <li class="nav-item">
             <%= link_to 'About Us', home_about_path, class:'nav-link active' %>
@@ -28,6 +45,7 @@
             <%= link_to 'Contact Us', home_contact_us_path, class:"nav-link active" %>
           </li>
         </ul>
+
         <% if gnt_user_signed_in? %>
           <div class="text-end">
             <%= link_to 'Sign Out', destroy_gnt_user_session_path, data: { turbo_method: :delete }, class:'btn btn-warning' %>
