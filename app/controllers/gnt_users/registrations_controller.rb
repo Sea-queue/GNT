@@ -20,9 +20,13 @@ class GntUsers::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+    @gnt_user = GntUser.find(params[:id])
+    if @gnt_user.update(user_params)
+      redirect_to :back
+    end
+  end
 
   # DELETE /resource
   # def destroy
