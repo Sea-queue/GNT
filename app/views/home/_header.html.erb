@@ -1,46 +1,45 @@
 <header class="p-3 text-bg-info">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li class="nav-item">
-            <%= image_tag 'gnt_logo_transparent.png', style:'width:45px; height:45px' %>
-          </li>
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li class="nav-item">
+          <%= image_tag 'gnt_logo_transparent.png', style:'width:45px; height:45px' %>
+        </li>
 
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="color:white" role="button" data-bs-toggle="dropdown">
+            GNT
+          </a>
+          <ul class="dropdown-menu">
+            <li class="nav-item" >
+              <%= link_to 'Home', root_path, class:'nav-link active'%>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'About Us', home_about_path, class:'nav-link active' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Contact Us', home_contact_us_path, class:"nav-link active" %>
+            </li>
+          </ul>
+        </li>
+
+        <% if current_gnt_user && current_gnt_user.admin? %>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" style="color:white" role="button" data-bs-toggle="dropdown">
-              GNT
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+              Admin
             </a>
             <ul class="dropdown-menu">
-              <li class="nav-item" >
-                <%= link_to 'Home', root_path, class:'nav-link active'%>
-              </li>
-              <li><hr class="dropdown-divider"></li>
               <li class="nav-item">
-                <%= link_to 'About Us', home_about_path, class:'nav-link active' %>
+                <%= link_to 'Statistics', admin_pages_statistics_path, class:"nav-link active"%>
               </li>
-              <li><hr class="dropdown-divider"></li>
               <li class="nav-item">
-                <%= link_to 'Contact Us', home_contact_us_path, class:"nav-link active" %>
+                <%= link_to 'Nurse Status', admin_pages_application_status_path, class:"nav-link active"%>
               </li>
             </ul>
           </li>
+        <% end %>
 
-          <% if current_gnt_user && current_gnt_user.admin? %>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
-                Admin
-              </a>
-              <ul class="dropdown-menu">
-                <li class="nav-item">
-                  <%= link_to 'Statistics', admin_pages_statistics_path, class:"nav-link active"%>
-                </li>
-                <li class="nav-item">
-                  <%= link_to 'Nurse Status', admin_pages_application_status_path, class:"nav-link active"%>
-                </li>
-              </ul>
-            </li>
-          <% end %>
-
+        <% if current_gnt_user %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
               International Nurses
@@ -76,24 +75,19 @@
             <ul class="dropdown-menu">
             </ul>
           </li>
-
-        </ul>
-
-        <form class="d-flex" role="search">
-          <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success me-1" type="submit">Search</button>
-        </form>
-
-        <% if gnt_user_signed_in? %>
-          <div class="text-end">
-            <%= link_to 'Sign Out', destroy_gnt_user_session_path, data: { turbo_method: :delete }, class:'btn btn-warning' %>
-          </div>
-        <% else %>
-          <div class="text-end">
-            <%= link_to 'Sign In', new_gnt_user_session_path, class:'btn btn-warning me-2' %>
-            <%= link_to 'Apply', new_gnt_user_registration_path, class:'btn btn-primary' %>
-          </div>
         <% end %>
-      </div>
+      </ul>
+
+      <% if gnt_user_signed_in? %>
+        <div class="text-end">
+          <%= link_to 'Sign Out', destroy_gnt_user_session_path, data: { turbo_method: :delete }, class:'btn btn-warning' %>
+        </div>
+      <% else %>
+        <div class="text-end">
+          <%= link_to 'Sign In', new_gnt_user_session_path, class:'btn btn-warning me-2' %>
+          <%= link_to 'Apply', new_gnt_user_registration_path, class:'btn btn-primary' %>
+        </div>
+      <% end %>
     </div>
-  </header>
+  </div>
+</header>

@@ -44,6 +44,9 @@ rake db:migrate
 rails g migration change_defualt_role
 rake db:migrate
 
+- dropdown divider
+<li><hr class="dropdown-divider"></li>
+
 --------------------------------------------- Tech Stack ------------------------------------------
 
 Source Code / Version Control:  GitHub
