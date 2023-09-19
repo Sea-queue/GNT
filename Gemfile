@@ -45,6 +45,9 @@ gem "bootsnap", require: false
 # For login systems
 gem 'devise', '~> 4.9', '>= 4.9.2'
 
+# Country Select
+gem 'country_select', '~> 8.0'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

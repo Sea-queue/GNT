@@ -21,11 +21,16 @@ class GntUsers::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    super
+    super  
     @gnt_user = GntUser.find(params[:id])
-    if @gnt_user.update(user_params)
-      redirect_to :back
-    end
+    # @gnt_user = GntUser.find_by_id(params[:id])
+    # logger.info params[:gnt_user]
+    # logger.info 'find user ok'
+    # if true
+    #   logger.info 'pass the update check'
+    #   redirect_to :back,
+    #   notice: "profile updated successfully!"
+    # end
   end
 
   # DELETE /resource
