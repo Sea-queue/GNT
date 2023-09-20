@@ -83,9 +83,11 @@
           <%= link_to 'Sign Out', destroy_gnt_user_session_path, data: { turbo_method: :delete }, class:'btn btn-warning' %>
         </div>
         &nbsp
-        <div class="text-end">
-          <%= link_to 'My Profile', gnt_user_path(current_gnt_user), class:'btn btn-primary' %>
-        </div>
+        <% if not current_gnt_user.admin? %>
+          <div class="text-end">
+            <%= link_to 'My Profile', gnt_user_path(current_gnt_user), class:'btn btn-primary' %>
+          </div>
+        <% end %>
       <% else %>
         <div class="text-end">
           <%= link_to 'Sign In', new_gnt_user_session_path, class:'btn btn-warning me-2' %>
