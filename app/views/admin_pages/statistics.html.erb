@@ -1,3 +1,13 @@
 <H1>Statistics of Nurses:</H1>
 <% user = GntUser.where(:role =>'candidate')%>
 There are <em style="font-size:25px"><%= user.count %> candidates</em> in the database.
+
+<ul>
+  <% @users.each do |user| %>
+    <% if not user.admin? %>
+      <li>
+        <%= link_to user.full_name, user %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

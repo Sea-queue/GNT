@@ -1,5 +1,59 @@
-<h1><%= @user.full_name %></h1>
+<div class="card mb-3 mt-3" style="border-radius: .5rem;">
+  <div class="row g-0">
+
+    <div class="col-md-4 gradient-custom text-center text-white"
+      style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+      <%= image_tag 'gnt_logo.png', alt:"Avatar", class:"img-fluid mt-5", style:"width: 150px;" %>
+      <div>
+        <h6 style='color:black'> <%= @user.full_name %> </h6>
+      </div>
+      <i style="color:black;" class="far fa-edit mb-5"></i>
+    </div>
+
+    <div class="col-md-8">
+      <div class="card-body p-4">
+        <h6>Information</h6>
+        <hr class="mt-0 mb-4">
+
+        <div class="row pt-1">
+          <div class="col-6 mb-3" style="display: flex">
+            <h6>Email: &nbsp</h6>
+            <h6 style='color:red'><%= @user.email%></h6>
+          </div>
+          <div class="col-6 mb-3" style="display: flex">
+            <h6>Nationality: &nbsp</h6>
+            <h6 style='color:red'><%= @user.nationality %></h6>
+          </div>
+        </div>
+
+        <div class="row pt-1">
+          <div class="col-6 mb-3" style="display: flex">
+            <h6>Current Resident: &nbsp</h6>
+            <h6 style='color:red'><%= @user.current_resident %></h6>
+          </div>
+          <div class="col-6 mb-3" style="display: flex">
+            <h6>I am: &nbsp</h6>
+            <h6 style='color:red'><%= @user.i_am %></h6>
+          </div>
+        </div>
+
+        <div class="row pt-1">
+          <div class="col-6 mb-3" style="display: flex">
+            <h6>Years of experience: &nbsp</h6>
+            <h6 style='color:red'><%= @user.years_of_experience %></h6>
+          </div>
+          <div class="col-6 mb-3" style="display: flex">
+            <h6>Apply visa for: &nbsp</h6>
+            <h6 style='color:red'><%= @user.apply_visa_for %></h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <% if current_gnt_user.id == @user.id %>
   <%= link_to 'Edit My Profile', edit_gnt_user_path(current_gnt_user), class:'btn btn-primary' %>
 <% end %>
+
