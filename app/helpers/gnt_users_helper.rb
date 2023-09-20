@@ -1,0 +1,2 @@
+module GntUsersHelper
+end

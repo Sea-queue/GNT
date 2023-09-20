@@ -57,3 +57,27 @@ SVG creation:
 
 Possible Server Host: Heroku (need to pay)
 Possible Website Structure and Language:  React -- TypeScript
+
+
+--------------------------------------------- RAM ------------------------------------------
+<%# render 'gnt_users/registrations/avatar', form: f> <%end%>
+
+<% if f.file.attached? %>
+          <% if f.file.image? %>
+            <div class='message-image-container'>
+              <%= image_tag(f.file, class:'message-image') %>
+            </div>
+          <% else %>
+            <%= link_to f.file.filename, url_for(f.file), class:'message-file' %>
+          <% end %>
+        <% end %>
+        <div>
+          <%= f.label :file, style:"display: block" %>
+          <%= f.file_field :file %>
+        </div>
+
+
+
+
+
+

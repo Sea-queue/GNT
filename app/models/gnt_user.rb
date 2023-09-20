@@ -4,6 +4,8 @@ class GntUser < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
+  # has_one_attached :profile_picture, dependent: :destroy
+  
   # enum role: [:candidate, :employer, :recruiter, :admin]
   # after_initialize :set_default_role, :if => :new_record?
   # def set_default_role

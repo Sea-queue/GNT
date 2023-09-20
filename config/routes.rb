@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   
   # Defines the root path route ("/")
   root "home#index"
-  # get 'home/index'
   get 'home/about'
   get 'home/faq'
   get 'home/news_feed'
@@ -13,6 +12,7 @@ Rails.application.routes.draw do
   get 'home/privacy_policy'
   get 'home/state_law_privacy_policy'
   devise_for :gnt_users, controllers: { sessions: 'gnt_users/sessions', registrations: 'gnt_users/registrations' }
+  resources :gnt_users, only: [:index, :show, :edit, :update]
   get 'admin_pages/statistics'
   get 'admin_pages/application_status'
   get 'candidates_pages/application_status'
