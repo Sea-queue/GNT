@@ -84,9 +84,12 @@
         </div>
         &nbsp
         <% if not current_gnt_user.admin? %>
-          <div class="text-end">
-            <%= link_to 'My Profile', gnt_user_path(current_gnt_user), class:'btn btn-primary' %>
-          </div>
+          <% if false %>
+            <div class="text-end">
+              <%= link_to 'My Profile', gnt_user_path(current_gnt_user), class:'btn btn-primary' %>
+            </div>
+          <% end %>
+          <%= link_to image_tag(current_gnt_user.avatar_thumbnail, class:'border border-2 rounded-5'), gnt_user_path(current_gnt_user) %>
         <% end %>
       <% else %>
         <div class="text-end">

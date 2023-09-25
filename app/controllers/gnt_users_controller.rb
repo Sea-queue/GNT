@@ -27,6 +27,7 @@ class GntUsersController < ApplicationController
 
   def gnt_user_params
     params.require(:gnt_user).permit(
+      :avatar,
       :full_name,
       :nationality,
       :i_am,

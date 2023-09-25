@@ -4,7 +4,8 @@ class GntUser < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  # has_one_attached :profile_picture, dependent: :destroy
+  has_one_attached :avatar
+  after_commit :add_default_avatar, on: %i[create update]
   
   # enum role: [:candidate, :employer, :recruiter, :admin]
   # after_initialize :set_default_role, :if => :new_record?
@@ -24,4 +25,24 @@ class GntUser < ApplicationRecord
     role == 'employer'
   end
   # validates :email, presence: true, format: {with: /\A[^@\s]+@[^@\s]+\z/, message: "must be a valid email address"}
+
+
+  def avatar_thumbnail
+    if avatar.attached?
+      avatar.variant(resize_to_limit: [50, 50]).processed
+    end
+  end
+
+
+  private
+
+  def add_default_avatar
+    return if avatar.attached?
+    
+      avatar.attach(
+        io: File.open(Rails.root.join('app', 'assets', 'images', 'gnt_logo.png')),
+        filename: 'gnt_logo.png',
+        content_type: 'image/png'
+      )
+  end 
 end
