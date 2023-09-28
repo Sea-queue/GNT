@@ -4,7 +4,10 @@ class GntUser < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  has_one_attached :avatar
+  # dependent: destroy means delete the avatar if delete the user
+  has_one_attached :avatar, dependent: :destroy
+  has_one_attached :RN_License
+  validates :avatar, content_type: { in: ['image/png', 'image/jpg', 'image/jpeg'], message: 'is not an image' } 
   after_commit :add_default_avatar, on: %i[create update]
   
   # enum role: [:candidate, :employer, :recruiter, :admin]

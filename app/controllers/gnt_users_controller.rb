@@ -23,6 +23,17 @@ class GntUsersController < ApplicationController
     end
   end
 
+  def delete_image
+    image = ActiveStorage::Attachment.find(params[:image_id])
+    if current_gnt_user == image.record || current_gnt_user.admin?
+      # method to delete the image
+      image.purge
+      redirect_back(fallback_location: request.referer)
+    else
+      redirect_to root_url, notice: "User didn't match"
+    end
+  end
+
   private
 
   def gnt_user_params
@@ -33,7 +44,8 @@ class GntUsersController < ApplicationController
       :i_am,
       :years_of_experience,
       :apply_visa_for,
-      :current_resident
+      :current_resident,
+      :RN_License
     )
   end
 

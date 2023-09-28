@@ -12,15 +12,16 @@
 
   <div class="card mb-3 mt-3" style="border-radius: .5rem;">
     <div class="row g-0">
-      <div class="col-md-4 gradient-custom text-center text-white"
-        style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+      <div class="col-md-4 text-center" >
         <div class='filed mt-5'>
           <% if @user.avatar.attached? %>
             <%= image_tag(@user.avatar, height: '100px', width: '100px', class:'border border-2 rounded-5') %>
           <% else %>
             <%= image_tag 'gnt_logo.png', alt:"Avatar", class:"border border-3 rounded", style:"width: 150px" %>
           <% end %>
+          <%= f.file_field :avatar %>
         </div>
+
         <div>
           <h6 style='color:black'> Full Name </h6>
           <%= f.text_field :full_name, autofocus: true, placeholder: current_gnt_user.full_name %>
@@ -29,7 +30,7 @@
       </div>
       <div class="col-md-8">
         <div class="card-body p-4">
-          <h6>Information</h6>
+          <h5>Basic Information</h5>
           <hr class="mt-0 mb-4">
 
           <div class="row pt-1">
@@ -37,38 +38,51 @@
               <h6>Email:</h6>
               <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
             </div>
+
             <div class="col-6 mb-3">
               <h6>Nationality:</h6>
               <%= f.country_select :nationality, priority_countries = ["Singapore", "Chile", "US"] %>
             </div>
-          </div>
 
-          <div class="row pt-1">
             <div class="col-6 mb-3">
               <h6>Current Resident:</h6>
               <%= f.text_field :current_resident, autofocus: true %>
             </div>
+
             <div class="col-6 mb-3">
               <h6>I am:</h6>
               <%= f.select :i_am, ['Enrolled in a nursing program', 'Registered nurse outside the United States'], :prompt => current_gnt_user.i_am %>
             </div>
-          </div>
 
-          <div class="row pt-1">
             <div class="col-6 mb-3">
               <h6>Years of experience:</h6>
               <%= f.select :years_of_experience, ['0', '1', '2', '3', '4', '5+' ], :prompt => current_gnt_user.years_of_experience %>
             </div>
+
             <div class="col-6 mb-3">
               <h6>Apply visa for:</h6>
               <%= f.select :apply_visa_for, ['me individually', 'me and my spouse', 'me and my children', 'me, my spouse and children'], :prompt => current_gnt_user.apply_visa_for %>
             </div>
           </div>
 
+          <h5 class='mt-2'>Nursing Credentials</h5>
+          <hr class="mt-0 mb-4">
           <div class="row pt-1">
-            <%= f.label :'avatar:' %>
-            <%= f.file_field :avatar %>
+
+            <div class="col-6 mb-3" style="display: flex">
+              <%= f.label :'RN License:' %>
+              <%= f.file_field :RN_License %>
+            </div>
           </div>
+
+          <h5 class='mt-2'>Application Process</h5>
+          <hr class="mt-0 mb-4">
+
+          <h5 class='mt-2'>Employer-specific Questions</h5>
+          <hr class="mt-0 mb-4">
+
+          <h5 class='mt-2'>OTHER</h5>
+          <hr class="mt-0 mb-4">
 
           <div class="actions">
             <%= f.submit "Update", class:"btn btn-danger mt-2"%>

@@ -12,7 +12,7 @@
         
         <div class='filed mt-5'>
           <% if resource.avatar.attached? %>
-            <%= image_tag(resource.avatar_thumbnail, height: '100px', width: '100px', class:'border border-2 rounded-5') %>
+            <%= image_tag(resource.avatar, height: '100px', width: '100px', class:'border border-2 rounded-5') %>
           <% else %>
             <%= image_tag 'gnt_logo.png', alt:"Avatar", class:"border border-3 rounded", style:"width: 150px" %>
           <% end %>

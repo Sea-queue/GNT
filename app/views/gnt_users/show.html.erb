@@ -5,7 +5,7 @@
       style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
       <div class='filed mt-5'>
         <% if @user.avatar.attached? %>
-          <%= image_tag(@user.avatar, height: '100px', width: '100px', class:'border border-2 rounded-5') %> 
+          <%= image_tag(@user.avatar, height: '100px', width: '100px', class:'border border-2 rounded-5') %>
         <% else %>
           <%= image_tag 'gnt_logo.png', alt:"Avatar", class:"border border-3 rounded", style:"width: 150px" %>
         <% end %>
@@ -18,7 +18,7 @@
 
     <div class="col-md-8">
       <div class="card-body p-4">
-        <h6>Information</h6>
+        <h5>Basic Information</h5>
         <hr class="mt-0 mb-4">
 
         <div class="row pt-1">
@@ -26,33 +26,65 @@
             <h6>Email: &nbsp</h6>
             <h6 style='color:red'><%= @user.email%></h6>
           </div>
+
           <div class="col-6 mb-3" style="display: flex">
             <h6>Nationality: &nbsp</h6>
             <h6 style='color:red'><%= @user.nationality %></h6>
           </div>
-        </div>
 
-        <div class="row pt-1">
           <div class="col-6 mb-3" style="display: flex">
-            <h6>Current Resident: &nbsp</h6>
+            <h6>Current resident: &nbsp</h6>
             <h6 style='color:red'><%= @user.current_resident %></h6>
           </div>
+
           <div class="col-6 mb-3" style="display: flex">
             <h6>I am: &nbsp</h6>
             <h6 style='color:red'><%= @user.i_am %></h6>
           </div>
-        </div>
 
-        <div class="row pt-1">
           <div class="col-6 mb-3" style="display: flex">
             <h6>Years of experience: &nbsp</h6>
             <h6 style='color:red'><%= @user.years_of_experience %></h6>
           </div>
+
           <div class="col-6 mb-3" style="display: flex">
             <h6>Apply visa for: &nbsp</h6>
             <h6 style='color:red'><%= @user.apply_visa_for %></h6>
           </div>
         </div>
+
+        <h5 class='mt-2'>Nursing Credentials</h5>
+        <hr class="mt-0 mb-4">
+        <div class="row pt-1">
+          <div class="col-6 mb-3" style="display: flex">
+            <h6>RN License: &nbsp</h6>
+            <% if @user.RN_License.attached? %>
+              <%= link_to @user.RN_License.filename, url_for(@user.RN_License) %>
+            <% end %>
+          </div>
+
+          <div class="col-6 mb-3" style="display: flex">
+            <h6>Diploma of Nursing Education (and English translation) : &nbsp</h6>
+          </div>
+
+          <div class="col-6 mb-3" style="display: flex">
+            <h6>Transcript (original and English translation): &nbsp</h6>
+          </div>
+
+          <div class="col-6 mb-3" style="display: flex">
+            <h6>Number of clinical hours: &nbsp</h6>
+          </div>
+        </div>
+
+        <h5 class='mt-2'>Application Process</h5>
+        <hr class="mt-0 mb-4">
+
+        <h5 class='mt-2'>Employer-specific Questions</h5>
+        <hr class="mt-0 mb-4">
+
+        <h5 class='mt-2'>OTHER</h5>
+        <hr class="mt-0 mb-4">
+
       </div>
     </div>
 
