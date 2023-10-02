@@ -13,17 +13,18 @@
   <div class="card mb-3 mt-3" style="border-radius: .5rem;">
     <div class="row g-0">
       <div class="col-md-4 text-center" >
-        <div class='filed mt-5'>
+        <div class='filed mt-5 mb-3'>
           <% if @user.avatar.attached? %>
             <%= image_tag(@user.avatar, height: '100px', width: '100px', class:'border border-2 rounded-5') %>
           <% else %>
             <%= image_tag 'gnt_logo.png', alt:"Avatar", class:"border border-3 rounded", style:"width: 150px" %>
           <% end %>
-          <%= f.file_field :avatar %>
         </div>
+        
+        <%= f.file_field :avatar %>
 
         <div>
-          <h6 style='color:black'> First Name / Nickname </h6>
+          <h6 class='mt-3' style='color:black'> First Name / Nickname </h6>
           <%= f.text_field :full_name, autofocus: true, placeholder: current_gnt_user.full_name %>
         </div>
         <i style="color:black;" class="far fa-edit mb-5"></i>
