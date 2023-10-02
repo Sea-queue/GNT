@@ -41,6 +41,11 @@
               </div>
             <% end %>
 
+            <div class="col-9 mb-3">
+              <h6>How did you hear about us? (optional):</h6>
+              <%= f.select :apply_visa_for, ['Internet', 'In person', 'Event', 'Friend/Relative/Colleague', 'Billboard or Flyer', 'Other'] %>
+            </div>
+
             <div class="field mb-2">
               <%= f.check_box :remember_me %>
               <%= f.label :"agree to terms of use" %>
