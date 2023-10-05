@@ -38,7 +38,8 @@
           <div class="row pt-1">
 
             <div class="col-6 mb-3">
-              <h6>Full legal name*:</h6>
+              <h6>Full legal name (Name exactly as it appears in official documentation i.e. National ID, nurse license, birth certificate)*:</h6>
+              <%= f.text_field :legal_name %>
             </div>
 
             <div class="col-6 mb-3">
@@ -52,18 +53,26 @@
             </div>
 
             <div class="col-6 mb-3">
-              <h6>Current Resident*:</h6>
-              <%= f.text_field :current_resident, autofocus: true %>
-            </div>
-
-            <div class="col-6 mb-3">
-              <h6>I am*:</h6>
-              <%= f.select :i_am, ['Enrolled in a nursing program', 'Registered nurse outside the United States'], :prompt => current_gnt_user.i_am %>
+              <h6>Current country of residence*:</h6>
+              <%= f.country_select :current_resident, priority_countries = ["Singapore", "Chile", "US"] %>
             </div>
 
             <div class="field mb-2">
-              <%= f.check_box :remember_me %>
-              <%= f.label :"Check if you are currently working as a registered nurse in a clinical setting*" %>
+              <h6>I am*:</h6>
+              <%= f.radio_button :i_am, 'Enrolled in a nursing program' %>
+              <%= f.label "Enrolled in a nursing program" %>
+              <%= f.radio_button :i_am, 'Registered nurse outside the United States' %>
+              <%= f.label "Registered nurse outside the United States" %>
+            </div>
+
+            <div class="col-30 mb-3">
+              <h6>If applicable, insert year of expected graduation:</h6>
+              <%= f.text_field :year_of_graduation %>
+            </div>
+
+            <div class="field mb-2">
+              <%= f.check_box :currently_working %>
+              <%= f.label :"I am currently working as a registered nurse in a clinical setting" %>
             </div>
 
             <div class="col-6 mb-3">
@@ -72,28 +81,37 @@
             </div>
 
             <div class="col-6 mb-3">
+              <h6>Check all languages spoken:</h6>
+              <%= f.select(:langauges_spoken, ['English', 'Spanish', 'Mandarin', 'Portuguese', 'German', 'Franch', 'Japanese'], {:multiple => true, :size => 3}, {:prompt => current_gnt_user.langauges_spoken}) %>
+            </div>
+
+            <div class="col-6 mb-3">
               <h6>Apply visa for*:</h6>
               <%= f.select :apply_visa_for, ['None', 'Me', 'Me and my family'], :prompt => current_gnt_user.apply_visa_for %>
             </div>
 
             <div class="col-6 mb-3">
-              <h6>Phone number:</h6>
+              <h6>Phone number (+1 (123) 456-7890):</h6>
+              <%= f.text_field :phone_number %>
             </div>
 
             <div class="field mb-2">
-              <%= f.check_box :remember_me %>
-              <%= f.label :"Check to authorize contact via Whatsapp" %>
+              <%= f.check_box :auth_whatsapp %>
+              <%= f.label :"I authorize contact by WhatsApp" %>
             </div>
 
             <div class="field mb-2">
-              <%= f.check_box :remember_me %>
-              <%= f.label :"Check to authorize calls and texts (your telephone provider messaging rates will apply)" %>
+              <%= f.check_box :auth_text %>
+              <%= f.label :"I authorize contact by telephone and text messaging (messaging rates will apply)" %>
             </div>
           </div>
 
           <h5 class='mt-3'>Nursing Credentials</h5>
           <hr class="mt-0 mb-4">
           <div class="row pt-1">
+            <div class="field mb-2">
+              <%= f.label :'I have an RN License in a foreign country (not the US)' %>
+            </div>
 
             <div class="col-10 mb-3" style="display: flex">
               <%= f.label :'Upload Nurse License*:' %>
@@ -102,60 +120,107 @@
 
             <div class="col-10 mb-3" style="display: flex">
               <%= f.label :'License Type*:' %>
-              <%= f.select :years_of_experience, ['Registered Nurse', 'Licensed Practical Nurse', 'Nurse Practitioner'] %>
+              <%= f.select :license_type, ['Registered Nurse', 'Licensed Practical Nurse', 'Nurse Practitioner'] %>
             </div>
 
             <div class="col-10 mb-3" style="display: flex">
-              <%= f.label :'English Proficiency Exam*:' %>
-              <%= f.select :years_of_experience, ['Yes', 'No'] %>
+              <%= f.label :'Upload Resume*:' %>
+              <%= f.file_field :RN_License %>
             </div>
 
-            <div class="col-10 mb-3" style="display: flex">
-              <%= f.label :'Upload Nurse License*:' %>
+            <div class="field mb-2">
+              <%= f.check_box :stage3_1 %>
+              <%= f.label :'I have never had any investigation, suspension or disciplinary action on my professional license or certification' %>
+            </div>
+
+            <div class="col-30 mb-3" style="display: flex">
+              <%= f.label :'If applicable, upload Diploma of Nursing Education:' %>
+              <%= f.file_field :RN_License %>
+            </div>
+
+            <div class="col-30 mb-3" style="display: flex">
+              <%= f.label :'If applicable, upload English translation of Nursing Education Diploma:' %>
               <%= f.file_field :RN_License %>
             </div>
 
             <div class="col-20 mb-3" style="display: flex">
-              <%= f.label :'Upload diploma of Nursing Education*:' %>
+              <%= f.label :'If applicable, upload Nursing Education Transcripts:' %>
               <%= f.file_field :RN_License %>
             </div>
 
             <div class="col-20 mb-3" style="display: flex">
-              <%= f.label :'Upload English translation of Nursing Education Diploma (if applicable):' %>
+              <%= f.label :'If applicable, upload English translation of Nursing Education Transcripts:' %>
               <%= f.file_field :RN_License %>
             </div>
 
             <div class="col-20 mb-3" style="display: flex">
-              <%= f.label :'Upload Nursing Education Transcripts*:' %>
+              <h6>Indicate number of clinical hours in the nursing program and located specialties (hospital medical surgical, nursing home, etc.):</h6>
+              <%= f.text_field :clinical_hour %>
+            </div>
+
+            <div class="col-20 mb-3" style="display: flex">
+              <h6>Check all applicable specialties:</h6>
+            </div>
+
+            <div class="col-20 mb-3" style="display: flex">
+              <h6>Is there anything else our Recruitment Team should know?</h6>
+              <%= f.text_field :other_1 %>
+            </div>
+          </div>
+
+          <h5 class='mt-2'>US Nursing Credentials</h5>
+          <hr class="mt-0 mb-4">
+          <div class="field mb-2">
+            <%= f.label :'I have a CGFNS VisaScreen approval' %>
+          </div>
+
+          <div class="col-20 mb-3" style="display: flex">
+            <%= f.label :'If applicable, upload Copy of CGFNS VisaScreen Report:' %>
+            <%= f.file_field :RN_License %>
+          </div>
+
+          <div class="col-10 mb-3" style="display: flex">
+            <%= f.label :'English Proficiency Exam Status*:' %>
+            <%= f.select :english_proficiency, ['passed IELTS', 'passed TSE', 'passed TOEFL', 'passed PET', 'exam scheduled', 'not yet passed'] %>
+          </div>
+
+          <div class="col-20 mb-3" style="display: flex">
+            <%= f.label :'If applicable, upload Copy of English proficiency exam results:' %>
+            <%= f.file_field :RN_License %>
+          </div>
+
+          <div class="col-20 mb-3" style="display: flex">
+            <%= f.label :'If applicable, enter the date English Proficiency Exam was passed (DD/MM/YYYY):' %>
+            <%= f.text_field :english_exam_pass_date %>
+          </div>
+
+          <div class="field mb-2">
+            <%= f.label :'I have passed the NCLEX-RN' %>
+          </div>
+
+          <div class="field mb-2">
+            <%= f.label :'I have License to work as a Registered Nurse in a US State' %>
+          </div>
+
+          <div class="field mb-2">
+            <%= f.check_box :background_check %>
+            <%= f.label :'I have submitted fingerprint background checks to State Licensing authority' %>
+          </div>
+
+          <div class="col-20 mb-3" style="display: flex">
+            <h6>Is there anything else our Recruitment Team should know?</h6>
+            <%= f.text_field :other_2 %>
+          </div>
+
+          <h5 class='mt-2'>Immigration Documentation</h5>
+          <hr class="mt-0 mb-4">
+            <div class="col-20 mb-3" style="display: flex">
+              <%= f.label :'Upload original or certified copy of Birth Certificate:' %>
               <%= f.file_field :RN_License %>
             </div>
 
             <div class="col-20 mb-3" style="display: flex">
-              <%= f.label :'Upload English translation of Nursing Education Transcripts (if applicable):' %>
-              <%= f.file_field :RN_License %>
-            </div>
-
-            <div class="col-20 mb-3" style="display: flex">
-              <%= f.label :'Upload Copy of CGFNS VisaScreen Report (if applicable):' %>
-              <%= f.file_field :RN_License %>
-            </div>
-
-            <div class="col-20 mb-3" style="display: flex">
-              <%= f.label :'Upload Copy of English proficiency exam results (if applicable):' %>
-              <%= f.file_field :RN_License %>
-            </div>
-
-            <div class="col-10 mb-3" style="display: flex">
-              <%= f.label :'Have you ever had your professional license or certification, investigated, suspended or had disciplinary action taken against it? * ' %>
-              <%= f.select :years_of_experience, ['passed IELTS', 'passed TSE', 'passed TOEFL', 'passed PET', 'exam scheduled', 'not yet passed'] %>
-            </div>
-
-            <div class="col-20 mb-3" style="display: flex">
-              <%= f.label :'Enter the date English Proficiency Exam was passed (DD/MM/YYYY)*:' %>
-            </div>
-
-            <div class="col-20 mb-3" style="display: flex">
-              <%= f.label :'Upload original or certified copy of Birth Certificate*:' %>
+              <%= f.label :'If applicable, upload translation of Birth Certificate:' %>
               <%= f.file_field :RN_License %>
             </div>
 
@@ -163,17 +228,33 @@
               <%= f.label :'Upload copy of your valid Passport (biographic page)*:' %>
               <%= f.file_field :RN_License %>
             </div>
-          </div>
 
-          <h5 class='mt-2'>Application Process</h5>
+            <div class="col-20 mb-3" style="display: flex">
+              <%= f.label :'If applicable, upload current or former US Visa(s):' %>
+              <%= f.file_field :RN_License %>
+            </div>
+
+            <div class="col-20 mb-3" style="display: flex">
+              <%= f.label :'If applicable, upload U.S. Entry Stamp or I-94 Departure/Arrival record:' %>
+              <%= f.file_field :RN_License %>
+            </div>
+
+            <div class="field mb-2">
+              <%= f.check_box :convicted_crime %>
+              <%= f.label :'I have never been convicted of a crime' %>
+            </div>
+
+            <div class="field mb-2">
+              <%= f.check_box :disorder %>
+              <%= f.label :'I have not had any substance use disorder in the last five years.' %>
+            </div>
+
+            <div class="col-20 mb-3" style="display: flex">
+              <h6>Is there anything else our Recruitment Team should know?</h6>
+              <%= f.text_field :other_3 %>
+            </div>
+
           <hr class="mt-0 mb-4">
-
-          <h5 class='mt-2'>Employer-specific Questions</h5>
-          <hr class="mt-0 mb-4">
-
-          <h5 class='mt-2'>OTHER</h5>
-          <hr class="mt-0 mb-4">
-
           <div class="actions">
             <%= f.submit "Update", class:"btn btn-danger mt-2"%>
           </div>

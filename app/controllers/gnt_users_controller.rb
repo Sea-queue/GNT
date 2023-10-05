@@ -45,7 +45,28 @@ class GntUsersController < ApplicationController
       :years_of_experience,
       :apply_visa_for,
       :current_resident,
-      :RN_License
+      :RN_License,
+      :first_name,
+      :legal_name,
+      :terms_of_use,
+      :where_hear,
+      :year_of_graduation,
+      :currently_working,
+      :langauges_spoken,
+      :phone_number,
+      :auth_whatsapp,
+      :auth_text,
+      :license_type,
+      :stage3_1,
+      :clinical_hour,
+      :other_1,
+      :other_2,
+      :other_3,
+      :english_proficiency,
+      :english_exam_pass_date,
+      :background_check,
+      :convicted_crime,
+      :disorder
     )
   end
 

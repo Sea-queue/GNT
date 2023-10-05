@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_19_233024) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_04_234354) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,6 +57,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_233024) do
     t.string "years_of_experience"
     t.string "apply_visa_for"
     t.text "current_resident"
+    t.string "first_name"
+    t.string "legal_name"
+    t.boolean "terms_of_use"
+    t.string "where_hear"
+    t.string "year_of_graduation"
+    t.boolean "currently_working"
+    t.string "langauges_spoken"
+    t.string "phone_number"
+    t.boolean "auth_whatsapp"
+    t.boolean "auth_text"
+    t.string "license_type"
+    t.boolean "stage3_1"
+    t.integer "clinical_hour"
+    t.text "other_1"
+    t.text "other_2"
+    t.text "other_3"
+    t.string "english_proficiency"
+    t.date "english_exam_pass_date"
+    t.boolean "background_check"
+    t.boolean "convicted_crime"
+    t.boolean "disorder"
     t.index ["email"], name: "index_gnt_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_gnt_users_on_reset_password_token", unique: true
   end

@@ -24,6 +24,7 @@
         <div class="row pt-1">
           <div class="col-6 mb-3">
             <h6>Full legal name*:</h6>
+            <h6 style='color:red'><%= @user.legal_name %></h6>
           </div>
 
           <div class="col-6 mb-3" style="display: flex">
@@ -37,7 +38,7 @@
           </div>
 
           <div class="col-6 mb-3" style="display: flex">
-            <h6>Current resident: &nbsp</h6>
+            <h6>Current country of resident: &nbsp</h6>
             <h6 style='color:red'><%= @user.current_resident %></h6>
           </div>
 
@@ -47,7 +48,13 @@
           </div>
 
           <div class="field mb-2">
+            <h6>Year of expected graduation: &nbsp</h6>
+            <h6 style='color:red'><%= @user.year_of_graduation %></h6>
+          </div>
+
+          <div class="field mb-2">
             <h6>Are you currently working as a registered nurse in a clinical setting?: &nbsp</h6>
+            <h6 style='color:red'><%= @user.currently_working %></h6>
           </div>
 
           <div class="col-6 mb-3" style="display: flex">
@@ -56,8 +63,28 @@
           </div>
 
           <div class="col-6 mb-3" style="display: flex">
+            <h6>Languages spoken: &nbsp</h6>
+            <h6 style='color:red'><%= @user.langauges_spoken %></h6>
+          </div>
+
+          <div class="col-6 mb-3" style="display: flex">
             <h6>Apply visa for: &nbsp</h6>
             <h6 style='color:red'><%= @user.apply_visa_for %></h6>
+          </div>
+
+          <div class="col-6 mb-3">
+            <h6>Phone number:</h6>
+            <h6 style='color:red'><%= @user.phone_number %></h6>
+          </div>
+
+          <div class="field mb-2">
+            <h6>Authorize contact by WhatsApp:</h6>
+            <h6 style='color:red'><%= @user.auth_whatsapp %></h6>
+          </div>
+
+          <div class="field mb-2">
+            <h6>Authorize contact by telephone and text messaging:</h6>
+            <h6 style='color:red'><%= @user.auth_text %></h6>
           </div>
         </div>
 
@@ -69,6 +96,20 @@
             <% if @user.RN_License.attached? %>
               <%= link_to @user.RN_License.filename, url_for(@user.RN_License) %>
             <% end %>
+          </div>
+
+          <div class="col-20 mb-3" style="display: flex">
+            <h6>License Type: &nbsp</h6>
+            <h6 style='color:red'><%= @user.license_type %></h6>
+          </div>
+
+          <div class="col-20 mb-3" style="display: flex">
+            <h6>Resume: &nbsp</h6>
+          </div>
+
+          <div class="col-20 mb-3" style="display: flex">
+            <h6>I have never had any investigation, suspension or disciplinary action on my professional license or certification: &nbsp</h6>
+            <h6 style='color:red'><%= @user.stage3_1 %></h6>
           </div>
 
           <div class="col-20 mb-3" style="display: flex">
@@ -88,42 +129,96 @@
           </div>
 
           <div class="col-20 mb-3" style="display: flex">
-            <h6>CGFNS VisaScreen Report: &nbsp</h6>
-          </div>
-          
-          <div class="col-20 mb-3" style="display: flex">
-            <h6>Have you ever had your professional license or certification, investigated, suspended or had disciplinary action taken against it?: &nbsp</h6>
+            <h6>Number of clinical hours in the nursing program and located specialties: &nbsp</h6>
+            <h6 style='color:red'><%= @user.clinical_hour %></h6>
           </div>
 
           <div class="col-20 mb-3" style="display: flex">
-            <h6>English proficiency exam results: &nbsp</h6>
+            <h6>Check all applicable specialties:</h6>
           </div>
 
           <div class="col-20 mb-3" style="display: flex">
-            <h6>Date of English Proficiency Exam was passed: &nbsp</h6>
-          </div>
-
-          <div class="col-20 mb-3" style="display: flex">
-            <h6>Original or certified copy of Birth Certificate: &nbsp</h6>
-          </div>
-
-          <div class="col-20 mb-3" style="display: flex">
-            <h6>Valid Passport (biographic page): &nbsp</h6>
+            <h6>Is there anything else our Recruitment Team should know?</h6>
+            <h6 style='color:red'><%= @user.other_1 %></h6>
           </div>
         </div>
 
-        <h5 class='mt-2'>Application Process</h5>
+        <h5 class='mt-2'>US Nursing Credentials</h5>
         <hr class="mt-0 mb-4">
+        <div class="col-20 mb-3" style="display: flex">
+          <h6>CGFNS VisaScreen Report: &nbsp</h6>
+        </div>
 
-        <h5 class='mt-2'>Employer-specific Questions</h5>
+        <div class="col-20 mb-3" style="display: flex">
+          <h6>English proficiency exam status: &nbsp</h6>
+          <h6 style='color:red'><%= @user.english_proficiency %></h6>
+        </div>
+
+        <div class="col-20 mb-3" style="display: flex">
+          <h6>English proficiency exam result: &nbsp</h6>
+        </div>
+
+        <div class="col-20 mb-3" style="display: flex">
+          <h6>English proficiency exam passed date: &nbsp</h6>
+          <h6 style='color:red'><%= @user.english_exam_pass_date %></h6>
+        </div>
+
+        <div class="col-20 mb-3" style="display: flex">
+          <h6>Passed the NCLEX-RN: &nbsp</h6>
+        </div>
+
+        <div class="col-20 mb-3" style="display: flex">
+          <h6>I have Licensure to work as a Registered Nurse in a US State: &nbsp</h6>
+        </div>
+
+        <div class="col-20 mb-3" style="display: flex">
+          <h6>I have submitted fingerprint background checks to State Licensing authority: &nbsp</h6>
+          <h6 style='color:red'><%= @user.background_check %></h6>
+        </div>
+
+        <div class="col-20 mb-3" style="display: flex">
+          <h6>Is there anything else our Recruitment Team should know?</h6>
+          <h6 style='color:red'><%= @user.other_2 %></h6>
+        </div>
+
+        <h5 class='mt-2'>Immigration Documentation</h5>
         <hr class="mt-0 mb-4">
+        <div class="col-20 mb-3" style="display: flex">
+          <h6>Original or certified copy of Birth Certificate: &nbsp</h6>
+        </div>
 
-        <h5 class='mt-2'>OTHER</h5>
-        <hr class="mt-0 mb-4">
+        <div class="col-20 mb-3" style="display: flex">
+          <h6>Translation of Birth Certificate: &nbsp</h6>
+        </div>
 
+        <div class="col-20 mb-3" style="display: flex">
+          <h6>Valid Passport (biographic page): &nbsp</h6>
+        </div>
+
+        <div class="col-20 mb-3" style="display: flex">
+          <h6>Current or former US Visa(s): &nbsp</h6>
+        </div>
+
+        <div class="col-20 mb-3" style="display: flex">
+          <h6>U.S. Entry Stamp or I-94 Departure/Arrival record: &nbsp</h6>
+        </div>
+
+        <div class="col-20 mb-3" style="display: flex">
+          <h6>I have never been convicted of a crime: &nbsp</h6>
+          <h6 style='color:red'><%= @user.convicted_crime %></h6>
+        </div>
+
+        <div class="col-20 mb-3" style="display: flex">
+          <h6>I have not had any substance use disorder in the last five years: &nbsp</h6>
+          <h6 style='color:red'><%= @user.disorder %></h6>
+        </div>
+
+        <div class="col-20 mb-3" style="display: flex">
+          <h6>Is there anything else our Recruitment Team should know?</h6>
+          <h6 style='color:red'><%= @user.other_3 %></h6>
+        </div>
       </div>
     </div>
-
   </div>
 </div>
 
