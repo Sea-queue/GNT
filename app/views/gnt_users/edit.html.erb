@@ -125,7 +125,7 @@
 
             <div class="col-10 mb-3" style="display: flex">
               <%= f.label :'Upload Resume*:' %>
-              <%= f.file_field :RN_License %>
+              <%= f.file_field :resume %>
             </div>
 
             <div class="field mb-2">
@@ -135,22 +135,22 @@
 
             <div class="col-30 mb-3" style="display: flex">
               <%= f.label :'If applicable, upload Diploma of Nursing Education:' %>
-              <%= f.file_field :RN_License %>
+              <%= f.file_field :diploma %>
             </div>
 
             <div class="col-30 mb-3" style="display: flex">
               <%= f.label :'If applicable, upload English translation of Nursing Education Diploma:' %>
-              <%= f.file_field :RN_License %>
+              <%= f.file_field :diploma_translate %>
             </div>
 
             <div class="col-20 mb-3" style="display: flex">
               <%= f.label :'If applicable, upload Nursing Education Transcripts:' %>
-              <%= f.file_field :RN_License %>
+              <%= f.file_field :transcript, multiple: true %>
             </div>
 
             <div class="col-20 mb-3" style="display: flex">
               <%= f.label :'If applicable, upload English translation of Nursing Education Transcripts:' %>
-              <%= f.file_field :RN_License %>
+              <%= f.file_field :transcript_translate, multiple: true %>
             </div>
 
             <div class="col-20 mb-3" style="display: flex">
@@ -176,7 +176,7 @@
 
           <div class="col-20 mb-3" style="display: flex">
             <%= f.label :'If applicable, upload Copy of CGFNS VisaScreen Report:' %>
-            <%= f.file_field :RN_License %>
+            <%= f.file_field :cgfns %>
           </div>
 
           <div class="col-10 mb-3" style="display: flex">
@@ -186,7 +186,7 @@
 
           <div class="col-20 mb-3" style="display: flex">
             <%= f.label :'If applicable, upload Copy of English proficiency exam results:' %>
-            <%= f.file_field :RN_License %>
+            <%= f.file_field :english_proficiency_result %>
           </div>
 
           <div class="col-20 mb-3" style="display: flex">
@@ -216,27 +216,27 @@
           <hr class="mt-0 mb-4">
             <div class="col-20 mb-3" style="display: flex">
               <%= f.label :'Upload original or certified copy of Birth Certificate:' %>
-              <%= f.file_field :RN_License %>
+              <%= f.file_field :birth_certificate %>
             </div>
 
             <div class="col-20 mb-3" style="display: flex">
               <%= f.label :'If applicable, upload translation of Birth Certificate:' %>
-              <%= f.file_field :RN_License %>
+              <%= f.file_field :birth_certificate_translate %>
             </div>
 
             <div class="col-20 mb-3" style="display: flex">
               <%= f.label :'Upload copy of your valid Passport (biographic page)*:' %>
-              <%= f.file_field :RN_License %>
+              <%= f.file_field :passport %>
             </div>
 
             <div class="col-20 mb-3" style="display: flex">
               <%= f.label :'If applicable, upload current or former US Visa(s):' %>
-              <%= f.file_field :RN_License %>
+              <%= f.file_field :visa, multiple: true %>
             </div>
 
             <div class="col-20 mb-3" style="display: flex">
               <%= f.label :'If applicable, upload U.S. Entry Stamp or I-94 Departure/Arrival record:' %>
-              <%= f.file_field :RN_License %>
+              <%= f.file_field :entry_stamp %>
             </div>
 
             <div class="field mb-2">

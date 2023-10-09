@@ -1,4 +1,4 @@
-<header class="p-3 text-bg-info">
+<header class="p-3 navbar-custom" >
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -6,22 +6,35 @@
           <%= image_tag 'gnt_logo_transparent.png', style:'width:45px; height:45px' %>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" style="color:white" role="button" data-bs-toggle="dropdown">
-            GNT
-          </a>
-          <ul class="dropdown-menu">
-            <li class="nav-item" >
-              <%= link_to 'Home', root_path, class:'nav-link active'%>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'About Us', home_about_path, class:'nav-link active' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'Contact Us', home_contact_us_path, class:"nav-link active" %>
-            </li>
-          </ul>
-        </li>
+        <% if current_gnt_user %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color:white" role="button" data-bs-toggle="dropdown">
+              GNT
+            </a>
+            <ul class="dropdown-menu">
+              <li class="nav-item" >
+                <%= link_to 'Home', root_path, class:'nav-link active'%>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'About Us', home_about_path, class:'nav-link active' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Contact Us', home_contact_us_path, class:"nav-link active" %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <%= link_to 'GNT', root_path, class:'nav-link active'%>
+          <li class="nav-item" >
+            <%= link_to 'Home', root_path, class:'nav-link active'%>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'About Us', home_about_path, class:'nav-link active' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Contact Us', home_contact_us_path, class:"nav-link active" %>
+          </li>
+        <% end %>
 
         <% if current_gnt_user && current_gnt_user.admin? %>
           <li class="nav-item dropdown">

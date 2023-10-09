@@ -105,6 +105,9 @@
 
           <div class="col-20 mb-3" style="display: flex">
             <h6>Resume: &nbsp</h6>
+            <% if @user.resume.attached? %>
+              <%= link_to @user.resume.filename, url_for(@user.resume) %>
+            <% end %>
           </div>
 
           <div class="col-20 mb-3" style="display: flex">
@@ -114,18 +117,34 @@
 
           <div class="col-20 mb-3" style="display: flex">
             <h6>Diploma of Nursing Education: &nbsp</h6>
+            <% if @user.diploma.attached? %>
+              <%= link_to @user.diploma.filename, url_for(@user.diploma) %>
+            <% end %>
           </div>
 
           <div class="col-20 mb-3" style="display: flex">
             <h6>Diploma of Nursing Education English translation: &nbsp</h6>
+            <% if @user.diploma_translate.attached? %>
+              <%= link_to @user.diploma_translate.filename, url_for(@user.diploma_translate) %>
+            <% end %>
           </div>
 
           <div class="col-20 mb-3" style="display: flex">
             <h6>Nursing Education Transcript: &nbsp</h6>
+            <% if @user.transcript.attached? %>
+              <% for item in @user.transcript %>
+                <%= link_to item.filename, url_for(item) %>
+              <% end %>
+            <% end %>
           </div>
 
           <div class="col-20 mb-3" style="display: flex">
             <h6>Nursing Education Transcript English translation: &nbsp</h6>
+            <% if @user.transcript_translate.attached? %>
+              <% for item in @user.transcript_translate %>
+                <%= link_to item.filename, url_for(item) %>
+              <% end %>
+            <% end %>
           </div>
 
           <div class="col-20 mb-3" style="display: flex">
@@ -147,6 +166,9 @@
         <hr class="mt-0 mb-4">
         <div class="col-20 mb-3" style="display: flex">
           <h6>CGFNS VisaScreen Report: &nbsp</h6>
+          <% if @user.cgfns.attached? %>
+            <%= link_to @user.cgfns.filename, url_for(@user.cgfns) %>
+          <% end %>
         </div>
 
         <div class="col-20 mb-3" style="display: flex">
@@ -156,6 +178,9 @@
 
         <div class="col-20 mb-3" style="display: flex">
           <h6>English proficiency exam result: &nbsp</h6>
+          <% if @user.english_proficiency_result.attached? %>
+            <%= link_to @user.english_proficiency_result.filename, url_for(@user.english_proficiency_result) %>
+          <% end %>
         </div>
 
         <div class="col-20 mb-3" style="display: flex">
@@ -185,22 +210,39 @@
         <hr class="mt-0 mb-4">
         <div class="col-20 mb-3" style="display: flex">
           <h6>Original or certified copy of Birth Certificate: &nbsp</h6>
+          <% if @user.birth_certificate.attached? %>
+            <%= link_to @user.birth_certificate.filename, url_for(@user.birth_certificate) %>
+          <% end %>
         </div>
 
         <div class="col-20 mb-3" style="display: flex">
           <h6>Translation of Birth Certificate: &nbsp</h6>
+          <% if @user.birth_certificate_translate.attached? %>
+            <%= link_to @user.birth_certificate_translate.filename, url_for(@user.birth_certificate_translate) %>
+          <% end %>
         </div>
 
         <div class="col-20 mb-3" style="display: flex">
           <h6>Valid Passport (biographic page): &nbsp</h6>
+          <% if @user.passport.attached? %>
+            <%= link_to @user.passport.filename, url_for(@user.passport) %>
+          <% end %>
         </div>
 
         <div class="col-20 mb-3" style="display: flex">
           <h6>Current or former US Visa(s): &nbsp</h6>
+          <% if @user.visa.attached? %>
+            <% for item in @user.visa %>
+              <%= link_to item.filename, url_for(item) %>
+            <% end %>
+          <% end %>
         </div>
 
         <div class="col-20 mb-3" style="display: flex">
           <h6>U.S. Entry Stamp or I-94 Departure/Arrival record: &nbsp</h6>
+          <% if @user.entry_stamp.attached? %>
+            <%= link_to @user.entry_stamp.filename, url_for(@user.entry_stamp) %>
+          <% end %>
         </div>
 
         <div class="col-20 mb-3" style="display: flex">

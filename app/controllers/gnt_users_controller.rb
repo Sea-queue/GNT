@@ -17,7 +17,7 @@ class GntUsersController < ApplicationController
     respond_to do |format|
       if current_gnt_user.update(gnt_user_params)
         format.html {redirect_to current_gnt_user, notice: "you sccessfully updated your profile!"}
-      else 
+      else
         format.hmtl {render :edit}
       end
     end
@@ -45,7 +45,6 @@ class GntUsersController < ApplicationController
       :years_of_experience,
       :apply_visa_for,
       :current_resident,
-      :RN_License,
       :first_name,
       :legal_name,
       :terms_of_use,
@@ -66,7 +65,21 @@ class GntUsersController < ApplicationController
       :english_exam_pass_date,
       :background_check,
       :convicted_crime,
-      :disorder
+      :disorder,
+      :RN_License,
+      :resume,
+      :diploma,
+      :diploma_translate,
+      :cgfns,
+      :english_proficiency_result,
+      :nclex_rn,
+      :birth_certificate,
+      :birth_certificate_translate,
+      :passport,
+      :entry_stamp,
+      transcript: [],
+      transcript_translate: [],
+      visa: []
     )
   end
 
