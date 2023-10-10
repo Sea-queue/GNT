@@ -15,5 +15,27 @@
  */
 
  .navbar-custom {
-  background-color: rgb(3, 74, 88);
+   background-color:  #FFFFFF;
+  }
+  
+.header_text {
+  color: #40403f;
+}
+
+.footer_customize {
+  background-color: #114fa7;
+}
+
+.footer_text {
+  color: #FFFFFF;
+}
+
+.sign_in {
+  background-color: #1870ef;
+  color: #FFFFFF;
+}
+
+.apply {
+  background-color: #EF7C18;
+  color: #FFFFFF;
 }

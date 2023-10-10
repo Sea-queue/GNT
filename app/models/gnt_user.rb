@@ -56,8 +56,8 @@ class GntUser < ApplicationRecord
     return if avatar.attached?
     
       avatar.attach(
-        io: File.open(Rails.root.join('app', 'assets', 'images', 'gnt_logo.png')),
-        filename: 'gnt_logo.png',
+        io: File.open(Rails.root.join('app', 'assets', 'images', 'ta_logo.png')),
+        filename: 'ta_logo.png',
         content_type: 'image/png'
       )
   end 

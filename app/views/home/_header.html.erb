@@ -3,13 +3,13 @@
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li class="nav-item">
-          <%= image_tag 'gnt_logo_transparent.png', style:'width:45px; height:45px' %>
+          <%= image_tag 'ta_logo.png', style:'width:45px; height:45px' %>
         </li>
 
         <% if current_gnt_user %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" style="color:white" role="button" data-bs-toggle="dropdown">
-              GNT
+              Talent Angels Americas
             </a>
             <ul class="dropdown-menu">
               <li class="nav-item" >
@@ -24,7 +24,7 @@
             </ul>
           </li>
         <% else %>
-          <%= link_to 'GNT', root_path, class:'nav-link active'%>
+          <%= link_to 'Talent Angels Americas', root_path, class:'nav-link active header_text'%>
           <li class="nav-item" >
             <%= link_to 'Home', root_path, class:'nav-link active'%>
           </li>
@@ -106,8 +106,8 @@
         <% end %>
       <% else %>
         <div class="text-end">
-          <%= link_to 'Sign In', new_gnt_user_session_path, class:'btn btn-warning me-2' %>
-          <%= link_to 'Apply', new_gnt_user_registration_path, class:'btn btn-primary' %>
+          <%= link_to 'Sign In', new_gnt_user_session_path, class:'btn sign_in me-2' %>
+          <%= link_to 'Apply', new_gnt_user_registration_path, class:'btn apply' %>
         </div>
       <% end %>
     </div>
