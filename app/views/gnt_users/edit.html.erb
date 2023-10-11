@@ -44,7 +44,7 @@
 
             <div class="col-6 mb-3">
               <h6>Nationality*:</h6>
-              <%= f.country_select :nationality, priority_countries = ["Singapore", "Chile", "US"] %>
+              <%= f.country_select :nationality, priority_countries = ["Singapore", "Chile", "Mexico", "Philippines", "US"] %>
             </div>
 
             <div class="col-6 mb-3">
@@ -54,7 +54,7 @@
 
             <div class="col-6 mb-3">
               <h6>Current country of residence*:</h6>
-              <%= f.country_select :current_resident, priority_countries = ["Singapore", "Chile", "US"] %>
+              <%= f.country_select :current_resident, priority_countries = ["Singapore", "Chile", "Mexico", "Philippines", "US"] %>
             </div>
 
             <div class="field mb-2">
@@ -109,23 +109,24 @@
           <h5 class='mt-3'>Nursing Credentials</h5>
           <hr class="mt-0 mb-4">
           <div class="row pt-1">
-            <div class="field mb-2">
-              <%= f.label :'I have an RN License in a foreign country (not the US)' %>
+            <div class="col-10 mb-3" style="display: flex">
+              <%= f.label :'Upload Resume*:' %>
+              <%= f.file_field :resume %>
             </div>
 
-            <div class="col-10 mb-3" style="display: flex">
-              <%= f.label :'Upload Nurse License*:' %>
-              <%= f.file_field :RN_License %>
+            <div class="field mb-2">
+              <%= f.check_box :auth_text %>
+              <h6>I have a Nursing Lisence outside the U.S.</h6>
             </div>
 
             <div class="col-10 mb-3" style="display: flex">
               <%= f.label :'License Type*:' %>
-              <%= f.select :license_type, ['Registered Nurse', 'Licensed Practical Nurse', 'Nurse Practitioner'] %>
+              <%= f.select :license_type, ['None', 'Registered Nurse', 'Licensed Practical Nurse', 'Nurse Practitioner'] %>
             </div>
 
             <div class="col-10 mb-3" style="display: flex">
-              <%= f.label :'Upload Resume*:' %>
-              <%= f.file_field :resume %>
+              <%= f.label :'Upload Nurse License:' %>
+              <%= f.file_field :RN_License %>
             </div>
 
             <div class="field mb-2">
@@ -171,7 +172,8 @@
           <h5 class='mt-2'>US Nursing Credentials</h5>
           <hr class="mt-0 mb-4">
           <div class="field mb-2">
-            <%= f.label :'I have a CGFNS VisaScreen approval' %>
+            <%= f.check_box :auth_text %>
+            <h6>I have a CGFNS VisaScreen approval</h6>
           </div>
 
           <div class="col-20 mb-3" style="display: flex">
@@ -195,11 +197,13 @@
           </div>
 
           <div class="field mb-2">
-            <%= f.label :'I have passed the NCLEX-RN' %>
+            <%= f.check_box :auth_text %>
+            <h6>I have passed the NCLEX-RN</h6>
           </div>
 
           <div class="field mb-2">
-            <%= f.label :'I have License to work as a Registered Nurse in a US State' %>
+            <%= f.check_box :auth_text %>
+            <h6>I have License to work as a Registered Nurse in a US State</h6>
           </div>
 
           <div class="field mb-2">
