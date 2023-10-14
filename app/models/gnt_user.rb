@@ -6,15 +6,15 @@ class GntUser < ApplicationRecord
   
   # dependent: destroy means delete the avatar if delete the user
   has_one_attached :avatar, dependent: :destroy
-  has_one_attached :RN_License
+  has_one_attached :rn_license_upload
   has_one_attached :resume
   has_one_attached :diploma
   has_one_attached :diploma_translate
   has_many_attached :transcript
   has_many_attached :transcript_translate
-  has_one_attached :cgfns
+  has_one_attached :cgfns_upload
   has_one_attached :english_proficiency_result
-  has_one_attached :nclex_rn
+  has_one_attached :nclex_rn_upload
   has_one_attached :birth_certificate
   has_one_attached :birth_certificate_translate
   has_one_attached :passport
