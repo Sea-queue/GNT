@@ -13,82 +13,79 @@
       <div class='mt-3'>
         <h6 style='color:black'> <%= @user.first_name %> </h6>
       </div>
-      <i style="color:black;" class="far fa-edit mb-5"></i>
+      <% if current_gnt_user.id == @user.id %>
+        <%= link_to 'Edit My Profile', edit_gnt_user_path(current_gnt_user), class:'btn btn-primary' %>
+      <% end %>
     </div>
 
     <div class="col-md-8">
       <div class="card-body p-4">
-        <h5>Basic Information</h5>
+        <h5 class='section_title' >Basic Information</h5>
         <hr class="mt-0 mb-4">
 
         <div class="row pt-1">
-          <div class="col-6 mb-3">
-            <h6>Full legal name*:</h6>
-            <h6 style='color:red'><%= @user.legal_name %></h6>
+          <div class="col-30 mb-3" style='display:flex'>
+            <h6>Full Legal Name*: &nbsp</h6>
+            <h6 class='profile_text'><%= @user.legal_name %></h6>
           </div>
 
-          <div class="col-6 mb-3" style="display: flex">
+          <div class="col-30 mb-3" style="display: flex">
+            <h6>Email Address: &nbsp</h6>
+            <h6 class='profile_text'><%= @user.email%></h6>
+          </div>
+
+          <div class="col-30 mb-3" style="display: flex">
+            <h6>Languages spoken: &nbsp</h6>
+            <h6 class='profile_text'><%= @user.langauges_spoken %></h6>
+          </div>
+
+          <div class="col-30 mb-3" style="display: flex">
             <h6>Nationality: &nbsp</h6>
-            <h6 style='color:red'><%= @user.nationality %></h6>
+            <h6 class='profile_text'><%= @user.nationality %></h6>
           </div>
 
-          <div class="col-6 mb-3" style="display: flex">
-            <h6>Email: &nbsp</h6>
-            <h6 style='color:red'><%= @user.email%></h6>
-          </div>
-
-          <div class="col-6 mb-3" style="display: flex">
-            <h6>Current country of resident: &nbsp</h6>
-            <h6 style='color:red'><%= @user.current_resident %></h6>
+          <div class="col-30 mb-3" style="display: flex">
+            <h6>Current country of residence: &nbsp</h6>
+            <h6 class='profile_text'><%= @user.current_resident %></h6>
           </div>
 
           <div class="col-20 mb-3" style="display: flex">
             <h6>I am: &nbsp</h6>
-            <h6 style='color:red'><%= @user.i_am %></h6>
+            <h6 class='profile_text'><%= @user.i_am %></h6>
           </div>
 
           <div class="field mb-2">
             <h6>Year of expected graduation: &nbsp</h6>
-            <h6 style='color:red'><%= @user.year_of_graduation %></h6>
+            <h6 class='profile_text'><%= @user.year_of_graduation %></h6>
           </div>
 
-          <div class="field mb-2">
-            <h6>Are you currently working as a registered nurse in a clinical setting?: &nbsp</h6>
-            <h6 style='color:red'><%= @user.currently_working %></h6>
+          <div class="field mb-2" style='display:flex'>
+            <h6>I am currently working as a nurse in a clinical setting: &nbsp</h6>
+            <h6 class='profile_text'><%= @user.currently_working %></h6>
           </div>
 
-          <div class="col-6 mb-3" style="display: flex">
-            <h6>Years of experience: &nbsp</h6>
-            <h6 style='color:red'><%= @user.years_of_experience %></h6>
+          <div class="col-30 mb-3" style="display: flex">
+            <h6>Years of nursing work experience: &nbsp</h6>
+            <h6 class='profile_text'><%= @user.years_of_experience %></h6>
           </div>
 
-          <div class="col-6 mb-3" style="display: flex">
-            <h6>Languages spoken: &nbsp</h6>
-            <h6 style='color:red'><%= @user.langauges_spoken %></h6>
+          <div class="col-30 mb-3" style='display:flex'>
+            <h6>Phone number: &nbsp</h6>
+            <h6 class='profile_text'><%= @user.phone_number %></h6>
           </div>
 
-          <div class="col-6 mb-3" style="display: flex">
-            <h6>Apply visa for: &nbsp</h6>
-            <h6 style='color:red'><%= @user.apply_visa_for %></h6>
+          <div class="field mb-2" style='display:flex'>
+            <h6>I authorize contact by WhatsApp: &nbsp</h6>
+            <h6 class='profile_text'><%= @user.auth_whatsapp %></h6>
           </div>
 
-          <div class="col-6 mb-3">
-            <h6>Phone number:</h6>
-            <h6 style='color:red'><%= @user.phone_number %></h6>
-          </div>
-
-          <div class="field mb-2">
-            <h6>Authorize contact by WhatsApp:</h6>
-            <h6 style='color:red'><%= @user.auth_whatsapp %></h6>
-          </div>
-
-          <div class="field mb-2">
-            <h6>Authorize contact by telephone and text messaging:</h6>
-            <h6 style='color:red'><%= @user.auth_text %></h6>
+          <div class="field mb-2" style='display:flex'>
+            <h6>I authorize contact by telephone and text messaging (messaging rates may apply): &nbsp</h6>
+            <h6 class='profile_text'><%= @user.auth_text %></h6>
           </div>
         </div>
 
-        <h5 class='mt-2'>Nursing Credentials</h5>
+        <h5 class='section_title mt-2'>Nursing Credentials</h5>
         <hr class="mt-0 mb-4">
         <div class="row pt-1">
           <div class="col-20 mb-3" style="display: flex">
@@ -99,20 +96,20 @@
           </div>
 
           <div class="col-20 mb-3" style="display: flex">
-            <h6>Nurse License: &nbsp</h6>
+            <h6>License Type: &nbsp</h6>
+            <h6 class='profile_text'><%= @user.license_type %></h6>
+          </div>
+
+          <div class="col-20 mb-3" style="display: flex">
+            <h6>Nursing License: &nbsp</h6>
             <% if @user.rn_license_upload.attached? %>
               <%= link_to @user.rn_license_upload.filename, url_for(@user.rn_license_upload) %>
             <% end %>
           </div>
-
-          <div class="col-20 mb-3" style="display: flex">
-            <h6>License Type: &nbsp</h6>
-            <h6 style='color:red'><%= @user.license_type %></h6>
-          </div>
         
           <div class="col-20 mb-3" style="display: flex">
-            <h6>I have never had any investigation, suspension or disciplinary action on my professional license or certification: &nbsp</h6>
-            <h6 style='color:red'><%= @user.stage3_1 %></h6>
+            <h6>I hereby declare that my nursing license or certification has never been subject to any investigation, legal action, disciplinary measures, suspension, or malpractice claims.: &nbsp</h6>
+            <h6 class='profile_text'><%= @user.stage3_1 %></h6>
           </div>
 
           <div class="col-20 mb-3" style="display: flex">
@@ -123,14 +120,14 @@
           </div>
 
           <div class="col-20 mb-3" style="display: flex">
-            <h6>Diploma of Nursing Education English translation: &nbsp</h6>
+            <h6>English translation of nursing education diploma:: &nbsp</h6>
             <% if @user.diploma_translate.attached? %>
               <%= link_to @user.diploma_translate.filename, url_for(@user.diploma_translate) %>
             <% end %>
           </div>
 
           <div class="col-20 mb-3" style="display: flex">
-            <h6>Nursing Education Transcript: &nbsp</h6>
+            <h6>Nursing education transcript: &nbsp</h6>
             <% if @user.transcript.attached? %>
               <% for item in @user.transcript %>
                 <%= link_to item.filename, url_for(item) %>
@@ -139,7 +136,7 @@
           </div>
 
           <div class="col-20 mb-3" style="display: flex">
-            <h6>Nursing Education Transcript English translation: &nbsp</h6>
+            <h6>English translation of nursing education transcripts: &nbsp</h6>
             <% if @user.transcript_translate.attached? %>
               <% for item in @user.transcript_translate %>
                 <%= link_to item.filename, url_for(item) %>
@@ -147,25 +144,59 @@
             <% end %>
           </div>
 
-          <div class="col-20 mb-3" style="display: flex">
-            <h6>Number of clinical hours in the nursing program and located specialties: &nbsp</h6>
-            <h6 style='color:red'><%= @user.clinical_hour %></h6>
-          </div>
+          <div class="col-20 mb-3">
+            <h6>Number of clinical hours in the nursing program by specialty: &nbsp</h6>
+            <div class="col-20 mb-3" style="display: flex">
+              <h6>Medical-Surgical:</h6>
+              <h6 class='profile_text'><%= @user.clinical_hour %></h6>
+            </div>
 
-          <div class="col-20 mb-3" style="display: flex">
-            <h6>Check all applicable specialties:</h6>
+            <div class="col-20 mb-3" style="display: flex">
+              <h6>Pediatrics:</h6>
+              <h6 class='profile_text'><%= @user.clinical_hour %></h6>
+            </div>
+
+            <div class="col-20 mb-3" style="display: flex">
+              <h6>Obstetrics/Gynecology:</h6>
+              <h6 class='profile_text'><%= @user.clinical_hour %></h6>
+            </div>
+
+            <div class="col-20 mb-3" style="display: flex">
+              <h6>Psychiatry:</h6>
+              <h6 class='profile_text'><%= @user.clinical_hour %></h6>
+            </div>
+
+            <div class="col-20 mb-3" style="display: flex">
+              <h6>Emergency:</h6>
+              <h6 class='profile_text'><%= @user.clinical_hour %></h6>
+            </div>
+
+            <div class="col-20 mb-3" style="display: flex">
+              <h6>Critical Care (ICU):</h6>
+              <h6 class='profile_text'><%= @user.clinical_hour %></h6>
+            </div>
+
+            <div class="col-20 mb-3" style="display: flex">
+              <h6>Geriatrics/Nursing Home:</h6>
+              <h6 class='profile_text'><%= @user.clinical_hour %></h6>
+            </div>
+
+            <div class="col-20" style="display: flex">
+              <h6>Other (Please Specify):</h6>
+              <h6 class='profile_text'><%= @user.clinical_hour %></h6>
+            </div>
           </div>
 
           <div class="col-20 mb-3" style="display: flex">
             <h6>Is there anything else our Recruitment Team should know?</h6>
-            <h6 style='color:red'><%= @user.other_1 %></h6>
+            <h6 class='profile_text'><%= @user.other_1 %></h6>
           </div>
         </div>
 
-        <h5 class='mt-2'>US Nursing Credentials</h5>
+        <h5 class='section_title mt-2'>US Nursing Credentials</h5>
         <hr class="mt-0 mb-4">
         <div class="col-20 mb-3" style="display: flex">
-          <h6>CGFNS VisaScreen Report: &nbsp</h6>
+          <h6> CGFNS VisaScreen Report: &nbsp</h6>
           <% if @user.cgfns_upload.attached? %>
             <%= link_to @user.cgfns_upload.filename, url_for(@user.cgfns_upload) %>
           <% end %>
@@ -173,7 +204,7 @@
 
         <div class="col-20 mb-3" style="display: flex">
           <h6>English proficiency exam status: &nbsp</h6>
-          <h6 style='color:red'><%= @user.english_proficiency %></h6>
+          <h6 class='profile_text'><%= @user.english_proficiency %></h6>
         </div>
 
         <div class="col-20 mb-3" style="display: flex">
@@ -185,17 +216,17 @@
 
         <div class="col-20 mb-3" style="display: flex">
           <h6>English proficiency exam passed date: &nbsp</h6>
-          <h6 style='color:red'><%= @user.english_exam_pass_date %></h6>
+          <h6 class='profile_text'><%= @user.english_exam_pass_date %></h6>
         </div>
 
         <div class="col-20 mb-3" style="display: flex">
           <h6>Passed the NCLEX-RN: &nbsp</h6>
-          <h6 style='color:red'><%= @user.nclex_rn %></h6>
+          <h6 class='profile_text'><%= @user.nclex_rn %></h6>
         </div>
 
         <div class="col-20 mb-3" style="display: flex">
           <h6>NCLEX-RN State : &nbsp</h6>
-          <h6 style='color:red'><%= @user.nclex_rn_state %></h6>
+          <h6 class='profile_text'><%= @user.nclex_rn_state %></h6>
         </div>
 
         <div class="col-20 mb-3" style="display: flex">
@@ -206,26 +237,26 @@
         </div>  
 
         <div class="col-20 mb-3" style="display: flex">
-          <h6>I have Licensure to work as a Registered Nurse in a US State: &nbsp</h6>
-          <h6 style='color:red'><%= @user.rn_in_us %></h6>
+          <h6>I have an active license to work as a Registered Nurse in the United States.: &nbsp</h6>
+          <h6 class='profile_text'><%= @user.rn_in_us %></h6>
         </div>
 
         <div class="col-20 mb-3" style="display: flex">
-          <h6>Licensure State : &nbsp</h6>
-          <h6 style='color:red'><%= @user.rn_in_us_state %></h6>
+          <h6>Licensure State: &nbsp</h6>
+          <h6 class='profile_text'><%= @user.rn_in_us_state %></h6>
         </div>
 
         <div class="col-20 mb-3" style="display: flex">
-          <h6>I have submitted fingerprint background checks to State Licensing authority: &nbsp</h6>
-          <h6 style='color:red'><%= @user.background_check %></h6>
+          <h6>I affirm that my fingerprints have been submitted for the purpose of state licensure, and I understand that my application may be subject to verification by the respective state nursing board.: &nbsp</h6>
+          <h6 class='profile_text'><%= @user.background_check %></h6>
         </div>
 
         <div class="col-20 mb-3" style="display: flex">
           <h6>Is there anything else our Recruitment Team should know?</h6>
-          <h6 style='color:red'><%= @user.other_2 %></h6>
+          <h6 class='profile_text'><%= @user.other_2 %></h6>
         </div>
 
-        <h5 class='mt-2'>Immigration Documentation</h5>
+        <h5 class='section_title mt-2'>Immigration Documentation</h5>
         <hr class="mt-0 mb-4">
         <div class="col-20 mb-3" style="display: flex">
           <h6>Original or certified copy of Birth Certificate: &nbsp</h6>
@@ -257,6 +288,11 @@
           <% end %>
         </div>
 
+        <div class="col-30 mb-3" style="display: flex">
+          <h6>Current visa application for: &nbsp</h6>
+          <h6 class='profile_text'><%= @user.apply_visa_for %></h6>
+        </div>
+
         <div class="col-20 mb-3" style="display: flex">
           <h6>U.S. Entry Stamp or I-94 Departure/Arrival record: &nbsp</h6>
           <% if @user.entry_stamp.attached? %>
@@ -266,24 +302,20 @@
 
         <div class="col-20 mb-3" style="display: flex">
           <h6>I have never been convicted of a crime: &nbsp</h6>
-          <h6 style='color:red'><%= @user.convicted_crime %></h6>
+          <h6 class='profile_text'><%= @user.convicted_crime %></h6>
         </div>
 
         <div class="col-20 mb-3" style="display: flex">
           <h6>I have not had any substance use disorder in the last five years: &nbsp</h6>
-          <h6 style='color:red'><%= @user.disorder %></h6>
+          <h6 class='profile_text'><%= @user.disorder %></h6>
         </div>
 
         <div class="col-20 mb-3" style="display: flex">
           <h6>Is there anything else our Recruitment Team should know?</h6>
-          <h6 style='color:red'><%= @user.other_3 %></h6>
+          <h6 class='profile_text'><%= @user.other_3 %></h6>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<% if current_gnt_user.id == @user.id %>
-  <%= link_to 'Edit My Profile', edit_gnt_user_path(current_gnt_user), class:'btn btn-primary' %>
-<% end %>
 

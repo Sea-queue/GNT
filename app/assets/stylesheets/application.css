@@ -25,13 +25,14 @@
 
 .footer_customize {
   background-color: #114fa7;
-}
-
-.footer_text {
   color: #FFFFFF;
 }
 
-.sign_in {
+.footer_customize.text {
+  text-decoration: underline;
+}
+
+.sign_in_out {
   background-color: #1870ef;
   color: #FFFFFF;
 }
@@ -39,4 +40,13 @@
 .apply {
   background-color: #EF7C18;
   color: #FFFFFF;
+}
+
+.profile_text {
+  color: #1870ef;
+}
+
+.section_title {
+  font-weight: bold;
+  font-size: 150%;
 }
