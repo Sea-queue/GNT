@@ -93,10 +93,6 @@
       </ul>
 
       <% if gnt_user_signed_in? %>
-        <div class="text-end">
-          <%= link_to 'Sign Out', destroy_gnt_user_session_path, data: { turbo_method: :delete }, class:'btn sign_in_out' %>
-        </div>
-        &nbsp
         <% if not current_gnt_user.admin? %>
           <% if false %>
             <div class="text-end">
@@ -111,6 +107,10 @@
           <%= link_to 'Apply', new_gnt_user_registration_path, class:'btn apply' %>
         </div>
       <% end %>
+      &nbsp &nbsp &nbsp
+      <div class="text-end">
+        <%= link_to 'Sign Out', destroy_gnt_user_session_path, data: { turbo_method: :delete }, class:'btn sign_in_out' %>
+      </div>
     </div>
   </div>
 </header>

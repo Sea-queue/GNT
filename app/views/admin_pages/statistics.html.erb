@@ -6,7 +6,7 @@ There are <em style="font-size:25px"><%= user.count %> candidates</em> in the da
   <% @users.each do |user| %>
     <% if not user.admin? %>
       <li>
-        <%= link_to user.full_name, user %>
+        <%= link_to user.first_name, user %>
       </li>
     <% end %>
   <% end %>
