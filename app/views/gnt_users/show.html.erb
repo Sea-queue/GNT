@@ -14,7 +14,7 @@
         <h6 style='color:black'> <%= @user.first_name %> </h6>
       </div>
       <% if current_gnt_user.id == @user.id %>
-        <%= link_to 'Edit My Profile', edit_gnt_user_path(current_gnt_user), class:'btn btn-primary' %>
+        <%= link_to 'Edit My Profile', edit_gnt_user_path(current_gnt_user), class:'btn btn-warning' %>
       <% end %>
     </div>
 
