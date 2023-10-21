@@ -2,7 +2,6 @@ class GntUsersController < ApplicationController
   before_action :authenticate_gnt_user!, only:[:show]
 
   def index
-    @users = GntUser.all
   end
 
   def show

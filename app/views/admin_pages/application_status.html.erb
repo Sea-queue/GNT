@@ -1,8 +1,43 @@
 
 <div class='container'>
-  <h1>Check a Candidate's Application Status:</h1>
-  <form class="d-flex" role="search">
-    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success" type="submit">Search</button>
+  <h1>Candidates Search and Filters:</h1>
+
+  <%= form_with url: "application_status", method: :get do |f| %>
+    <%= f.label :search_name, "Type Name Here:" %>
+    <%= f.text_field :search_name %>
+    <%= f.submit "Search", class:"btn btn-primary" %>
+  <% end %>
+
+  <br>
+  
+  <form action="/application_status" method="GET">
+    <label for="filter">Filter Options</label>
+    <select id="filter" name="filter" onchange="this.form.submit()">
+      <option value="">Pick a Filter Option</option>
+      <option value="nationality" <%= "selected" if session[:filter] == "nationality" %>>Filter by nationality</option>
+      <option value="languages_spoken" <%= "selected" if session[:filter] == "languages_spoken" %>>Filter by languages_spoken</option>
+    </select>
+    <% if session[:filter] == "nationality" %>
+      <select name="filter_option" onchange="this.form.submit()">
+        <option value="">Pick a nationality</option>
+        <option value="MX">Mexico</option>
+        <option value="SP">Singapore</option>
+        <option value="CL">Chile</option>
+      </select>
+    <% elsif session[:filter] == "languages_spoken" %>
+      <select name="filter_option" onchange="this.form.submit()">
+        <option value="">Pick a language</option>
+        <option value="English">English</option>
+        <option value="Spanish">Spanish</option>
+        <option value="Chinese">Chinese</option>
+      </select>
+    <% end %>
   </form>
+
+  <% @users.each do |candidate| %>
+    <li>
+      <%= link_to "#{candidate.first_name}", candidate %>
+    </li>
+  <% end %>
 </div>
+

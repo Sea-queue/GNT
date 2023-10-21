@@ -1,6 +1,7 @@
 module GntUsersHelper
   def us_states
     @us_states = [
+      ['None'],
       ['Alabama', 'AL'],
       ['Alaska', 'AK'],
       ['Arizona', 'AZ'],

@@ -3,7 +3,7 @@
 There are <em style="font-size:25px"><%= user.count %> candidates</em> in the database.
 
 <ul>
-  <% @users.each do |user| %>
+  <% GntUser.all.each do |user| %>
     <% if not user.admin? %>
       <li>
         <%= link_to user.first_name, user %>
@@ -11,3 +11,4 @@ There are <em style="font-size:25px"><%= user.count %> candidates</em> in the da
     <% end %>
   <% end %>
 </ul>
+
