@@ -1,12 +1,7 @@
 class AdminPagesController < ApplicationController
-  before_action :initialize_search, only: :application_status
+  before_action :initialize_search, only: :statistics
 
   def statistics
-    # @users = GntUser.all
-  end
-
-  def application_status
-    # initialize_search
     handle_search_name
     handle_filters
   end
@@ -34,7 +29,7 @@ class AdminPagesController < ApplicationController
       @users = GntUser.all.where(nationality: session[:filter_option])
     elsif session[:filter_option] && session[:filter] == "languages_spoken"
       puts("filter:", session[:filter_option])
-      @users = @users.where(langauges_spoken: session[:filter_option])
+      @users = @users.where(languages_spoken: session[:filter_option])
     end
   end
 end

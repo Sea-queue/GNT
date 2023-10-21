@@ -25,7 +25,7 @@
 
         <div>
           <h6 class='mt-3' style='color:black'> Username / Nickname </h6>
-          <%= f.text_field :first_name, autofocus: true, placeholder: current_gnt_user.full_name %>
+          <%= f.text_field :first_name, autofocus: true, placeholder: current_gnt_user.first_name %>
         </div>
         <i style="color:black;" class="far fa-edit mb-5"></i>
       </div>
@@ -49,7 +49,7 @@
 
             <div class="col-30 mb-3">
               <h6>Check all languages spoken*:</h6>
-              <%= f.select(:langauges_spoken, ['English', 'Spanish', 'Mandarin', 'Portuguese', 'German', 'Franch', 'Japanese'], {:multiple => true, :size => 3}, {:prompt => current_gnt_user.langauges_spoken}) %>
+              <%= f.select(:languages_spoken, ['English', 'Spanish', 'Mandarin', 'Portuguese', 'German', 'Franch', 'Japanese'], {:multiple => true, :size => 3}, {:prompt => current_gnt_user.languages_spoken}) %>
             </div>
 
             <div class="col-30 mb-3">
@@ -94,7 +94,7 @@
             <div class="col-6 mb-3">
               <h6>Phone number (+1 (123) 456-7890):</h6>
               <h6>country code</h6>
-              <%= f.text_field :phone_number %>
+              <%= f.text_field :country_code %>
               <h6>number: </h6>
               <%= f.text_field :phone_number %>
             </div>

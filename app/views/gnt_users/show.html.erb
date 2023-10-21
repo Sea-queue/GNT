@@ -36,7 +36,7 @@
 
           <div class="col-30 mb-3" style="display: flex">
             <h6>Languages spoken: &nbsp</h6>
-            <h6 class='profile_text'><%= @user.langauges_spoken %></h6>
+            <h6 class='profile_text'><%= @user.languages_spoken %></h6>
           </div>
 
           <div class="col-30 mb-3" style="display: flex">
@@ -71,7 +71,7 @@
 
           <div class="col-30 mb-3" style='display:flex'>
             <h6>Phone number: &nbsp</h6>
-            <h6 class='profile_text'><%= @user.phone_number %></h6>
+            <h6 class='profile_text'> <%= "#{@user.country_code} #{@user.phone_number} " %></h6>
           </div>
 
           <div class="field mb-2" style='display:flex'>

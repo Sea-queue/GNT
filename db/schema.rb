@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_13_204440) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_21_213828) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,7 +51,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_13_204440) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "role", default: "candidate"
-    t.string "full_name"
     t.string "nationality"
     t.string "i_am"
     t.string "years_of_experience"
@@ -63,8 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_13_204440) do
     t.string "where_hear"
     t.string "year_of_graduation"
     t.boolean "currently_working"
-    t.string "langauges_spoken"
-    t.string "phone_number"
+    t.string "languages_spoken"
     t.boolean "auth_whatsapp"
     t.boolean "auth_text"
     t.string "license_type"
@@ -84,6 +82,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_13_204440) do
     t.string "nclex_rn_state"
     t.boolean "rn_in_us"
     t.string "rn_in_us_state"
+    t.string "country_code"
+    t.string "phone_number"
     t.index ["email"], name: "index_gnt_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_gnt_users_on_reset_password_token", unique: true
   end

@@ -51,6 +51,7 @@ class GntUsersController < ApplicationController
       :year_of_graduation,
       :currently_working,
       :langauges_spoken,
+      :country_code,
       :phone_number,
       :auth_whatsapp,
       :auth_text,
