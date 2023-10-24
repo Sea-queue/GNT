@@ -1,5 +1,5 @@
 class AdminPagesController < ApplicationController
-  before_action :initialize_search, only: :statistics
+  before_action :initialize_search
 
   def statistics
     handle_search_name
@@ -8,7 +8,7 @@ class AdminPagesController < ApplicationController
 
   private
   def initialize_search
-    @users = GntUser.all
+    @users = GntUser.where(role: "candidate")
     session[:search_name] ||= params[:search_name]
     session[:filter] = params[:filter]
     params[:filter_option] = nil if params[:filter_option] == ""
@@ -20,7 +20,7 @@ class AdminPagesController < ApplicationController
     if session[:search_name]
       @users = GntUser.where(legal_name: session[:search_name])
     else
-      @users = GntUser.all
+      @users = GntUser.where(role: "candidate")
     end
   end
 

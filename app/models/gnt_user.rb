@@ -23,11 +23,6 @@ class GntUser < ApplicationRecord
   validates :avatar, content_type: { in: ['image/png', 'image/jpg', 'image/jpeg'], message: 'is not an image' } 
   after_commit :add_default_avatar, on: %i[create update]
   
-  # enum role: [:candidate, :employer, :recruiter, :admin]
-  # after_initialize :set_default_role, :if => :new_record?
-  # def set_default_role
-  #   self.role ||= :candidate
-  # end
 
   def admin?
     role == "admin"
@@ -40,8 +35,7 @@ class GntUser < ApplicationRecord
   def employer?
     role == 'employer'
   end
-  # validates :email, presence: true, format: {with: /\A[^@\s]+@[^@\s]+\z/, message: "must be a valid email address"}
-
+  
 
   def avatar_thumbnail
     if avatar.attached?

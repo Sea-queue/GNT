@@ -8,9 +8,15 @@
 
         <% if current_gnt_user %>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
-              Talent Angels America
-            </a>
+            <% if current_gnt_user.languages_spoken == 'Español' %>
+              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                Ángeles de talento América
+              </a>
+            <% else %>
+              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                Talent Angels America
+              </a>
+            <% end %>
             <ul class="dropdown-menu">
               <li class="nav-item" >
                 <%= link_to 'Home', root_path, class:'nav-link active'%>
@@ -95,6 +101,10 @@
             <%= link_to 'Sign Out', destroy_gnt_user_session_path, data: { turbo_method: :delete }, class:'btn sign_in_out' %>
           </div>
         <% else %>
+          <%= form_with(model: @user) do |f| %>
+            <%= f.select :languages_spoken, ["System Language", "Español", "English"]%>
+            <%= f.submit "Change Language", class:"btn btn-danger mr-3" %>
+          <% end %>
           <%= link_to image_tag('profile.svg'), gnt_user_path(current_gnt_user) %>
           &nbsp &nbsp &nbsp
           <div class="text-end">

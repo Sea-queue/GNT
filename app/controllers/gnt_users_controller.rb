@@ -50,7 +50,7 @@ class GntUsersController < ApplicationController
       :where_hear,
       :year_of_graduation,
       :currently_working,
-      :langauges_spoken,
+      :languages_spoken,
       :country_code,
       :phone_number,
       :auth_whatsapp,

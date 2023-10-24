@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :set_locale
-  after_action :save_locale
 
 
   protected
@@ -82,14 +80,4 @@ class ApplicationController < ActionController::Base
         :disorder
       )}
     end
-
-  protected def set_locale
-    I18n.locale = params[:locale] || # 1: use request parameter, if available
-      session[:locale] ||            # 2: use the value saved in iurrent session
-      I18n.default_locale            # last: fallback to default locale
-  end
-
-  protected def save_locale
-    session[:locale] = I18n.locale
-  end
 end
