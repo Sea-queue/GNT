@@ -23,32 +23,64 @@ There are <em style="font-size:25px"><%= user.count %> candidates</em> in the da
 <br>
 
 <form action="/statistics" method="GET">
-  <label for="filter">Filter Options</label>
-  <select id="filter" name="filter" onchange="this.form.submit()">
-    <option value="">Pick a Filter Option</option>
-    <option value="nationality" <%= "selected" if session[:filter] == "nationality" %>>Filter by nationality</option>
-    <option value="languages_spoken" <%= "selected" if session[:filter] == "languages_spoken" %>>Filter by languages_spoken</option>
+  <label>Filter Options: </label>
+  <select name="nationality_filter">
+    <option value="">Nationality</option>
+    <option value="MX">Mexico</option>
+    <option value="SP">Singapore</option>
+    <option value="CL">Chile</option>
   </select>
-  <% if session[:filter] == "nationality" %>
-    <select name="filter_option" onchange="this.form.submit()">
-      <option value="">Pick a nationality</option>
-      <option value="MX">Mexico</option>
-      <option value="SP">Singapore</option>
-      <option value="CL">Chile</option>
-    </select>
-  <% elsif session[:filter] == "languages_spoken" %>
-    <select name="filter_option" onchange="this.form.submit()">
-      <option value="">Pick a language</option>
-      <option value="English">English</option>
-      <option value="Spanish">Spanish</option>
-      <option value="Chinese">Chinese</option>
-    </select>
-  <% end %>
+  <select name="experience_years_filter">
+    <option value="">Years of experience</option>
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3+</option>
+  </select>
+  <select name="english_proficiency_filter">
+    <option value="">English proficiency</option>
+    <option value="passed IELTS">passed IELTS</option>
+    <option value="passed TSE">passed TSE</option>
+    <option value="passed TOEFL">passed TOEFL</option>
+    <option value="passed PET">passed PET</option>
+  </select>
+  <select name="nclex_filter">
+    <option value="">NCLEX exam</option>
+    <option value="true">passed NCLEX</option>
+  </select>
+  <select name="languages_spoken_filter">
+    <option value="">Languages Spoken</option>
+    <option value="English">English</option>
+    <option value="Spanish">Spanish</option>
+    <option value="Chinese">Chinese</option>
+  </select>
+  <input name="commit" type="submit" value="Apply Filters" class="btn btn-primary"/>
 </form>
 
-<% @users.each do |candidate| %>
-  <li>
-    <%= link_to "#{candidate.first_name}", candidate %>
-  </li>
-<% end %>
+
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <% @users.each do |candidate| %>
+          <div class="col">
+            <div class="card shadow-sm">
+              <%= image_tag candidate.avatar, class:"border border-3 rounded", style:"width: 100%; height:225px" %>
+              <div class="card-body">
+                <p class="card-text">Nationality: <%= candidate.nationality %></p>
+                <p class="card-text">Years of experience: <%= candidate.years_of_experience %></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  </div>
+                  <%= link_to "#{candidate.first_name}", candidate %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
 
