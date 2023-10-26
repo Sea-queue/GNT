@@ -92,5 +92,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # In production, :host should be set to the actual host(URL) of your application.
-  config.action_mailer.default_url_options = { host: 'https://gnt.onrender.com/', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'https://globalnursingtalent.onrender.com', port: 3000 }
 end

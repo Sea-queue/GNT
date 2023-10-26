@@ -26,17 +26,17 @@ class AdminPagesController < ApplicationController
       puts('experience_years_filter', params[:experience_years_filter])
       @users = @users.where(years_of_experience: ['3', '4', '5+'])
     end
-    if session[:english_proficiency_filter]
+    if params[:english_proficiency_filter] and params[:english_proficiency_filter] != ""
       puts('english_proficiency_filter')
-      @users = @users.where(english_proficiency: session[:english_proficiency_filter])
+      @users = @users.where(english_proficiency: params[:english_proficiency_filter])
     end
     if params[:nclex_filter] and params[:nclex_filter] != ""
       puts('nclex_filter', params[:nclex_filter])
       @users = @users.where(nclex_rn: params[:nclex_filter])
     end
-    if session[:languages_spoken_filter]
+    if params[:languages_spoken_filter] and params[:languages_spoken_filter] != ""
       puts('languages_spoken_filter')
-      @users = @users.where(languages_spoken: session[:languages_spoken_filter])
+      @users = @users.where(languages_spoken: params[:languages_spoken_filter])
     end
   end
 end
