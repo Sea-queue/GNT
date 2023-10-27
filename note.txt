@@ -60,14 +60,6 @@ Possible Website Structure and Language:  React -- TypeScript
 
 
 --------------------------------------------- RAM ------------------------------------------
- <span class='separator-bar'>|</span>
-            <%= linkt_to 'Remove Image without replacing',
-                         delete_image_gnt_user_url(image_id: @user.avatar.id),
-                         method: :delete,
-                         data: {confirm: 'Are you sure?'},
-                         class: 'remove-upload'
-            %>
-
 
 
  

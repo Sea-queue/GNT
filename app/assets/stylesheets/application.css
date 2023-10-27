@@ -32,6 +32,11 @@
   text-decoration: underline;
 }
 
+.footer_customize.text:hover {
+  text-decoration: underline;
+  color: black;
+}
+
 .sign_in_out {
   background-color: #1870ef;
   color: #FFFFFF;

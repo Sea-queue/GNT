@@ -10,9 +10,18 @@ class GntUsers::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    puts("check terms before", params[:gnt_user][:terms_of_use])
+    respond_to do |format|
+      if params[:gnt_user][:terms_of_use] == "0"
+        puts("check terms after", params[:gnt_user][:terms_of_use])
+        format.html {redirect_to new_gnt_user_registration_url, notice: "You need to agree to the terms of use before sign up."}
+      else
+        super
+        return
+      end
+    end 
+  end
 
   # GET /resource/edit
   # def edit
@@ -34,15 +43,6 @@ class GntUsers::RegistrationsController < Devise::RegistrationsController
         format.hmtl {render :edit}
       end
     end
-  end
-
-  private
-
-  def gnt_user_params
-    params.require(:gnt_user).permit(
-      :full_name,
-      :id
-    )
   end
 
   # DELETE /resource
@@ -80,4 +80,14 @@ class GntUsers::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  private
+
+  def gnt_user_params
+    params.require(:gnt_user).permit(
+      :first_name,
+      :id,
+      :terms_of_use
+    )
+  end
 end

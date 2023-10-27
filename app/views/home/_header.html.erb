@@ -7,39 +7,44 @@
         </li>
 
         <% if current_gnt_user %>
-          <li class="nav-item dropdown">
-            <% if current_gnt_user.languages_spoken == 'Español' %>
-              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
-                Ángeles de talento América
-              </a>
-            <% else %>
-              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
-                Talent Angels America
-              </a>
-            <% end %>
-            <ul class="dropdown-menu">
-              <li class="nav-item" >
-                <%= link_to 'Home', root_path, class:'nav-link active'%>
-              </li>
-              <li class="nav-item">
-                <%= link_to 'About Us', home_about_path, class:'nav-link active' %>
-              </li>
-              <li class="nav-item">
-                <%= link_to 'Contact Us', home_contact_us_path, class:"nav-link active" %>
-              </li>
-            </ul>
-          </li>
+          <%= link_to 'Talent Angels America', root_path, class:'nav-link active header_text'%>
+          <% if false %>
+            <li class="nav-item dropdown">
+              <% if current_gnt_user.languages_spoken == 'Español' %>
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                  Ángeles de talento América
+                </a>
+              <% else %>
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                  Talent Angels America
+                </a>
+              <% end %>
+              <ul class="dropdown-menu">
+                <li class="nav-item" >
+                  <%= link_to 'Home', root_path, class:'nav-link active'%>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'About Us', home_about_path, class:'nav-link active' %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'Contact Us', home_contact_us_path, class:"nav-link active" %>
+                </li>
+              </ul>
+            </li>
+          <% end %>
         <% else %>
           <%= link_to 'Talent Angels America', root_path, class:'nav-link active header_text'%>
-          <li class="nav-item" >
-            <%= link_to 'Home', root_path, class:'nav-link active'%>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'About Us', home_about_path, class:'nav-link active' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Contact Us', home_contact_us_path, class:"nav-link active" %>
-          </li>
+          <% if false %>
+            <li class="nav-item" >
+              <%= link_to 'Home', root_path, class:'nav-link active'%>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'About Us', home_about_path, class:'nav-link active' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Contact Us', home_contact_us_path, class:"nav-link active" %>
+            </li>
+          <% end %>
         <% end %>
 
         <% if current_gnt_user && current_gnt_user.admin? %>
@@ -56,19 +61,21 @@
         <% end %>
 
         <% if current_gnt_user %>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
-              International Nurses
-            </a>
-            <ul class="dropdown-menu">
-              <% if current_gnt_user && current_gnt_user.candidate? %>
+          <a class="nav-link dropdown-toggle mt-1" role="button" data-bs-toggle="dropdown">
+            International Nurses
+          </a>
+          <ul class="dropdown-menu">
+            <% if current_gnt_user && current_gnt_user.candidate? %>
+              <% if false %>
                 <li class="nav-item">
                   <%= link_to 'Application Status', candidates_pages_application_status_path, class:'nav-link active' %>
                 </li>
-                <li class="nav-item">
-                  <%= link_to 'Edit Account', edit_gnt_user_registration_path, class:'nav-link active' %>
-                </li>
               <% end %>
+              <li class="nav-item">
+                <%= link_to 'Edit Account', edit_gnt_user_registration_path, class:'nav-link active' %>
+              </li>
+            <% end %>
+            <% if false %>
               <li class="nav-item" >
                 <%= link_to 'How To Apply', root_path, class:'nav-link active'%>
               </li>
@@ -81,8 +88,8 @@
               <li class="nav-item">
                 <%= link_to 'FAQ', home_faq_path, class:"nav-link active" %>
               </li>
-            </ul>
-          </li>
+            <% end %>
+          </ul>
           <% if false %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
@@ -101,9 +108,11 @@
             <%= link_to 'Sign Out', destroy_gnt_user_session_path, data: { turbo_method: :delete }, class:'btn sign_in_out' %>
           </div>
         <% else %>
-          <%= form_with(model: @user) do |f| %>
-            <%= f.select :languages_spoken, ["System Language", "Español", "English"]%>
-            <%= f.submit "Change Language", class:"btn btn-danger mr-3" %>
+          <% if false %>
+            <%= form_with(model: @user) do |f| %>
+              <%= f.select :languages_spoken, ["System Language", "Español", "English"]%>
+              <%= f.submit "Change Language", class:"btn btn-danger mr-3" %>
+            <% end %>
           <% end %>
           &nbsp &nbsp &nbsp
           <%= link_to image_tag('profile.svg'), gnt_user_path(current_gnt_user) %>

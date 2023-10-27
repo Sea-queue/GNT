@@ -91,10 +91,12 @@
               <%= f.select :years_of_experience, ['0', '1', '2', '3', '4', '5-10', '10+'], :prompt => current_gnt_user.years_of_experience %>
             </div>
 
-            <div class="col-30 mb-3">
-              <h6>Select up to 3 preferred specialties *:</h6>
-              <%= f.select :years_of_experience, ['None', 'Medical-Surgical', 'Pediatrics', 'Obstetrics/Gynecology', 'Psychiatry', 'Emergency', 'Behavioral Health/Psychology', 'Critical Care (ICU)', 'Geriatrics/Nursing Home'], :prompt => current_gnt_user.years_of_experience %>
-            </div>
+            <% if false %>
+              <div class="col-30 mb-3">
+                <h6>Select up to 3 preferred specialties *:</h6>
+                <%= f.select :years_of_experience, ['None', 'Medical-Surgical', 'Pediatrics', 'Obstetrics/Gynecology', 'Psychiatry', 'Emergency', 'Behavioral Health/Psychology', 'Critical Care (ICU)', 'Geriatrics/Nursing Home'], :prompt => current_gnt_user.years_of_experience %>
+              </div>
+            <% end %>
 
             <div class="col-6 mb-3">
               <h6>Phone number (+1 (123) 456-7890):</h6>
