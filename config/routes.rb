@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   get 'admin_pages/statistics', to: 'admin_pages#statistics'
   get 'statistics', to: 'admin_pages#statistics'
   get 'candidates_pages/application_status'
+  get 'gnt_users/user_application/:id', to: 'gnt_users#user_application'
 end

@@ -15,6 +15,7 @@
       </div>
       <% if current_gnt_user.id == @user.id %>
         <%= link_to 'Edit My Profile', edit_gnt_user_path(current_gnt_user), class:'btn btn-warning' %>
+        <%#= link_to 'Start Application', gnt_user_user_application_path(@current_gnt_user), class:'btn btn-warning' %>
       <% end %>
     </div>
 
@@ -68,11 +69,13 @@
             <h6>Years of nursing work experience: &nbsp</h6>
             <h6 class='profile_text'><%= @user.years_of_experience %></h6>
           </div>
-
+          
+          <% if false %>
           <div class="col-30 mb-3" style="display: flex">
             <h6>Specialty: &nbsp</h6>
             <h6 class='profile_text'><%= @user.years_of_experience %></h6>
           </div>
+          <% end %>
 
           <div class="col-30 mb-3" style='display:flex'>
             <h6>Phone number: &nbsp</h6>
@@ -90,6 +93,7 @@
           </div>
         </div>
 
+        <% if false %>
         <h5 class='section_title mt-2'>Nursing Credentials</h5>
         <hr class="mt-0 mb-4">
         <div class="row pt-1">
@@ -319,6 +323,7 @@
           <h6>Is there anything else our Recruitment Team should know?</h6>
           <h6 class='profile_text'><%= @user.other_3 %></h6>
         </div>
+        <% end %>
       </div>
     </div>
   </div>

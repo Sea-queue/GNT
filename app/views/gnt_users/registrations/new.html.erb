@@ -12,17 +12,38 @@
           <form class="">
             <div class="form-floating mb-3">
               <%= f.text_field :first_name, autofocus: true, class: "form-control rounded-3", placeholder:"First Name / Nickname" %>
-              <label for="floatingInput">Username / Nickname</label>
+              <label for="floatingInput">Full Name</label>
             </div>
+
+            <div class="form-control mb-3" style='display: flex'>
+              <label>I am a: &nbsp</label>
+              <%= f.select(:i_am, ['Student Nurse', 'Registered Nurse']) %>
+            </div>
+
+            <div class="form-control mb-3" style='display: flex'>
+              <label>Years of nursing work experience: &nbsp</label>
+              <%= f.select :years_of_experience, ['0', '1', '2', '3', '4', '5-10', '10+'] %>
+            </div>
+
+            <div class="form-control mb-3">
+              <label>Nationality: &nbsp</label>
+              <%= f.country_select :nationality, priority_countries = ["Singapore", "Chile", "Mexico", "Philippines", "UK", "Canada", "Spain", "US"] %>
+            </div>
+
+            <div class="form-control mb-3">
+              <label>Phone number +1 123 456 7890:</label>
+              <%= f.text_field :phone_number %>
+            </div>
+
             <div class="form-floating mb-3">
               <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control rounded-3", id:"floatingInput", placeholder:"name@example.com"%>
-              <label for="floatingInput">Email address</label>
+              <label for="floatingInput">Email address *</label>
             </div>
 
             <div class="form-floating mb-3">
               <%= f.password_field :password, autocomplete: "new-password", placeholder:"go_rails", class: "form-control rounded-3", id:"floatingPassword"%>
               <label for="floatingPassword">
-                Password 
+                Password *
                 <% if @minimum_password_length %>
                 <em>(<%= @minimum_password_length %> characters minimum)</em>
                 <% end %><br />
@@ -31,7 +52,7 @@
 
             <div class="form-floating mb-3">
               <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"go_rails", class: "form-control rounded-3" %>
-              <label for="floatingPassword"> Password Confirmation </label>
+              <label for="floatingPassword"> Password Confirmation *</label>
             </div>
 
             <% if false %>
@@ -42,7 +63,7 @@
             <% end %>
 
             <div class="col-9 mb-3">
-              <h6>How did you hear about us? (optional):</h6>
+              <label>How did you hear about us? (optional):</label>
               <%= f.select :where_hear, ['Internet', 'In person', 'Event', 'Friend/Relative/Colleague', 'Billboard or Flyer', 'Other'] %>
             </div>
 

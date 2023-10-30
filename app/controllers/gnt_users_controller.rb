@@ -33,6 +33,9 @@ class GntUsersController < ApplicationController
     end
   end
 
+  def user_application
+  end
+
   private
 
   def gnt_user_params
