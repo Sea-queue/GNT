@@ -15,7 +15,7 @@ class GntUsers::RegistrationsController < Devise::RegistrationsController
     respond_to do |format|
       if params[:gnt_user][:terms_of_use] == "0"
         puts("check terms after", params[:gnt_user][:terms_of_use])
-        format.html {redirect_to new_gnt_user_registration_url, notice: "You need to agree to the terms of use before sign up."}
+        format.html {redirect_to new_gnt_user_registration_url, notice: "Please agree to the Terms and Conditions before proceeding."}
       else
         super
         return

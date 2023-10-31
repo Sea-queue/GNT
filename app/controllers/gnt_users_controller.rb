@@ -5,7 +5,12 @@ class GntUsersController < ApplicationController
   end
 
   def show
-    @user = GntUser.find(params[:id])
+    # to prevent candidates to check other candidates by changing the id number in the URL
+    if current_gnt_user.role == 'admin'
+      @user = GntUser.find(params[:id])
+    else 
+      @user = current_gnt_user
+    end 
   end
 
   def edit

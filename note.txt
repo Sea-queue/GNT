@@ -62,4 +62,4 @@ Possible Website Structure and Language:  React -- TypeScript
 --------------------------------------------- RAM ------------------------------------------
 
 
- 
+ <%= link_to 'Start Application', gnt_users_user_application_path(current_gnt_user), class:'btn btn-warning' %>

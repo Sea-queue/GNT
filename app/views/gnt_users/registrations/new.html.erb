@@ -3,7 +3,8 @@
 
   <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSignin">
     <div class="modal-dialog" role="document">
-      <div class="modal-content rounded-4 shadow">
+      <div class="modal-content rounded-4 shadow" style="">
+
         <div class="modal-header p-5 pb-4 border-bottom-0">
           <h1 class="fw-bold mb-0 fs-2">Sign up:</h1>
         </div>
@@ -17,12 +18,12 @@
 
             <div class="form-control mb-3" style='display: flex'>
               <label>I am a: &nbsp</label>
-              <%= f.select(:i_am, ['Student Nurse', 'Registered Nurse']) %>
+              <%= f.select(:i_am, ['Select One','Registered Nurse', 'Student Nurse']) %>
             </div>
 
             <div class="form-control mb-3" style='display: flex'>
               <label>Years of nursing work experience: &nbsp</label>
-              <%= f.select :years_of_experience, ['0', '1', '2', '3', '4', '5-10', '10+'] %>
+              <%= f.select :years_of_experience, ['0', '1', '2', '3+'] %>
             </div>
 
             <div class="form-control mb-3">
@@ -69,7 +70,7 @@
 
             <div class="field mb-2">
               <%= f.check_box :terms_of_use %>
-              <%= f.label :"agree to terms of use" %>
+              <%= f.label :"I agree to the Terms and Conditions *." %>
             </div>
 
             <%= f.submit "Sign up", class:"w-100 mb-2 btn btn-lg rounded-3 btn-primary" %>
@@ -99,6 +100,7 @@
             
           </form>
         </div>
+
       </div>
     </div>
   </div>

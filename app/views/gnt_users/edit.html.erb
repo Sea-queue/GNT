@@ -21,7 +21,9 @@
           <% end %>
         </div>
         
-        <%= f.file_field :avatar %>
+        <% if false %>
+          <%= f.file_field :avatar %>
+        <% end %>
 
         <div>
           <h6 class='mt-3' style='color:black'> Full Name </h6>
@@ -38,19 +40,21 @@
           <div class="row pt-1">
 
             <div class="col-30 mb-3">
-              <h6>Full Legal Name (Exactly as it appears on official documents i.e. national ID, nursing license, birth certificate)*:</h6>
+              <h6>Full legal name (Exactly as it appears on official documents i.e. national ID, nursing license, birth certificate)*:</h6>
               <%= f.text_field :legal_name %>
             </div>
 
             <div class="col-30 mb-3">
-              <h6>Email Address*:</h6>
+              <h6>Email address*:</h6>
               <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
             </div>
 
-            <div class="col-30 mb-3">
-              <h6>Check all languages spoken*:</h6>
-              <%= f.select(:languages_spoken, ['English', 'Spanish', 'Mandarin', 'Portuguese', 'German', 'Franch', 'Japanese'], {:multiple => true, :size => 3}, {:prompt => current_gnt_user.languages_spoken}) %>
-            </div>
+            <% if false %>
+              <div class="col-30 mb-3">
+                <h6>Check all languages spoken*:</h6>
+                <%= f.select(:languages_spoken, ['English', 'Spanish', 'Mandarin', 'Portuguese', 'German', 'Franch', 'Japanese'], {:multiple => true, :size => 3}, {:prompt => current_gnt_user.languages_spoken}) %>
+              </div>
+            <% end %>
 
             <div class="col-30 mb-3">
               <h6>Nationality*:</h6>
@@ -64,7 +68,7 @@
 
             <div class="field mb-2" style='display: flex'>
               <h6>I am a:* &nbsp</h6>
-              <%= f.select(:i_am, ['Student Nurse', 'Registered Nurse'], {:prompt => current_gnt_user.i_am}) %>
+              <%= f.select(:i_am, ['Select One', 'Registered Nurse', 'Student Nurse'], {:prompt => current_gnt_user.i_am}) %>
             </div>
 
             <div class="col-30 mb-3">
@@ -79,7 +83,7 @@
 
             <div class="col-30 mb-3">
               <h6>Years of nursing work experience*:</h6>
-              <%= f.select :years_of_experience, ['0', '1', '2', '3', '4', '5-10', '10+'], :prompt => current_gnt_user.years_of_experience %>
+              <%= f.select :years_of_experience, ['0', '1', '2', '3+'], :prompt => current_gnt_user.years_of_experience %>
             </div>
 
             <% if false %>
