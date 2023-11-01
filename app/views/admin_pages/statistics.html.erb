@@ -2,15 +2,37 @@
 <% user = GntUser.where(:role =>'candidate')%>
 There are <em style="font-size:25px"><%= user.count %> candidates</em> in the database.
 
-<ul>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Full Name</th>
+      <th scope="col">Requested to apply</th>
+      <th scope="col">Grant application</th>
+    </tr>
+  </thead>
   <% GntUser.all.each do |user| %>
     <% if not user.admin? %>
-      <li>
-        <%= link_to user.first_name, user %>
-      </li>
+      <tbody>
+        <tr>
+          <td><%= link_to user.full_name, user %></td>
+          <td><%= user.request_to_apply %></td>
+          <td>
+            <%= form_with(model: user) do |f| %>
+              <div style='display: flex'>
+                <div class="field mb-2" style='display: flex; color:black'>
+                  <%= f.check_box :grant_apply_request %> &nbsp
+                  <h6 class='mt-2'>Grant access for appliaction. &nbsp</h6>
+                </div>
+                <%= f.submit "Grant", :onclick => "return confirm('Are you sure to Grant?')", class:"btn btn-danger" %>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
     <% end %>
   <% end %>
-</ul>
+</table>
+
 
 <h1>Candidates Search and Filters:</h1>
 
@@ -75,7 +97,7 @@ There are <em style="font-size:25px"><%= user.count %> candidates</em> in the da
                     <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                     <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                   </div>
-                  <%= link_to "#{candidate.first_name}", candidate %>
+                  <%= link_to "#{candidate.full_name}", candidate %>
                 </div>
               </div>
             </div>

@@ -1,5 +1,6 @@
 class GntUsersController < ApplicationController
   before_action :authenticate_gnt_user!, only:[:show]
+  before_action :correct_user,   only: [:edit, :update]
 
   def index
   end
@@ -20,7 +21,11 @@ class GntUsersController < ApplicationController
   def update
     respond_to do |format|
       if current_gnt_user.update(gnt_user_params)
-        format.html {redirect_to current_gnt_user, notice: "you sccessfully updated your profile!"}
+        if params[:gnt_user][:request_to_apply]
+          format.html {redirect_to current_gnt_user, notice: "Request has been sent!"}
+        else
+          format.html {redirect_to current_gnt_user, notice: "you sccessfully updated your profile!"}
+        end
       else
         format.hmtl {render :edit}
       end
@@ -39,6 +44,7 @@ class GntUsersController < ApplicationController
   end
 
   def user_application
+    @user = current_gnt_user
   end
 
   private
@@ -52,7 +58,6 @@ class GntUsersController < ApplicationController
       :years_of_experience,
       :apply_visa_for,
       :current_resident,
-      :first_name,
       :legal_name,
       :terms_of_use,
       :where_hear,
@@ -63,6 +68,8 @@ class GntUsersController < ApplicationController
       :phone_number,
       :auth_whatsapp,
       :auth_text,
+      :request_to_apply,
+      :grant_apply_request,
       :license_type,
       :stage3_1,
       :clinical_hour,
@@ -96,5 +103,16 @@ class GntUsersController < ApplicationController
       visa: []
     )
   end
+
+  def correct_user
+    @user = GntUser.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user) || current_gnt_user.admin?
+  end
+
+  def current_user?(user)
+    user == current_gnt_user
+  end
+
+
 
 end

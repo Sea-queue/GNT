@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_21_213828) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_31_215222) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,7 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_21_213828) do
     t.string "years_of_experience"
     t.string "apply_visa_for"
     t.text "current_resident"
-    t.string "first_name"
+    t.string "full_name"
     t.string "legal_name"
     t.boolean "terms_of_use"
     t.string "where_hear"
@@ -84,6 +84,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_21_213828) do
     t.string "rn_in_us_state"
     t.string "country_code"
     t.string "phone_number"
+    t.boolean "request_to_apply", default: false
+    t.boolean "grant_apply_request", default: false
+    t.integer "medical_surgical"
+    t.integer "pediatrics"
+    t.integer "obstetrics_gynecology"
+    t.integer "psychiatry"
+    t.integer "emergency"
+    t.integer "critical_care_icu"
+    t.integer "geriatrics_nursing_home"
+    t.string "other_specialty_name"
+    t.integer "other_specialty_hour"
     t.index ["email"], name: "index_gnt_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_gnt_users_on_reset_password_token", unique: true
   end

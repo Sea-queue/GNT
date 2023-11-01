@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get 'home/privacy_policy'
   get 'home/state_law_privacy_policy'
   devise_for :gnt_users, controllers: { sessions: 'gnt_users/sessions', registrations: 'gnt_users/registrations' }
+  devise_scope :sessions do
+    get 'user_application/:id', to: 'gnt_users#user_application', as: :user_application
+  end
   resources :gnt_users, only: [:index, :show, :edit, :update] do 
     member do
       delete 'delete_image/:image:id', action: 'delete_image', as: 'delete_image'
@@ -21,5 +24,4 @@ Rails.application.routes.draw do
   get 'admin_pages/statistics', to: 'admin_pages#statistics'
   get 'statistics', to: 'admin_pages#statistics'
   get 'candidates_pages/application_status'
-  get 'gnt_users/user_application/:id', to: 'gnt_users#user_application'
 end

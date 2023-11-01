@@ -85,7 +85,7 @@ class GntUsers::RegistrationsController < Devise::RegistrationsController
 
   def gnt_user_params
     params.require(:gnt_user).permit(
-      :first_name,
+      :full_name,
       :id,
       :terms_of_use
     )

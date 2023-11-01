@@ -11,10 +11,15 @@
         <% end %>
       </div>
       <div class='mt-3'>
-        <h6 style='color:black'> <%= @user.first_name %> </h6>
+        <h6 style='color:black'> <%= @user.full_name %> </h6>
       </div>
+
       <% if current_gnt_user.id == @user.id %>
         <%= link_to 'Edit My Profile', edit_gnt_user_path(current_gnt_user), class:'btn btn-warning' %>
+      <% end %>
+
+      <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
+        <%= link_to 'Start Application', user_application_path(current_gnt_user), class:'btn btn-warning' %>
       <% end %>
     </div>
 
@@ -95,235 +100,17 @@
         </div>
 
         <% if false %>
-        <h5 class='section_title mt-2'>Nursing Credentials</h5>
-        <hr class="mt-0 mb-4">
-        <div class="row pt-1">
-          <div class="col-20 mb-3" style="display: flex">
-            <h6>Resume: &nbsp</h6>
-            <% if @user.resume.attached? %>
-              <%= link_to @user.resume.filename, url_for(@user.resume) %>
-            <% end %>
-          </div>
-
-          <div class="col-20 mb-3" style="display: flex">
-            <h6>License Type: &nbsp</h6>
-            <h6 class='profile_text'><%= @user.license_type %></h6>
-          </div>
-
-          <div class="col-20 mb-3" style="display: flex">
-            <h6>Nursing License: &nbsp</h6>
-            <% if @user.rn_license_upload.attached? %>
-              <%= link_to @user.rn_license_upload.filename, url_for(@user.rn_license_upload) %>
-            <% end %>
-          </div>
-        
-          <div class="col-20 mb-3" style="display: flex">
-            <h6>I hereby declare that my nursing license or certification has never been subject to any investigation, legal action, disciplinary measures, suspension, or malpractice claims.: &nbsp</h6>
-            <h6 class='profile_text'><%= @user.stage3_1 %></h6>
-          </div>
-
-          <div class="col-20 mb-3" style="display: flex">
-            <h6>Diploma of Nursing Education: &nbsp</h6>
-            <% if @user.diploma.attached? %>
-              <%= link_to @user.diploma.filename, url_for(@user.diploma) %>
-            <% end %>
-          </div>
-
-          <div class="col-20 mb-3" style="display: flex">
-            <h6>English translation of nursing education diploma:: &nbsp</h6>
-            <% if @user.diploma_translate.attached? %>
-              <%= link_to @user.diploma_translate.filename, url_for(@user.diploma_translate) %>
-            <% end %>
-          </div>
-
-          <div class="col-20 mb-3" style="display: flex">
-            <h6>Nursing education transcript: &nbsp</h6>
-            <% if @user.transcript.attached? %>
-              <% for item in @user.transcript %>
-                <%= link_to item.filename, url_for(item) %>
-              <% end %>
-            <% end %>
-          </div>
-
-          <div class="col-20 mb-3" style="display: flex">
-            <h6>English translation of nursing education transcripts: &nbsp</h6>
-            <% if @user.transcript_translate.attached? %>
-              <% for item in @user.transcript_translate %>
-                <%= link_to item.filename, url_for(item) %>
-              <% end %>
-            <% end %>
-          </div>
-
-          <div class="col-20 mb-3">
-            <h6>Number of clinical hours in the nursing program by specialty: &nbsp</h6>
-            <div class="col-20 mb-3" style="display: flex">
-              <h6>Medical-Surgical:</h6>
-              <h6 class='profile_text'><%= @user.clinical_hour %></h6>
+        <% if current_gnt_user.id == @user.id %>
+          <h5 class='section_title mt-4' >Start My Application</h5>
+          <hr class="mt-0 mb-2">
+          <%= form_with(model: @user) do |f| %>
+            <div class="field mb-2" style='display: flex; color:black'>
+              <%= f.check_box :request_to_apply %> &nbsp
+              <h6 class='mt-2'>I want to start my application.</h6>
             </div>
-
-            <div class="col-20 mb-3" style="display: flex">
-              <h6>Pediatrics:</h6>
-              <h6 class='profile_text'><%= @user.clinical_hour %></h6>
-            </div>
-
-            <div class="col-20 mb-3" style="display: flex">
-              <h6>Obstetrics/Gynecology:</h6>
-              <h6 class='profile_text'><%= @user.clinical_hour %></h6>
-            </div>
-
-            <div class="col-20 mb-3" style="display: flex">
-              <h6>Psychiatry:</h6>
-              <h6 class='profile_text'><%= @user.clinical_hour %></h6>
-            </div>
-
-            <div class="col-20 mb-3" style="display: flex">
-              <h6>Emergency:</h6>
-              <h6 class='profile_text'><%= @user.clinical_hour %></h6>
-            </div>
-
-            <div class="col-20 mb-3" style="display: flex">
-              <h6>Critical Care (ICU):</h6>
-              <h6 class='profile_text'><%= @user.clinical_hour %></h6>
-            </div>
-
-            <div class="col-20 mb-3" style="display: flex">
-              <h6>Geriatrics/Nursing Home:</h6>
-              <h6 class='profile_text'><%= @user.clinical_hour %></h6>
-            </div>
-
-            <div class="col-20" style="display: flex">
-              <h6>Other (Please Specify):</h6>
-              <h6 class='profile_text'><%= @user.clinical_hour %></h6>
-            </div>
-          </div>
-
-          <div class="col-20 mb-3" style="display: flex">
-            <h6>Is there anything else our Recruitment Team should know?</h6>
-            <h6 class='profile_text'><%= @user.other_1 %></h6>
-          </div>
-        </div>
-
-        <h5 class='section_title mt-2'>US Nursing Credentials</h5>
-        <hr class="mt-0 mb-4">
-        <div class="col-20 mb-3" style="display: flex">
-          <h6> CGFNS VisaScreen Report: &nbsp</h6>
-          <% if @user.cgfns_upload.attached? %>
-            <%= link_to @user.cgfns_upload.filename, url_for(@user.cgfns_upload) %>
+            <%= f.submit "Request", :onclick => "return confirm('Confirm Request')", class:"btn btn-danger mt-2" %>
           <% end %>
-        </div>
-
-        <div class="col-20 mb-3" style="display: flex">
-          <h6>English proficiency exam status: &nbsp</h6>
-          <h6 class='profile_text'><%= @user.english_proficiency %></h6>
-        </div>
-
-        <div class="col-20 mb-3" style="display: flex">
-          <h6>English proficiency exam result: &nbsp</h6>
-          <% if @user.english_proficiency_result.attached? %>
-            <%= link_to @user.english_proficiency_result.filename, url_for(@user.english_proficiency_result) %>
-          <% end %>
-        </div>
-
-        <div class="col-20 mb-3" style="display: flex">
-          <h6>English proficiency exam passed date: &nbsp</h6>
-          <h6 class='profile_text'><%= @user.english_exam_pass_date %></h6>
-        </div>
-
-        <div class="col-20 mb-3" style="display: flex">
-          <h6>Passed the NCLEX-RN: &nbsp</h6>
-          <h6 class='profile_text'><%= @user.nclex_rn %></h6>
-        </div>
-
-        <div class="col-20 mb-3" style="display: flex">
-          <h6>NCLEX-RN State : &nbsp</h6>
-          <h6 class='profile_text'><%= @user.nclex_rn_state %></h6>
-        </div>
-
-        <div class="col-20 mb-3" style="display: flex">
-          <h6>NCLEX Exam Results: &nbsp</h6>
-          <% if @user.nclex_rn_upload.attached? %>
-            <%= link_to @user.nclex_rn_upload .filename, url_for(@user.nclex_rn_upload ) %>
-          <% end %>
-        </div>  
-
-        <div class="col-20 mb-3" style="display: flex">
-          <h6>I have an active license to work as a Registered Nurse in the United States.: &nbsp</h6>
-          <h6 class='profile_text'><%= @user.rn_in_us %></h6>
-        </div>
-
-        <div class="col-20 mb-3" style="display: flex">
-          <h6>Licensure State: &nbsp</h6>
-          <h6 class='profile_text'><%= @user.rn_in_us_state %></h6>
-        </div>
-
-        <div class="col-20 mb-3" style="display: flex">
-          <h6>I affirm that my fingerprints have been submitted for the purpose of state licensure, and I understand that my application may be subject to verification by the respective state nursing board.: &nbsp</h6>
-          <h6 class='profile_text'><%= @user.background_check %></h6>
-        </div>
-
-        <div class="col-20 mb-3" style="display: flex">
-          <h6>Is there anything else our Recruitment Team should know?</h6>
-          <h6 class='profile_text'><%= @user.other_2 %></h6>
-        </div>
-
-        <h5 class='section_title mt-2'>Immigration Documentation</h5>
-        <hr class="mt-0 mb-4">
-        <div class="col-20 mb-3" style="display: flex">
-          <h6>Original or certified copy of Birth Certificate: &nbsp</h6>
-          <% if @user.birth_certificate.attached? %>
-            <%= link_to @user.birth_certificate.filename, url_for(@user.birth_certificate) %>
-          <% end %>
-        </div>
-
-        <div class="col-20 mb-3" style="display: flex">
-          <h6>Translation of Birth Certificate: &nbsp</h6>
-          <% if @user.birth_certificate_translate.attached? %>
-            <%= link_to @user.birth_certificate_translate.filename, url_for(@user.birth_certificate_translate) %>
-          <% end %>
-        </div>
-
-        <div class="col-20 mb-3" style="display: flex">
-          <h6>Valid Passport (biographic page): &nbsp</h6>
-          <% if @user.passport.attached? %>
-            <%= link_to @user.passport.filename, url_for(@user.passport) %>
-          <% end %>
-        </div>
-
-        <div class="col-20 mb-3" style="display: flex">
-          <h6>Current or former US Visa(s): &nbsp</h6>
-          <% if @user.visa.attached? %>
-            <% for item in @user.visa %>
-              <%= link_to item.filename, url_for(item) %>
-            <% end %>
-          <% end %>
-        </div>
-
-        <div class="col-30 mb-3" style="display: flex">
-          <h6>Current visa application for: &nbsp</h6>
-          <h6 class='profile_text'><%= @user.apply_visa_for %></h6>
-        </div>
-
-        <div class="col-20 mb-3" style="display: flex">
-          <h6>U.S. Entry Stamp or I-94 Departure/Arrival record: &nbsp</h6>
-          <% if @user.entry_stamp.attached? %>
-            <%= link_to @user.entry_stamp.filename, url_for(@user.entry_stamp) %>
-          <% end %>
-        </div>
-
-        <div class="col-20 mb-3" style="display: flex">
-          <h6>I have never been convicted of a crime: &nbsp</h6>
-          <h6 class='profile_text'><%= @user.convicted_crime %></h6>
-        </div>
-
-        <div class="col-20 mb-3" style="display: flex">
-          <h6>I have not had any substance use disorder in the last five years: &nbsp</h6>
-          <h6 class='profile_text'><%= @user.disorder %></h6>
-        </div>
-
-        <div class="col-20 mb-3" style="display: flex">
-          <h6>Is there anything else our Recruitment Team should know?</h6>
-          <h6 class='profile_text'><%= @user.other_3 %></h6>
-        </div>
+        <% end %>
         <% end %>
       </div>
     </div>
