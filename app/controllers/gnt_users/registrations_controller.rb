@@ -11,10 +11,10 @@ class GntUsers::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    puts("check terms before", params[:gnt_user][:terms_of_use])
+    # puts("check terms before", params[:gnt_user][:terms_of_use])
     respond_to do |format|
       if params[:gnt_user][:terms_of_use] == "0"
-        puts("check terms after", params[:gnt_user][:terms_of_use])
+        # puts("check terms after", params[:gnt_user][:terms_of_use])
         format.html {redirect_to new_gnt_user_registration_url, notice: "Please agree to the Terms and Conditions before proceeding."}
       else
         super

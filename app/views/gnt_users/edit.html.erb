@@ -85,6 +85,11 @@
               <%= f.select :years_of_experience, ['0', '1', '2', '3+'], :prompt => current_gnt_user.years_of_experience %>
             </div>
 
+            <div class="col-10 mb-3" style="display: flex">
+              <%= f.label :'Upload Resume:' %> &nbsp
+              <%= f.file_field :resume %>
+            </div>
+
             <% if false %>
               <div class="col-30 mb-3">
                 <h6>Select up to 3 preferred specialties *:</h6>
