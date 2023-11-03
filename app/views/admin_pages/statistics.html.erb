@@ -17,7 +17,7 @@ There are <em style="font-size:25px"><%= user.count %> candidates</em> in the da
           <td><%= link_to user.full_name, user %></td>
           <td><%= user.request_to_apply %></td>
           <td>
-            <%= form_with(model: user) do |f| %>
+            <%= form_with(model: @user) do |f| %>
               <div style='display: flex'>
                 <div class="field mb-2" style='display: flex; color:black'>
                   <%= f.check_box :grant_apply_request %> &nbsp
@@ -63,20 +63,22 @@ There are <em style="font-size:25px"><%= user.count %> candidates</em> in the da
   </select>
   <select name="english_proficiency_filter">
     <option value="">English proficiency</option>
-    <option value="passed IELTS">passed IELTS</option>
-    <option value="passed TSE">passed TSE</option>
-    <option value="passed TOEFL">passed TOEFL</option>
-    <option value="passed PET">passed PET</option>
+    <option value="passed">passed</option>
+    <option value="exam scheduled">exam scheduled</option>
+    <option value="traning in progress">traning in progress</option>
   </select>
   <select name="nclex_filter">
     <option value="">NCLEX exam</option>
-    <option value="true">passed NCLEX</option>
+    <option value="passed">passed</option>
+    <option value="exam scheduled">exam scheduled</option>
+    <option value="traning in progress">traning in progress</option>
   </select>
   <select name="languages_spoken_filter">
     <option value="">Languages Spoken</option>
     <option value="English">English</option>
     <option value="Spanish">Spanish</option>
-    <option value="Chinese">Chinese</option>
+    <option value="Portuguese">Portuguese</option>
+    <option value="Tagalog">Tagalog</option>
   </select>
   <input name="commit" type="submit" value="Apply Filters" class="btn btn-primary"/>
 </form>

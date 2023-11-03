@@ -19,23 +19,23 @@ class AdminPagesController < ApplicationController
 
   def handle_filters
     if params[:nationality_filter] and params[:nationality_filter] != ""
-      puts('nationality_filter', params[:nationality_filter])
+      # puts('nationality_filter', params[:nationality_filter])
       @users = @users.where(nationality: params[:nationality_filter])
     end
     if params[:experience_years_filter] and params[:experience_years_filter] != ""
-      puts('experience_years_filter', params[:experience_years_filter])
-      @users = @users.where(years_of_experience: ['3', '4', '5+'])
+      # puts('experience_years_filter', params[:experience_years_filter])
+      @users = @users.where(years_of_experience: params[:experience_years_filter])
     end
     if params[:english_proficiency_filter] and params[:english_proficiency_filter] != ""
-      puts('english_proficiency_filter')
+      # puts('english_proficiency_filter')
       @users = @users.where(english_proficiency: params[:english_proficiency_filter])
     end
     if params[:nclex_filter] and params[:nclex_filter] != ""
-      puts('nclex_filter', params[:nclex_filter])
+      # puts('nclex_filter', params[:nclex_filter])
       @users = @users.where(nclex_rn: params[:nclex_filter])
     end
     if params[:languages_spoken_filter] and params[:languages_spoken_filter] != ""
-      puts('languages_spoken_filter')
+      # puts('languages_spoken_filter')
       @users = @users.where(languages_spoken: params[:languages_spoken_filter])
     end
   end

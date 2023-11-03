@@ -127,7 +127,7 @@
 
           <div class="col-10 mb-3" style="display: flex">
             <h6>English proficiency exam status*:</h6>
-            <%= f.select :english_proficiency, ['not yet passed', 'passed IELTS', 'passed TSE', 'passed TOEFL', 'passed PET', 'exam scheduled'] %>
+            <%= f.select :english_proficiency, ['passed', 'exam scheduled', 'traning in progress'] %>
           </div>
 
           <div class="col-20 mb-3" style="display: flex">
@@ -140,9 +140,9 @@
             <%= f.text_field :english_exam_pass_date %>
           </div>
 
-          <div class="field mb-2" style="display: flex">
-            <%= f.check_box :nclex_rn %>
-            <h6>I have passed the NCLEX-RN.</h6>
+          <div class="col-10 mb-3" style="display: flex">
+            <h6>NCLEX exam status*:</h6>
+            <%= f.select :nclex_rn, ['passed', 'exam scheduled', 'traning in progress'] %>
           </div>
 
           <div class="field mb-2" style="display: flex">

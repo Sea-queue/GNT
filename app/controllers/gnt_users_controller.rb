@@ -1,6 +1,5 @@
 class GntUsersController < ApplicationController
   before_action :authenticate_gnt_user!, only:[:show]
-  before_action :correct_user,   only: [:edit, :update]
 
   def index
   end
@@ -15,12 +14,14 @@ class GntUsersController < ApplicationController
   end
 
   def edit
-    @user = current_gnt_user
+    @user = GntUser.find(params[:id])
   end
 
   def update
+    puts("admin changes user:", params)
+    @user = GntUser.find(params[:id])
     respond_to do |format|
-      if current_gnt_user.update(gnt_user_params)
+      if @user.update(gnt_user_params)
         if params[:gnt_user][:request_to_apply]
           format.html {redirect_to current_gnt_user, notice: "Request has been sent!"}
         else
@@ -103,16 +104,5 @@ class GntUsersController < ApplicationController
       visa: []
     )
   end
-
-  def correct_user
-    @user = GntUser.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user) || current_gnt_user.admin?
-  end
-
-  def current_user?(user)
-    user == current_gnt_user
-  end
-
-
 
 end
