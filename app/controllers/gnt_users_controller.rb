@@ -14,12 +14,19 @@ class GntUsersController < ApplicationController
   end
 
   def edit
-    @user = GntUser.find(params[:id])
+    if current_gnt_user.role == 'admin'
+      @user = GntUser.find(params[:id])
+    else 
+      @user = current_gnt_user
+    end
   end
 
   def update
-    puts("admin changes user:", params)
-    @user = GntUser.find(params[:id])
+    if current_gnt_user.role == 'admin'
+      @user = GntUser.find(params[:id])
+    else 
+      @user = current_gnt_user
+    end 
     respond_to do |format|
       if @user.update(gnt_user_params)
         if params[:gnt_user][:request_to_apply]
