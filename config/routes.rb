@@ -22,6 +22,6 @@ Rails.application.routes.draw do
   end
 
   get 'admin_pages/statistics', to: 'admin_pages#statistics'
-  get 'statistics', to: 'admin_pages#statistics'
+ 
   get 'candidates_pages/application_status'
 end

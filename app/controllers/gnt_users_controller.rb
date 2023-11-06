@@ -31,6 +31,8 @@ class GntUsersController < ApplicationController
       if @user.update(gnt_user_params)
         if params[:gnt_user][:request_to_apply]
           format.html {redirect_to current_gnt_user, notice: "Request has been sent!"}
+        elsif params[:gnt_user][:grant_apply_request]
+          format.html {redirect_to admin_pages_statistics_path, notice: "Grant Success!"}
         else
           format.html {redirect_to current_gnt_user, notice: "you sccessfully updated your profile!"}
         end

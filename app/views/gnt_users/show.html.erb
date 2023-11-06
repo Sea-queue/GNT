@@ -117,8 +117,19 @@
             </div>
             <%= f.submit "Request", :onclick => "return confirm('Confirm Request')", class:"btn btn-danger mt-2" %>
           <% end %>
+        <% elsif current_gnt_user.admin? %>
+          <h5 class='section_title mt-4' >Grant Application Access</h5>
+          <hr class="mt-0 mb-2">
+          <%= form_with(model: @user) do |f| %>
+            <div style='display: flex'>
+              <div class="field mb-2" style='display: flex; color:black'>
+                <%= f.check_box :grant_apply_request %> &nbsp
+                <h6 class='mt-2'>Grant access for appliaction. &nbsp</h6>
+              </div>
+              <%= f.submit "Grant", :onclick => "return confirm('Are you sure to Grant?')", class:"btn btn-danger" %>
+            </div>
+          <% end %>
         <% end %>
-      
       </div>
     </div>
   </div>
