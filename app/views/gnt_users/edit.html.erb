@@ -67,6 +67,11 @@
                 <%= f.country_select :current_resident, priority_countries = ["Singapore", "Chile", "Mexico", "Philippines", "UK", "Canada", "Spain", "US"] %>
               </div>
 
+              <div class="col-30 mb-3">
+                <h6>Current state of residence*:</h6>
+                <%= f.text_field :current_resident %>
+              </div>
+
               <div class="field mb-2" style='display: flex'>
                 <h6>I am a:* &nbsp</h6>
                 <%= f.select(:i_am, ['Select One', 'Registered Nurse', 'Student Nurse'], {:prompt => current_gnt_user.i_am}) %>

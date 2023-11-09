@@ -14,28 +14,14 @@
 
     <div class="card" style="border-radius: .5rem;">
       <div class="row g-0">
-
-        <div class="col-md-4 text-center" >
-          <div class='filed mt-5 mb-3'>
-            <% if @user.avatar.attached? %>
-              <%= image_tag(@user.avatar, height: '100px', width: '150px', class:'border border-2 rounded-5') %>
-            <% else %>
-              <%= image_tag 'ta_logo.png', alt:"Avatar", class:"border border-3 rounded", style:"width: 100px" %>
-            <% end %>
-          </div>
-
-          <div class='mt-3'>
-            <h6 style='color:black'> <%= @user.full_name %> </h6>
-          </div>
-        </div>
-
-        <div class="col-md-8">
+        <div class="col-md-12">
           <div class="card-body p-4">
+
             <h6 style='color:red'> * required fields </h6>
             <h5 class='section_title mt-3'>Nursing Credentials</h5>
             <hr class="mt-0 mb-4">
             <div class="row pt-1">
-              <div class="col-10 mb-3" style="display: flex">
+              <div class="col-30 mb-3" style="display: flex">
                 <%= f.label :'Upload Resume*:' %>
                 <%= f.file_field :resume %>
               </div>
@@ -45,12 +31,12 @@
                 <h6>I have a Nursing License outside the U.S.</h6>
               </div>
 
-              <div class="col-10 mb-3" style="display: flex">
+              <div class="col-30 mb-3" style="display: flex">
                 <%= f.label :'License Type*:' %>
                 <%= f.select :license_type, ['None', 'Registered Nurse', 'Licensed Practical Nurse', 'Nurse Practitioner'] %>
               </div>
 
-              <div class="col-10 mb-3" style="display: flex">
+              <div class="col-30 mb-3" style="display: flex">
                 <%= f.label :'Upload Nursing License:' %>
                 <%= f.file_field :rn_license_upload %>
               </div>
@@ -75,7 +61,7 @@
                 <%= f.file_field :transcript, multiple: true %>
               </div>
 
-              <div class="col-20 mb-3" style="display: flex">
+              <div class="col-30 mb-3" style="display: flex">
                 <h6>If applicable, upload English translation of nursing education transcripts:</h6>
                 <%= f.file_field :transcript_translate, multiple: true %>
               </div>
@@ -127,7 +113,7 @@
               <%= f.file_field :cgfns_upload %>
             </div>
 
-            <div class="col-10 mb-3" style="display: flex">
+            <div class="col-30 mb-3" style="display: flex">
               <h6>English proficiency exam status*:</h6>
               <%= f.select :english_proficiency, ['passed', 'exam scheduled', 'traning in progress'] %>
             </div>
@@ -142,7 +128,7 @@
               <%= f.text_field :english_exam_pass_date %>
             </div>
 
-            <div class="col-10 mb-3" style="display: flex">
+            <div class="col-30 mb-3" style="display: flex">
               <h6>NCLEX exam status*:</h6>
               <%= f.select :nclex_rn, ['passed', 'exam scheduled', 'traning in progress'] %>
             </div>

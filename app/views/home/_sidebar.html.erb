@@ -1,8 +1,9 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        <%= image_tag(@user.avatar, height: '100px', width:"40", height:"40", class:'border border-2 rounded-5') %>
-        <strong><%= @user.full_name %></strong>
+        <%= image_tag(@user.avatar, height: '100px', width:"80px", height:"80px", class:'border border-2 rounded-5') %>
+        &emsp;
+        <strong"><%= @user.full_name %></strong>
       </a>
       <ul class="dropdown-menu text-small shadow">
         <li><a class="dropdown-item" href="#">Profile</a></li>
@@ -27,7 +28,11 @@
         <%= link_to 'Getting Started', edit_gnt_user_path(current_gnt_user), class:"btn btn-warning"%>
       </li>
       <li>
-        <%= link_to 'Professional Info', user_application_path(current_gnt_user), class:'btn btn-warning' %>
+        <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
+          <%= link_to 'Professional Info', user_application_path(current_gnt_user), class:'btn btn-warning' %>
+        <% else %>
+          <button type="button" class="btn btn-warning">Professional Info</button>
+        <% end %>
       </li>
       <li>
         <a href="#" class="nav-link link-body-emphasis">
@@ -38,14 +43,14 @@
       <li>
         <a href="#" class="nav-link link-body-emphasis">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-          NCLEX Preparation 
+          NCLEX
         </a>
       </li>
 
       <li>
         <a href="#" class="nav-link link-body-emphasis">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-          NCLEX Scheduling
+          Licensing
         </a>
       </li>
 
