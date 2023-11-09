@@ -1,135 +1,138 @@
-<div class="card mb-3 mt-3" style="border-radius: .5rem;">
-  <div class="row g-0">
+<div class="mb-3 mt-3" style="display: flex; border-radius: .5rem">
+  <%= render 'home/sidebar' %>
+  <div class="card">
+    <div class="row g-0">
 
-    <div class="col-md-4 gradient-custom text-center text-white"
-      style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-      <div class='filed mt-5'>
-        <% if @user.avatar.attached? %>
-          <%= image_tag(@user.avatar, height: '100px', width: '150px', class:'border border-2 rounded-5') %>
-        <% else %>
-          <%= image_tag 'gnt_logo.png', alt:"Avatar", class:"border border-3 rounded", style:"width: 150px" %>
-        <% end %>
-      </div>
-      <div class='mt-3'>
-        <h6 style='color:black'> <%= @user.full_name %> </h6>
-      </div>
-
-      <% if current_gnt_user.id == @user.id %>
-        <%= link_to 'Edit My Profile', edit_gnt_user_path(current_gnt_user), class:'btn btn-warning' %>
-      <% end %>
-
-      <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
-        <%= link_to 'Start Application', user_application_path(current_gnt_user), class:'btn btn-warning' %>
-      <% end %>
-    </div>
-
-    <div class="col-md-8">
-      <div class="card-body p-4">
-        <h5 class='section_title' >Basic Information</h5>
-        <hr class="mt-0 mb-4">
-
-        <div class="row pt-1">
-          <div class="col-30 mb-3" style='display:flex'>
-            <h6>Full legal name: &nbsp</h6>
-            <h6 class='profile_text'><%= @user.legal_name %></h6>
-          </div>
-
-          <div class="col-30 mb-3" style="display: flex">
-            <h6>Email address: &nbsp</h6>
-            <h6 class='profile_text'><%= @user.email%></h6>
-          </div>
-
-          <% if false %>
-            <div class="col-30 mb-3" style="display: flex">
-              <h6>Languages spoken: &nbsp</h6>
-              <h6 class='profile_text'><%= @user.languages_spoken %></h6>
-            </div>
+      <div class="col-md-4 gradient-custom text-center text-white"
+        style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+        <div class='filed mt-5'>
+          <% if @user.avatar.attached? %>
+            <%= image_tag(@user.avatar, height: '100px', width: '150px', class:'border border-2 rounded-5') %>
+          <% else %>
+            <%= image_tag 'gnt_logo.png', alt:"Avatar", class:"border border-3 rounded", style:"width: 150px" %>
           <% end %>
-
-          <div class="col-30 mb-3" style="display: flex">
-            <h6>Nationality: &nbsp</h6>
-            <h6 class='profile_text'><%= @user.nationality %></h6>
-          </div>
-
-          <div class="col-30 mb-3" style="display: flex">
-            <h6>Current country of residence: &nbsp</h6>
-            <h6 class='profile_text'><%= @user.current_resident %></h6>
-          </div>
-
-          <div class="col-20 mb-3" style="display: flex">
-            <h6>I am a: &nbsp</h6>
-            <h6 class='profile_text'><%= @user.i_am %></h6>
-          </div>
-
-          <div class="field mb-2" style="display: flex">
-            <h6>Year of expected graduation: &nbsp</h6>
-            <h6 class='profile_text'><%= @user.year_of_graduation %></h6>
-          </div>
-
-          <div class="field mb-2" style='display:flex'>
-            <h6>I am currently working as a nurse in a clinical setting: &nbsp</h6>
-            <h6 class='profile_text'><%= @user.currently_working %></h6>
-          </div>
-
-          <div class="col-30 mb-3" style="display: flex">
-            <h6>Years of nursing work experience: &nbsp</h6>
-            <h6 class='profile_text'><%= @user.years_of_experience %></h6>
-          </div>
-
-          <div class="col-20 mb-3" style="display: flex">
-            <h6>Resume: &nbsp</h6>
-            <% if @user.resume.attached? %>
-              <%= link_to @user.resume.filename, url_for(@user.resume) %>
-            <% end %>
-          </div>
-
-          <% if false %>
-          <div class="col-30 mb-3" style="display: flex">
-            <h6>Specialty: &nbsp</h6>
-            <h6 class='profile_text'><%= @user.years_of_experience %></h6>
-          </div>
-          <% end %>
-
-          <div class="col-30 mb-3" style='display:flex'>
-            <h6>Phone number: &nbsp</h6>
-            <h6 class='profile_text'> <%= "#{@user.country_code} #{@user.phone_number} " %></h6>
-          </div>
-
-          <div class="field mb-2" style='display:flex'>
-            <h6>I authorize contact by WhatsApp: &nbsp</h6>
-            <h6 class='profile_text'><%= @user.auth_whatsapp %></h6>
-          </div>
-
-          <div class="field mb-2" style='display:flex'>
-            <h6>I authorize contact by telephone and text messaging (messaging rates may apply): &nbsp</h6>
-            <h6 class='profile_text'><%= @user.auth_text %></h6>
-          </div>
+        </div>
+        <div class='mt-3'>
+          <h6 style='color:black'> <%= @user.full_name %> </h6>
         </div>
 
-      
         <% if current_gnt_user.id == @user.id %>
-          <h5 class='section_title mt-4' >Start My Application</h5>
-          <hr class="mt-0 mb-2">
-          <%= form_with(model: @user) do |f| %>
-            <div class="field mb-2" style='display: flex; color:black'>
-              <%= f.check_box :request_to_apply %> &nbsp
-              <h6 class='mt-2'>I want to start my application.</h6>
-            </div>
-            <%= f.submit "Request", :onclick => "return confirm('Confirm Request')", class:"btn btn-danger mt-2" %>
-          <% end %>
-        <% elsif current_gnt_user.admin? %>
-          <h5 class='section_title mt-4' >Grant Application Access</h5>
-          <hr class="mt-0 mb-2">
-          <%= form_with(model: @user) do |f| %>
-            <div style='display: flex'>
-              <div class="field mb-2" style='display: flex; color:black'>
-                <%= f.check_box :grant_apply_request %> &nbsp
-                <h6 class='mt-2'>Grant access for appliaction. &nbsp</h6>
-              </div>
-              <%= f.submit "Grant", :onclick => "return confirm('Are you sure to Grant?')", class:"btn btn-danger" %>
-            </div>
-          <% end %>
+          <%= link_to 'Edit My Profile', edit_gnt_user_path(current_gnt_user), class:'btn btn-warning' %>
         <% end %>
+
+        <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
+          <%= link_to 'Start Application', user_application_path(current_gnt_user), class:'btn btn-warning' %>
+        <% end %>
+      </div>
+
+      <div class="col-md-8">
+        <div class="card-body p-4">
+          <h5 class='section_title' >Basic Information</h5>
+          <hr class="mt-0 mb-4">
+
+          <div class="row pt-1">
+            <div class="col-30 mb-3" style='display:flex'>
+              <h6>Full legal name: &nbsp</h6>
+              <h6 class='profile_text'><%= @user.legal_name %></h6>
+            </div>
+
+            <div class="col-30 mb-3" style="display: flex">
+              <h6>Email address: &nbsp</h6>
+              <h6 class='profile_text'><%= @user.email%></h6>
+            </div>
+
+            <% if false %>
+              <div class="col-30 mb-3" style="display: flex">
+                <h6>Languages spoken: &nbsp</h6>
+                <h6 class='profile_text'><%= @user.languages_spoken %></h6>
+              </div>
+            <% end %>
+
+            <div class="col-30 mb-3" style="display: flex">
+              <h6>Nationality: &nbsp</h6>
+              <h6 class='profile_text'><%= @user.nationality %></h6>
+            </div>
+
+            <div class="col-30 mb-3" style="display: flex">
+              <h6>Current country of residence: &nbsp</h6>
+              <h6 class='profile_text'><%= @user.current_resident %></h6>
+            </div>
+
+            <div class="col-20 mb-3" style="display: flex">
+              <h6>I am a: &nbsp</h6>
+              <h6 class='profile_text'><%= @user.i_am %></h6>
+            </div>
+
+            <div class="field mb-2" style="display: flex">
+              <h6>Year of expected graduation: &nbsp</h6>
+              <h6 class='profile_text'><%= @user.year_of_graduation %></h6>
+            </div>
+
+            <div class="field mb-2" style='display:flex'>
+              <h6>I am currently working as a nurse in a clinical setting: &nbsp</h6>
+              <h6 class='profile_text'><%= @user.currently_working %></h6>
+            </div>
+
+            <div class="col-30 mb-3" style="display: flex">
+              <h6>Years of nursing work experience: &nbsp</h6>
+              <h6 class='profile_text'><%= @user.years_of_experience %></h6>
+            </div>
+
+            <div class="col-20 mb-3" style="display: flex">
+              <h6>Resume: &nbsp</h6>
+              <% if @user.resume.attached? %>
+                <%= link_to @user.resume.filename, url_for(@user.resume) %>
+              <% end %>
+            </div>
+
+            <% if false %>
+            <div class="col-30 mb-3" style="display: flex">
+              <h6>Specialty: &nbsp</h6>
+              <h6 class='profile_text'><%= @user.years_of_experience %></h6>
+            </div>
+            <% end %>
+
+            <div class="col-30 mb-3" style='display:flex'>
+              <h6>Phone number: &nbsp</h6>
+              <h6 class='profile_text'> <%= "#{@user.country_code} #{@user.phone_number} " %></h6>
+            </div>
+
+            <div class="field mb-2" style='display:flex'>
+              <h6>I authorize contact by WhatsApp: &nbsp</h6>
+              <h6 class='profile_text'><%= @user.auth_whatsapp %></h6>
+            </div>
+
+            <div class="field mb-2" style='display:flex'>
+              <h6>I authorize contact by telephone and text messaging (messaging rates may apply): &nbsp</h6>
+              <h6 class='profile_text'><%= @user.auth_text %></h6>
+            </div>
+          </div>
+
+        
+          <% if current_gnt_user.id == @user.id %>
+            <h5 class='section_title mt-4' >Start My Application</h5>
+            <hr class="mt-0 mb-2">
+            <%= form_with(model: @user) do |f| %>
+              <div class="field mb-2" style='display: flex; color:black'>
+                <%= f.check_box :request_to_apply %> &nbsp
+                <h6 class='mt-2'>I want to start my application.</h6>
+              </div>
+              <%= f.submit "Request", :onclick => "return confirm('Confirm Request')", class:"btn btn-danger mt-2" %>
+            <% end %>
+          <% elsif current_gnt_user.admin? %>
+            <h5 class='section_title mt-4' >Grant Application Access</h5>
+            <hr class="mt-0 mb-2">
+            <%= form_with(model: @user) do |f| %>
+              <div style='display: flex'>
+                <div class="field mb-2" style='display: flex; color:black'>
+                  <%= f.check_box :grant_apply_request %> &nbsp
+                  <h6 class='mt-2'>Grant access for appliaction. &nbsp</h6>
+                </div>
+                <%= f.submit "Grant", :onclick => "return confirm('Are you sure to Grant?')", class:"btn btn-danger" %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

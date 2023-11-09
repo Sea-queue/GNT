@@ -44,12 +44,12 @@
             </div>
 
             <div class="form-floating mb-3">
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control rounded-3", id:"floatingInput", placeholder:"name@example.com"%>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control rounded-3", id:"floatingInput", placeholder:""%>
               <label for="floatingInput">Email address *</label>
             </div>
 
             <div class="form-floating mb-3">
-              <%= f.password_field :password, autocomplete: "new-password", placeholder:"go_rails", class: "form-control rounded-3", id:"floatingPassword"%>
+              <%= f.password_field :password, autocomplete: "new-password", placeholder:"", class: "form-control rounded-3", id:"floatingPassword"%>
               <label for="floatingPassword">
                 Password *
                 <% if @minimum_password_length %>
@@ -59,7 +59,7 @@
             </div>
 
             <div class="form-floating mb-3">
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"go_rails", class: "form-control rounded-3" %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"", class: "form-control rounded-3" %>
               <label for="floatingPassword"> Password Confirmation *</label>
             </div>
 
