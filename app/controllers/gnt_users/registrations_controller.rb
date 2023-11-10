@@ -18,6 +18,7 @@ class GntUsers::RegistrationsController < Devise::RegistrationsController
         format.html {redirect_to new_gnt_user_registration_url, notice: "Please agree to the Terms and Conditions before proceeding."}
       else
         super
+        format.html {redirect_to new_gnt_user_registration_url, notice: "Please agree to the Terms and Conditions before proceeding."}
         return
       end
     end 

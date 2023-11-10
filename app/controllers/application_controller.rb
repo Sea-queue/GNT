@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
         :nationality,
         :i_am, 
         :years_of_experience, 
+        :resume,
         :country_code,
         :phone_number,
         :apply_visa_for, 

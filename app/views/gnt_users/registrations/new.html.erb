@@ -26,12 +26,12 @@
               <%= f.select :years_of_experience, ['0', '1', '2', '3+'] %>
             </div>
 
-            <% if false %>
-              <div class="form-control mb-3" style="display: flex">
-                <%= f.label :'Resume:' %> &nbsp
-                <%= f.file_field :resume %>
-              </div>
-            <% end %>
+            
+            <div class="form-control mb-3" style="display: flex">
+              <%= f.label :'Resume:' %> &nbsp
+              <%= f.file_field :resume %>
+            </div>
+            
 
             <div class="form-control mb-3">
               <label>Nationality: &nbsp</label>

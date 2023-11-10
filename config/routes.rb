@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   get 'home/state_law_privacy_policy'
   devise_for :gnt_users, controllers: { sessions: 'gnt_users/sessions', registrations: 'gnt_users/registrations' }
   devise_scope :sessions do
-    get 'user_application/:id', to: 'gnt_users#user_application', as: :user_application
+    get 'professional_info/:id', to: 'gnt_users#professional_info', as: :professional_info
+    get 'english_exam/:id', to: 'gnt_users#english_exam', as: :english_exam
+    get 'nclex/:id', to: 'gnt_users#nclex', as: :nclex
+    get 'licensing/:id', to: 'gnt_users#licensing', as: :licensing
+    get 'immigration/:id', to: 'gnt_users#immigration', as: :immigration
   end
   resources :gnt_users, only: [:index, :show, :edit, :update] do 
     member do

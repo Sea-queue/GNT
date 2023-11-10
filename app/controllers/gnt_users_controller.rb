@@ -53,7 +53,23 @@ class GntUsersController < ApplicationController
     end
   end
 
-  def user_application
+  def professional_info
+    @user = current_gnt_user
+  end
+
+  def english_exam
+    @user = current_gnt_user
+  end
+
+  def nclex
+    @user = current_gnt_user
+  end
+
+  def licensing
+    @user = current_gnt_user
+  end
+
+  def immigration
     @user = current_gnt_user
   end
 

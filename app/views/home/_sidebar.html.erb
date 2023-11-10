@@ -1,9 +1,25 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary align-items-center" style="width: 250px;">
+
+    <div>
+      <br>
+      <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none"  aria-expanded="false">
+        <%= image_tag(@user.avatar, height: '100px', width:"100px", class:'border border-2 rounded-circle') %>
+      </a>
+      <br>
+      <div>
+        <a style="font-size: 20px;">Welcome,</a>
+      </div>
+      <div>
+        <strong style="font-size: 20px;"><%= @user.full_name %></strong>
+      </div>
+    </div>
+
+    <% if false %>
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        <%= image_tag(@user.avatar, height: '100px', width:"80px", height:"80px", class:'border border-2 rounded-5') %>
+        <%= image_tag(@user.avatar, height: '80px', width:"100px", class:'border border-2 rounded-5') %>
         &emsp;
-        <strong"><%= @user.full_name %></strong>
+        <strong><%= @user.full_name %></strong>
       </a>
       <ul class="dropdown-menu text-small shadow">
         <li><a class="dropdown-item" href="#">Profile</a></li>
@@ -11,75 +27,69 @@
         <li><a class="dropdown-item" href="#">Sign out</a></li>
       </ul>
     </div>
+    <% end %>
+
     <hr>
-    <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-      <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-      <span class="fs-4">Dashboard</span>
-    </a>
-    <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item">
-        <a href="#" class="nav-link active" aria-current="page">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-          Register
-        </a>
+
+    <ul class="nav nav-pills flex-column mb-auto" style="margin-left: 20%">
+      <li class="nav-item mt-1 mb-1">
+        <button type="button" class="btn btn-warning" disabled> <%= link_to image_tag('register.svg') %> Register </button>
       </li>
-      <li class="nav-item">
-        <%= link_to 'Getting Started', edit_gnt_user_path(current_gnt_user), class:"btn btn-warning"%>
+
+      <li class="nav-item mt-1 mb-1">
+        <%= link_to image_tag('get_started.svg')+' Getting Started', edit_gnt_user_path(current_gnt_user), class:"btn btn-warning"%>
       </li>
-      <li>
+
+      <li class="nav-item mt-1 mb-1">
         <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
-          <%= link_to 'Professional Info', user_application_path(current_gnt_user), class:'btn btn-warning' %>
+          <%= link_to image_tag('professional.svg')+' Professional Info', professional_info_path(current_gnt_user), class:'btn btn-warning' %>
         <% else %>
-          <button type="button" class="btn btn-warning">Professional Info</button>
+          <button type="button" class="btn btn-warning" disabled> <%= link_to image_tag('professional.svg'), professional_info_path(current_gnt_user) %> Professional Info</button>
         <% end %>
       </li>
-      <li>
-        <a href="#" class="nav-link link-body-emphasis">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-          English Exam
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link link-body-emphasis">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-          NCLEX
-        </a>
+
+      <li class="nav-item mt-1 mb-1">
+        <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
+          <%= link_to image_tag('english_exam.svg')+' English Exam', english_exam_path(current_gnt_user), class:'btn btn-warning' %>
+        <% else %>
+          <button type="button" class="btn btn-warning" disabled><%= link_to image_tag('english_exam.svg') %> English Exam</button>
+        <% end %>
       </li>
 
-      <li>
-        <a href="#" class="nav-link link-body-emphasis">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-          Licensing
-        </a>
+      <li class="nav-item mt-1 mb-1">
+        <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
+          <%= link_to image_tag('nclex.svg')+' NCLEX', nclex_path(current_gnt_user), class:'btn btn-warning' %>
+        <% else %>
+          <button type="button" class="btn btn-warning" disabled><%= link_to image_tag('nclex.svg') %> NCLEX</button>
+        <% end %>
       </li>
 
-      <li>
-        <a href="#" class="nav-link link-body-emphasis">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-          Jobs
-        </a>
+      <li class="nav-item mt-1 mb-1">
+        <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
+          <%= link_to image_tag('licensing.svg')+' Licensing', licensing_path(current_gnt_user), class:'btn btn-warning' %>
+        <% else %>
+          <button type="button" class="btn btn-warning" disabled><%= link_to image_tag('licensing.svg') %> Licensing</button>
+        <% end %>
       </li>
 
-      <li>
-        <a href="#" class="nav-link link-body-emphasis">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-          Immigration
-        </a>
+      <li class="nav-item mt-1 mb-1">
+        <button type="button" class="btn btn-warning" disabled> <%= link_to image_tag('jobs.svg') %> Jobs </button>
       </li>
 
-      <li>
-        <a href="#" class="nav-link link-body-emphasis">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-          Screening
-        </a>
+      <li class="nav-item mt-1 mb-1">
+        <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
+          <%= link_to image_tag('immigration.svg')+' Immigration', immigration_path(current_gnt_user), class:'btn btn-warning' %>
+        <% else %>
+          <button type="button" class="btn btn-warning" disabled> <%= link_to image_tag('immigration.svg') %> Immigration</button>
+        <% end %>
       </li>
 
-      <li>
-        <a href="#" class="nav-link link-body-emphasis">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-          Onboarding
-        </a>
+      <li class="nav-item mt-1 mb-1">
+        <button type="button" class="btn btn-warning" disabled> <%= link_to image_tag('screening.svg') %> Screening </button>
+      </li>
+
+      <li class="nav-item mt-1 mb-1">
+        <button type="button" class="btn btn-warning" disabled> <%= link_to image_tag('orientation.svg') %> Onboarding </button>
       </li>
     </ul>
   </div>

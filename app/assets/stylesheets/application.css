@@ -20,7 +20,9 @@
   
 .header_text {
   color: #40403f;
-  font-size: larger;
+  font-size: 35px;
+  font-weight: bold;
+  margin-top: 2%;
 }
 
 .footer_customize {
@@ -55,3 +57,9 @@
   font-weight: bold;
   font-size: 150%;
 }
+
+.dashboard_button {
+  color: white;
+  background-color:  white
+}
+

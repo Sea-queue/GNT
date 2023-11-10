@@ -1,13 +1,13 @@
 <header class="p-3 navbar-custom" >
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+      <ul class="nav col-12 col-lg-auto me-lg-auto justify-content-center mb-md-0">
         <li class="nav-item">
-          <%= image_tag 'ta_logo.png', style:'width:70px; height:45px' %>
+          <%= image_tag 'ta_logo.png', style:'width:140px; height:80px' %>
         </li>
 
         <% if current_gnt_user %>
-          <%= link_to 'Talent Angels', root_path, class:'nav-link active header_text'%>
+          <%= link_to 'TALENT ANGELS', root_path, class:'nav-link active header_text'%>
           <% if false %>
             <li class="nav-item dropdown">
               <% if current_gnt_user.languages_spoken == 'Español' %>
@@ -33,7 +33,7 @@
             </li>
           <% end %>
         <% else %>
-          <%= link_to 'Talent Angels America', root_path, class:'nav-link active header_text'%>
+          <%= link_to 'TALENT ANGELS', root_path, class:'nav-link active header_text'%>
           <% if false %>
             <li class="nav-item" >
               <%= link_to 'Home', root_path, class:'nav-link active'%>
@@ -60,22 +60,20 @@
           </li>
         <% end %>
 
-        <% if current_gnt_user %>
-          <a class="nav-link dropdown-toggle mt-1" role="button" data-bs-toggle="dropdown">
-            International Nurses
-          </a>
-          <ul class="dropdown-menu">
-            <% if current_gnt_user && current_gnt_user.candidate? %>
-              <% if false %>
+        <% if false %>
+          <% if current_gnt_user %>
+            <a class="nav-link dropdown-toggle header_text" role="button" data-bs-toggle="dropdown">
+              International Nurses
+            </a>
+            <ul class="dropdown-menu">
+              <% if current_gnt_user && current_gnt_user.candidate? %>
                 <li class="nav-item">
                   <%= link_to 'Application Status', candidates_pages_application_status_path, class:'nav-link active' %>
                 </li>
+                <li class="nav-item">
+                  <%= link_to 'Edit Settings', edit_gnt_user_registration_path, class:'nav-link active' %>
+                </li>
               <% end %>
-              <li class="nav-item">
-                <%= link_to 'Edit Settings', edit_gnt_user_registration_path, class:'nav-link active' %>
-              </li>
-            <% end %>
-            <% if false %>
               <li class="nav-item" >
                 <%= link_to 'How To Apply', root_path, class:'nav-link active'%>
               </li>
@@ -88,16 +86,14 @@
               <li class="nav-item">
                 <%= link_to 'FAQ', home_faq_path, class:"nav-link active" %>
               </li>
-            <% end %>
-          </ul>
-          <% if false %>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
-                Employers
-              </a>
-              <ul class="dropdown-menu">
-              </ul>
-            </li>
+            </ul>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                  Employers
+                </a>
+                <ul class="dropdown-menu">
+                </ul>
+              </li>
           <% end %>
         <% end %>
       </ul>
@@ -115,16 +111,25 @@
             <% end %>
           <% end %>
           &nbsp &nbsp &nbsp
-          <%= link_to image_tag('profile.svg'), gnt_user_path(current_gnt_user) %>
+          
           &nbsp &nbsp &nbsp
-          <div class="text-end">
-            <%= link_to 'Sign Out', destroy_gnt_user_session_path, data: { turbo_method: :delete }, class:'btn sign_in_out' %>
+          <div class="btn-group">
+            <button type="button" class="btn btn-warning"><%= link_to image_tag('user.svg'), gnt_user_path(current_gnt_user) %> <a style="font-size: 20px;">&nbsp;Profile</a></button>
+            <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><%= link_to image_tag('profile.svg')+" Dashboard", gnt_user_path(current_gnt_user), class:'nav-link active' %></li>
+              <li><a class="dropdown-item" href="#"><%= link_to image_tag('settings.svg')+' Settings', edit_gnt_user_registration_path, class:'nav-link active' %></a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><%= link_to image_tag('logout.svg')+' Sign Out', destroy_gnt_user_session_path, data: { turbo_method: :delete }, class:'nav-link active' %></li>
+            </ul>
           </div>
         <% end %>
       <% else %>
         <div class="text-end">
           <%= link_to 'Sign In', new_gnt_user_session_path, class:'btn sign_in_out me-2' %>
-          <%= link_to 'Apply', new_gnt_user_registration_path, class:'btn apply' %>
+          <%= link_to 'Begin Here', new_gnt_user_registration_path, class:'btn apply' %>
         </div>
       <% end %>
     </div>
