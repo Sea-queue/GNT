@@ -53,6 +53,10 @@ class GntUsersController < ApplicationController
     end
   end
 
+  def register
+    @user = current_gnt_user
+  end
+
   def professional_info
     @user = current_gnt_user
   end
@@ -69,7 +73,19 @@ class GntUsersController < ApplicationController
     @user = current_gnt_user
   end
 
+  def jobs
+    @user = current_gnt_user
+  end
+
   def immigration
+    @user = current_gnt_user
+  end
+
+  def screening
+    @user = current_gnt_user
+  end
+
+  def orientation
     @user = current_gnt_user
   end
 

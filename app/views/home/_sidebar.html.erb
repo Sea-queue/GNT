@@ -1,95 +1,91 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary align-items-center" style="width: 250px;">
-
+  <div>
+    <br>
+    <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none"  aria-expanded="false">
+      <%= image_tag(@user.avatar, height: '100px', width:"100px", class:'border border-2 rounded-circle') %>
+    </a>
+    <br>
     <div>
-      <br>
-      <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none"  aria-expanded="false">
-        <%= image_tag(@user.avatar, height: '100px', width:"100px", class:'border border-2 rounded-circle') %>
-      </a>
-      <br>
-      <div>
-        <a style="font-size: 20px;">Welcome,</a>
-      </div>
-      <div>
-        <strong style="font-size: 20px;"><%= @user.full_name %></strong>
-      </div>
+      <a style="font-size: 20px;">Welcome,</a>
     </div>
-
-    <% if false %>
-    <div class="dropdown">
-      <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        <%= image_tag(@user.avatar, height: '80px', width:"100px", class:'border border-2 rounded-5') %>
-        &emsp;
-        <strong><%= @user.full_name %></strong>
-      </a>
-      <ul class="dropdown-menu text-small shadow">
-        <li><a class="dropdown-item" href="#">Profile</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Sign out</a></li>
-      </ul>
+    <div>
+      <strong style="font-size: 20px;"><%= @user.full_name %></strong>
     </div>
-    <% end %>
-
-    <hr>
-
-    <ul class="nav nav-pills flex-column mb-auto" style="margin-left: 20%">
-      <li class="nav-item mt-1 mb-1">
-        <button type="button" class="btn btn-warning" disabled> <%= link_to image_tag('register.svg') %> Register </button>
-      </li>
-
-      <li class="nav-item mt-1 mb-1">
-        <%= link_to image_tag('get_started.svg')+' Getting Started', edit_gnt_user_path(current_gnt_user), class:"btn btn-warning"%>
-      </li>
-
-      <li class="nav-item mt-1 mb-1">
-        <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
-          <%= link_to image_tag('professional.svg')+' Professional Info', professional_info_path(current_gnt_user), class:'btn btn-warning' %>
-        <% else %>
-          <button type="button" class="btn btn-warning" disabled> <%= link_to image_tag('professional.svg'), professional_info_path(current_gnt_user) %> Professional Info</button>
-        <% end %>
-      </li>
-
-      <li class="nav-item mt-1 mb-1">
-        <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
-          <%= link_to image_tag('english_exam.svg')+' English Exam', english_exam_path(current_gnt_user), class:'btn btn-warning' %>
-        <% else %>
-          <button type="button" class="btn btn-warning" disabled><%= link_to image_tag('english_exam.svg') %> English Exam</button>
-        <% end %>
-      </li>
-
-      <li class="nav-item mt-1 mb-1">
-        <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
-          <%= link_to image_tag('nclex.svg')+' NCLEX', nclex_path(current_gnt_user), class:'btn btn-warning' %>
-        <% else %>
-          <button type="button" class="btn btn-warning" disabled><%= link_to image_tag('nclex.svg') %> NCLEX</button>
-        <% end %>
-      </li>
-
-      <li class="nav-item mt-1 mb-1">
-        <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
-          <%= link_to image_tag('licensing.svg')+' Licensing', licensing_path(current_gnt_user), class:'btn btn-warning' %>
-        <% else %>
-          <button type="button" class="btn btn-warning" disabled><%= link_to image_tag('licensing.svg') %> Licensing</button>
-        <% end %>
-      </li>
-
-      <li class="nav-item mt-1 mb-1">
-        <button type="button" class="btn btn-warning" disabled> <%= link_to image_tag('jobs.svg') %> Jobs </button>
-      </li>
-
-      <li class="nav-item mt-1 mb-1">
-        <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
-          <%= link_to image_tag('immigration.svg')+' Immigration', immigration_path(current_gnt_user), class:'btn btn-warning' %>
-        <% else %>
-          <button type="button" class="btn btn-warning" disabled> <%= link_to image_tag('immigration.svg') %> Immigration</button>
-        <% end %>
-      </li>
-
-      <li class="nav-item mt-1 mb-1">
-        <button type="button" class="btn btn-warning" disabled> <%= link_to image_tag('screening.svg') %> Screening </button>
-      </li>
-
-      <li class="nav-item mt-1 mb-1">
-        <button type="button" class="btn btn-warning" disabled> <%= link_to image_tag('orientation.svg') %> Onboarding </button>
-      </li>
-    </ul>
   </div>
+
+  <hr>
+
+  <ul class="nav nav-pills flex-column mb-auto" style="margin-left: 20%">
+    <li class="nav-item mt-1 mb-1">
+      <%= link_to image_tag('register.svg')+' Register', register_path(current_gnt_user), class:"btn text-decoration-none dashboard_button" %>
+    </li>
+
+    <li class="nav-item mt-1 mb-1">
+      <%= link_to image_tag('get_started.svg')+' Getting Started', edit_gnt_user_path(current_gnt_user), class:"btn dashboard_button" %>
+    </li>
+
+    <li class="nav-item mt-1 mb-1">
+      <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
+        <%= link_to image_tag('professional.svg')+' Professional Info', professional_info_path(current_gnt_user), class:'btn dashboard_button' %>
+      <% else %>
+        <%= link_to image_tag('professional.svg')+' Professional Info', '', class:"btn text-decoration-none dashboard_button" %>
+      <% end %>
+    </li>
+
+    <li class="nav-item mt-1 mb-1">
+      <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
+        <%= link_to image_tag('english_exam.svg')+' English Exam', english_exam_path(current_gnt_user), class:'btn btn-warning' %>
+      <% else %>
+        <button type="button" class="btn btn-warning" disabled><%= link_to image_tag('english_exam.svg') %> English Exam</button>
+      <% end %>
+    </li>
+
+    <li class="nav-item mt-1 mb-1">
+      <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
+        <%= link_to image_tag('nclex.svg')+' NCLEX', nclex_path(current_gnt_user), class:'btn btn-warning' %>
+      <% else %>
+        <button type="button" class="btn btn-warning" disabled><%= link_to image_tag('nclex.svg') %> NCLEX</button>
+      <% end %>
+    </li>
+
+    <li class="nav-item mt-1 mb-1">
+      <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
+        <%= link_to image_tag('licensing.svg')+' Licensing', licensing_path(current_gnt_user), class:'btn btn-warning' %>
+      <% else %>
+        <button type="button" class="btn btn-warning" disabled><%= link_to image_tag('licensing.svg') %> Licensing</button>
+      <% end %>
+    </li>
+
+    <li class="nav-item mt-1 mb-1">
+      <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
+        <%= link_to image_tag('jobs.svg')+' Jobs', jobs_path(current_gnt_user), class:'btn btn-warning' %>
+      <% else %>
+        <button type="button" class="btn btn-warning" disabled><%= link_to image_tag('jobs.svg') %> Jobs </button>
+      <% end %>
+    </li>
+
+    <li class="nav-item mt-1 mb-1">
+      <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
+        <%= link_to image_tag('immigration.svg')+' Immigration', immigration_path(current_gnt_user), class:'btn btn-warning' %>
+      <% else %>
+        <button type="button" class="btn btn-warning" disabled> <%= link_to image_tag('immigration.svg') %> Immigration</button>
+      <% end %>
+    </li>
+
+    <li class="nav-item mt-1 mb-1">
+      <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
+        <%= link_to image_tag('screening.svg')+' Screening', screening_path(current_gnt_user), class:'btn btn-warning' %>
+      <% else %>
+        <button type="button" class="btn btn-warning" disabled><%= link_to image_tag('screening.svg') %> Screening</button>
+      <% end %>
+    </li>
+
+    <li class="nav-item mt-1 mb-1">
+      <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
+        <%= link_to image_tag('orientation.svg')+' Orientation', orientation_path(current_gnt_user), class:'btn btn-warning' %>
+      <% else %>
+        <button type="button" class="btn btn-warning" disabled> <%= link_to image_tag('orientation.svg') %> Onboarding </button>
+      <% end %>
+    </li>
+  </ul>
+</div>
