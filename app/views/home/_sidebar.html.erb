@@ -1,4 +1,4 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary align-items-center" style="width: 250px;">
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary align-items-center" style="width: 250px; padding-left: 0px; padding-right:0px">
   <div>
     <br>
     <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none"  aria-expanded="false">
@@ -15,76 +15,76 @@
 
   <hr>
 
-  <ul class="nav nav-pills flex-column mb-auto" style="margin-left: 20%">
+  <ul class="nav nav-pills flex-column mb-auto" style="margin-left: 0%; margin-right: 0%;">
     <li class="nav-item mt-1 mb-1">
-      <%= link_to image_tag('register.svg')+' Register', register_path(current_gnt_user), class:"btn text-decoration-none dashboard_button" %>
+      <%= link_to image_tag('register.svg')+' Register', register_path(current_gnt_user), class:"btn rounded-0 text-decoration-none dashboard_button col-12" %>
     </li>
 
     <li class="nav-item mt-1 mb-1">
-      <%= link_to image_tag('get_started.svg')+' Getting Started', edit_gnt_user_path(current_gnt_user), class:"btn dashboard_button" %>
+      <%= link_to image_tag('get_started.svg')+' Getting Started', gnt_user_path(current_gnt_user), class:"btn rounded-0 dashboard_button col-12"%>
     </li>
 
     <li class="nav-item mt-1 mb-1">
       <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
-        <%= link_to image_tag('professional.svg')+' Professional Info', professional_info_path(current_gnt_user), class:'btn dashboard_button' %>
+        <%= link_to image_tag('professional.svg')+' Professional Info', professional_info_show_path(current_gnt_user), class:'btn rounded-0 col-12 dashboard_button' %>
       <% else %>
-        <%= link_to image_tag('professional.svg')+' Professional Info', '', class:"btn text-decoration-none dashboard_button" %>
+        <%= link_to image_tag('professional.svg')+' Professional Info', '', class:"btn rounded-0 text-decoration-none dashboard_button_disabled" %>
       <% end %>
     </li>
 
     <li class="nav-item mt-1 mb-1">
       <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
-        <%= link_to image_tag('english_exam.svg')+' English Exam', english_exam_path(current_gnt_user), class:'btn btn-warning' %>
+        <%= link_to image_tag('english_exam.svg')+' English Exam', english_exam_show_path(current_gnt_user), class:'btn dashboard_button rounded-0 col-12' %>
       <% else %>
-        <button type="button" class="btn btn-warning" disabled><%= link_to image_tag('english_exam.svg') %> English Exam</button>
+        <%= link_to image_tag('english_exam.svg')+' English Exam', '', class:"btn text-decoration-none dashboard_button_disabled" %>
       <% end %>
     </li>
 
     <li class="nav-item mt-1 mb-1">
       <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
-        <%= link_to image_tag('nclex.svg')+' NCLEX', nclex_path(current_gnt_user), class:'btn btn-warning' %>
+        <%= link_to image_tag('nclex.svg')+' NCLEX', nclex_show_path(current_gnt_user), class:'btn dashboard_button rounded-0 col-12' %>
       <% else %>
-        <button type="button" class="btn btn-warning" disabled><%= link_to image_tag('nclex.svg') %> NCLEX</button>
+        <%= link_to image_tag('nclex.svg')+' NCLEX', '', class:"btn text-decoration-none dashboard_button_disabled" %>
       <% end %>
     </li>
 
     <li class="nav-item mt-1 mb-1">
       <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
-        <%= link_to image_tag('licensing.svg')+' Licensing', licensing_path(current_gnt_user), class:'btn btn-warning' %>
+        <%= link_to image_tag('licensing.svg')+' Licensing', licensing_show_path(current_gnt_user), class:'btn dashboard_button rounded-0 col-12' %>
       <% else %>
-        <button type="button" class="btn btn-warning" disabled><%= link_to image_tag('licensing.svg') %> Licensing</button>
+        <%= link_to image_tag('licensing.svg')+' Licensing', '', class:"btn text-decoration-none dashboard_button_disabled" %>
       <% end %>
     </li>
 
     <li class="nav-item mt-1 mb-1">
       <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
-        <%= link_to image_tag('jobs.svg')+' Jobs', jobs_path(current_gnt_user), class:'btn btn-warning' %>
+        <%= link_to image_tag('jobs.svg')+' Jobs', jobs_path(current_gnt_user), class:'btn dashboard_button rounded-0 col-12' %>
       <% else %>
-        <button type="button" class="btn btn-warning" disabled><%= link_to image_tag('jobs.svg') %> Jobs </button>
+        <%= link_to image_tag('jobs.svg')+' Jobs', '', class:"btn text-decoration-none dashboard_button_disabled" %>
       <% end %>
     </li>
 
     <li class="nav-item mt-1 mb-1">
       <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
-        <%= link_to image_tag('immigration.svg')+' Immigration', immigration_path(current_gnt_user), class:'btn btn-warning' %>
+        <%= link_to image_tag('immigration.svg')+' Immigration', immigration_show_path(current_gnt_user), class:'btn dashboard_button rounded-0 col-12' %>
       <% else %>
-        <button type="button" class="btn btn-warning" disabled> <%= link_to image_tag('immigration.svg') %> Immigration</button>
+        <%= link_to image_tag('immigration.svg')+' Immigration', '', class:"btn text-decoration-none dashboard_button_disabled" %>
       <% end %>
     </li>
 
     <li class="nav-item mt-1 mb-1">
       <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
-        <%= link_to image_tag('screening.svg')+' Screening', screening_path(current_gnt_user), class:'btn btn-warning' %>
+        <%= link_to image_tag('screening.svg')+' Screening', screening_path(current_gnt_user), class:'btn dashboard_button rounded-0 col-12' %>
       <% else %>
-        <button type="button" class="btn btn-warning" disabled><%= link_to image_tag('screening.svg') %> Screening</button>
+        <%= link_to image_tag('screening.svg')+' Screening', '', class:"btn text-decoration-none dashboard_button_disabled" %>
       <% end %>
     </li>
 
     <li class="nav-item mt-1 mb-1">
       <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
-        <%= link_to image_tag('orientation.svg')+' Orientation', orientation_path(current_gnt_user), class:'btn btn-warning' %>
+        <%= link_to image_tag('onboarding.svg')+' Onboarding', onboarding_path(current_gnt_user), class:'btn dashboard_button rounded-0 col-12' %>
       <% else %>
-        <button type="button" class="btn btn-warning" disabled> <%= link_to image_tag('orientation.svg') %> Onboarding </button>
+        <%= link_to image_tag('onboarding.svg')+' Onboarding', '', class:"btn text-decoration-none dashboard_button_disabled" %>
       <% end %>
     </li>
   </ul>

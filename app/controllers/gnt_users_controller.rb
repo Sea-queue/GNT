@@ -55,9 +55,14 @@ class GntUsersController < ApplicationController
 
   def register
     @user = current_gnt_user
+    @prog = 50
   end
 
   def professional_info
+    @user = current_gnt_user
+  end
+
+  def professional_info_show
     @user = current_gnt_user
   end
 
@@ -65,11 +70,23 @@ class GntUsersController < ApplicationController
     @user = current_gnt_user
   end
 
+  def english_exam_show
+    @user = current_gnt_user
+  end
+
   def nclex
     @user = current_gnt_user
   end
 
+  def nclex_show
+    @user = current_gnt_user
+  end
+
   def licensing
+    @user = current_gnt_user
+  end
+
+  def licensing_show
     @user = current_gnt_user
   end
 
@@ -81,11 +98,15 @@ class GntUsersController < ApplicationController
     @user = current_gnt_user
   end
 
+  def immigration_show
+    @user = current_gnt_user
+  end
+
   def screening
     @user = current_gnt_user
   end
 
-  def orientation
+  def onboarding
     @user = current_gnt_user
   end
 
@@ -140,6 +161,18 @@ class GntUsersController < ApplicationController
       :birth_certificate_translate,
       :passport,
       :entry_stamp,
+      :request_english_assessment,
+      :current_resident_state,
+      :top_specialties,
+      :medical_surgical,
+      :pediatrics,
+      :obstetrics_gynecology,
+      :psychiatry,
+      :emergency,
+      :critical_care_icu,
+      :geriatrics_nursing_home,
+      :other_specialty_name,
+      :other_specialty_hour,
       transcript: [],
       transcript_translate: [],
       visa: []

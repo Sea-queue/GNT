@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_31_215222) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_13_200523) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -95,6 +95,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_31_215222) do
     t.integer "geriatrics_nursing_home"
     t.string "other_specialty_name"
     t.integer "other_specialty_hour"
+    t.boolean "request_english_assessment", default: false
+    t.string "current_resident_state"
+    t.string "top_specialties"
     t.index ["email"], name: "index_gnt_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_gnt_users_on_reset_password_token", unique: true
   end

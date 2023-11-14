@@ -6,6 +6,7 @@ There are <em style="font-size:25px"><%= user.count %> candidates</em> in the da
   <thead>
     <tr>
       <th scope="col">Full Name</th>
+      <th scope="col">Requested English Assessment</th>
       <th scope="col">Requested to apply</th>
       <th scope="col">Grant Application Access</th>
     </tr>
@@ -15,6 +16,7 @@ There are <em style="font-size:25px"><%= user.count %> candidates</em> in the da
       <tbody>
         <tr>
           <td><%= link_to user.full_name, user %></td>
+          <td><%= user.request_english_assessment %></td>
           <td><%= user.request_to_apply %></td>
           <td><%= user.grant_apply_request %></td>
         </tr>

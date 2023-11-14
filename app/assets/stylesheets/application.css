@@ -63,3 +63,8 @@
   background-color:  #114fa7
 }
 
+.dashboard_button_disabled {
+  color: white;
+  background-color:  #5175a8
+}
+

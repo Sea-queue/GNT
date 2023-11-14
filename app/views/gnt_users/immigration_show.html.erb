@@ -1,0 +1,95 @@
+<div class="mb-3 mt-3" style="display: flex; border-radius: .5rem">
+  <%= render 'home/sidebar' %>
+  <%= form_with(model: @user) do |f| %>
+    <% if @user.errors.any? %>
+      <div id='error_explanation'>
+        <h2><%= pluralize(user.errors.count, 'error') %> prohibited this user from being saved:</h2>
+        <ul>
+          <% @user.errors.full_message.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+            
+    <div class="card" style="border-radius: .5rem;">
+      <div class="row g-0">
+        <div class="col-md-12">
+          <div class="card-body p-4">
+
+            <%= link_to 'Edit', immigration_path(current_gnt_user), class:"btn dashboard_button mb-3" %>
+
+            <h6 style='color:red'> * required fields </h6>
+            <h5 class='section_title mt-2'>Immigration</h5>
+            <hr class="mt-0 mb-4">
+            
+            <div class="col-20 mb-3" style="display: flex">
+              <h6> CGFNS VisaScreen Report: &nbsp</h6>
+              <% if @user.cgfns_upload.attached? %>
+                <%= link_to @user.cgfns_upload.filename, url_for(@user.cgfns_upload) %>
+              <% end %>
+            </div>
+
+            <div class="col-20 mb-3" style="display: flex">
+              <h6>Original or certified copy of Birth Certificate: &nbsp</h6>
+              <% if @user.birth_certificate.attached? %>
+                <%= link_to @user.birth_certificate.filename, url_for(@user.birth_certificate) %>
+              <% end %>
+            </div>
+
+            <div class="col-20 mb-3" style="display: flex">
+              <h6>Translation of Birth Certificate: &nbsp</h6>
+              <% if @user.birth_certificate_translate.attached? %>
+                <%= link_to @user.birth_certificate_translate.filename, url_for(@user.birth_certificate_translate) %>
+              <% end %>
+            </div>
+
+            <div class="col-20 mb-3" style="display: flex">
+              <h6>Valid Passport (biographic page): &nbsp</h6>
+              <% if @user.passport.attached? %>
+                <%= link_to @user.passport.filename, url_for(@user.passport) %>
+              <% end %>
+            </div>
+
+            <div class="col-20 mb-3" style="display: flex">
+              <h6>Current or former US Visa(s): &nbsp</h6>
+              <% if @user.visa.attached? %>
+                <% for item in @user.visa %>
+                  <%= link_to item.filename, url_for(item) %>
+                <% end %>
+              <% end %>
+            </div>
+
+            <div class="col-30 mb-3" style="display: flex">
+              <h6>Current visa application for: &nbsp</h6>
+              <h6 class='profile_text'><%= @user.apply_visa_for %></h6>
+            </div>
+
+            <div class="col-20 mb-3" style="display: flex">
+              <h6>U.S. Entry Stamp or I-94 Departure/Arrival record: &nbsp</h6>
+              <% if @user.entry_stamp.attached? %>
+                <%= link_to @user.entry_stamp.filename, url_for(@user.entry_stamp) %>
+              <% end %>
+            </div>
+
+            <div class="col-20 mb-3" style="display: flex">
+              <h6>I have never been convicted of a crime: &nbsp</h6>
+              <h6 class='profile_text'><%= @user.convicted_crime %></h6>
+            </div>
+
+            <div class="col-20 mb-3" style="display: flex">
+              <h6>I have not had any substance use disorder in the last five years: &nbsp</h6>
+              <h6 class='profile_text'><%= @user.disorder %></h6>
+            </div>
+
+            <div class="col-20 mb-3" style="display: flex">
+              <h6>Is there anything else our Recruitment Team should know?</h6>
+              <h6 class='profile_text'><%= @user.other_3 %></h6>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

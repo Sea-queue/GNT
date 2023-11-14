@@ -1,0 +1,125 @@
+<div class="mb-3 mt-3" style="display: flex; border-radius: .5rem">
+  <%= render 'home/sidebar' %>
+  <%= form_with(model: @user) do |f| %>
+    <% if @user.errors.any? %>
+      <div id='error_explanation'>
+        <h2><%= pluralize(user.errors.count, 'error') %> prohibited this user from being saved:</h2>
+        <ul>
+          <% @user.errors.full_message.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="card" style="border-radius: .5rem;">
+      <div class="row g-0">
+        <div class="col-md-12">
+          <div class="card-body p-4">
+
+            <%= link_to 'Edit', professional_info_path(current_gnt_user), class:"btn dashboard_button mb-3" %>
+
+            <h6 style='color:red'> * required fields </h6>
+            <h5 class='section_title mt-3'>Professional Info</h5>
+            <hr class="mt-0 mb-4">
+            <div class="row pt-1">
+
+              <div class="col-20 mb-3" style="display: flex">
+                <h6>License Type: &nbsp</h6>
+                <h6 class='profile_text'><%= @user.license_type %></h6>
+              </div>
+
+              <div class="col-20 mb-3" style="display: flex">
+                <h6>Nursing License: &nbsp</h6>
+                <% if @user.rn_license_upload.attached? %>
+                  <%= link_to @user.rn_license_upload.filename, url_for(@user.rn_license_upload) %>
+                <% end %>
+              </div>
+
+              <div class="col-20 mb-3" style="display: flex">
+                <h6>I hereby declare that my nursing license or certification has never been subject to any investigation, legal action, disciplinary measures, suspension, or malpractice claims.: &nbsp</h6>
+                <h6 class='profile_text'><%= @user.stage3_1 %></h6>
+              </div>
+
+              <div class="col-20 mb-3" style="display: flex">
+                <h6>Diploma of Nursing Education: &nbsp</h6>
+                <% if @user.diploma.attached? %>
+                  <%= link_to @user.diploma.filename, url_for(@user.diploma) %>
+                <% end %>
+              </div>
+
+              <div class="col-20 mb-3" style="display: flex">
+                <h6>English translation of nursing education diploma:: &nbsp</h6>
+                <% if @user.diploma_translate.attached? %>
+                  <%= link_to @user.diploma_translate.filename, url_for(@user.diploma_translate) %>
+                <% end %>
+              </div>
+
+              <div class="col-20 mb-3" style="display: flex">
+                <h6>Nursing education transcript: &nbsp</h6>
+                <% if @user.transcript.attached? %>
+                  <% for item in @user.transcript %>
+                    <%= link_to item.filename, url_for(item) %>
+                  <% end %>
+                <% end %>
+              </div>
+
+              <div class="col-20 mb-3" style="display: flex">
+                <h6>English translation of nursing education transcripts: &nbsp</h6>
+                <% if @user.transcript_translate.attached? %>
+                  <% for item in @user.transcript_translate %>
+                    <%= link_to item.filename, url_for(item) %>
+                  <% end %>
+                <% end %>
+              </div>
+
+              <div class="col-20 mb-3">
+                <h6>Number of clinical hours in the nursing program by specialty: &nbsp</h6>
+                <div class="col-20 mb-3" style="display: flex">
+                  <h6>Medical-Surgical:</h6>
+                  <h6 class='profile_text'><%= @user.medical_surgical %></h6>
+                </div>
+
+                <div class="col-20 mb-3" style="display: flex">
+                  <h6>Pediatrics:</h6>
+                  <h6 class='profile_text'><%= @user.pediatrics %></h6>
+                </div>
+
+                <div class="col-20 mb-3" style="display: flex">
+                  <h6>Obstetrics/Gynecology:</h6>
+                  <h6 class='profile_text'><%= @user.obstetrics_gynecology %></h6>
+                </div>
+
+                <div class="col-20 mb-3" style="display: flex">
+                  <h6>Psychiatry:</h6>
+                  <h6 class='profile_text'><%= @user.psychiatry %></h6>
+                </div>
+
+                <div class="col-20 mb-3" style="display: flex">
+                  <h6>Emergency:</h6>
+                  <h6 class='profile_text'><%= @user.emergency %></h6>
+                </div>
+
+                <div class="col-20 mb-3" style="display: flex">
+                  <h6>Critical Care (ICU):</h6>
+                  <h6 class='profile_text'><%= @user.critical_care_icu %></h6>
+                </div>
+
+                <div class="col-20 mb-3" style="display: flex">
+                  <h6>Geriatrics/Nursing Home:</h6>
+                  <h6 class='profile_text'><%= @user.geriatrics_nursing_home %></h6>
+                </div>
+
+                <div class="col-20" style="display: flex">
+                  <h6><%= @user.other_specialty_name %>:</h6>
+                  <h6 class='profile_text'><%= @user.other_specialty_hour %></h6>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
