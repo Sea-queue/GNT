@@ -17,43 +17,63 @@
         <div class="row g-0">
           <div class="col-md-12">
             <div class="card-body p-4">
-              <h6 style='color:red'> * required fields </h6>
-              <h5 class='section_title mt-3'>Register</h5>
+              <h5 class='section_title mt-3' style='text-align: center; font-size: 30px'>Register</h5>
+
+              <h5 class='section_title mt-3'>STEP 1</h5>
               <hr class="mt-0 mb-4">
+              <h6 class="mt-1"><strong>Click <a href="https://forms.gle/r6fdDb3f2bNwPniW7" target="_blank">HERE</a> to register for the next webinar.</strong></h6>
+              <%= image_tag 'landing_eng.svg', style:'margin-left: 5%; width:90%; height:90%' %>
 
-              <div class="col-30 mb-3" style="display: flex">
-                <h6 class="col-1 mt-1"> <strong>STEP 1: </strong></h6>
-                <h6 class="mt-1">Click <a href="https://forms.gle/r6fdDb3f2bNwPniW7" target="_blank">HERE</a> to register for the next Webinar.</h6>
-              </div>
+              <h5 class='section_title'>STEP 2</h5>
+              <hr class="mt-0 mb-2">
 
-              <div class="col-30 mb-3" style='display: flex'>
-               
-                <h6 class="col-1"><strong>STEP 2:</strong></h6> 
-  
+              <div class="col-30 mb-3" style='display: flex'> 
                 <div>
-                  <h6> &nbsp; 1. If you have passed an English proficiency exam (e.g. IELTS, PTE) within the last 2 years, please upload your test results HERE: <%= f.file_field :english_proficiency_result %></h6>
-                  
-                  <h6> &nbsp; 2. If you have NOT recently passed an English proficiency exam (e.g. IELTS, PTE), we can provide a pathway for your preparation: </h6>
-                  
-                  <h6> &nbsp; &nbsp; i. First, register for a FREE English assessment to determine your current level of English proficiency: 
-                    <div class="field mb-2" style='display: flex; color:black'>
-                      <%= f.check_box :request_english_assessment %> &nbsp
-                      <h6 class='mt-2'> Check HERE to request English Assessment.</h6>
-                    </div>  
-                  </h6>
-                  
-                  <h6> &nbsp; &nbsp; ii. After your English Assessment, we will reach out to you with your results and offer an individualized language preparation plan. Scholarships are available now!</h6>  
+                  <div style='display: flex'>
+                    <div class="col-2">
+                      <br>
+                      <h6><strong> Option 1: </strong></h6>
+                    </div>
+                    <div>
+                      <br>
+                      <h6><strong> If you have passed an English proficiency exam (e.g. IELTS, PTE) within the last 2 years, please upload your test results HERE: <%= f.file_field :english_proficiency_result %></strong></h6>
+                    </div>
+                  </div>
+
+                  <div style='display: flex'>
+                    <div class="col-2">
+                      <br>
+                      <h6><strong> Option 2: </strong></h6>
+                    </div>
+                    <div>
+                      <br>
+                      <h6><strong> If you have NOT recently passed an English proficiency exam (e.g. IELTS, PTE), we can provide a pathway for your preparation:</strong> </h6>
+                      <h6> &nbsp; &nbsp; i. First, register for a FREE English assessment to determine your current level of English proficiency: 
+                        <div class="field mb-2" style='display: flex; color:black'>
+                          <%= f.check_box :request_english_assessment %> &nbsp
+                          <h6 class='mt-2'> Check HERE to request English Assessment.</h6>
+                        </div>  
+                      </h6>
+                      <h6> &nbsp; &nbsp; ii. After your English Assessment, we will reach out to you with your results and offer an individualized language preparation plan. Scholarships are available now!</h6>  
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div class="col-30 mb-3">
-                <h6 class="mt-1"> <strong>STEP 3: </strong> Introduce yourself and CONNECT with us if you have any questions: </h6>
-                <h6> &emsp; &emsp; &emsp; WhatsApp Message +1 669 244 4685 </h6>
+              <hr class="mt-0 mb-3">
+              <div class="actions mb-5">
+                <%= f.submit "Update", :onclick => "return confirm('Are you sure to update?')", class:"btn btn-danger mt-2" %>
               </div>
 
-              <hr class="mt-0 mb-4">
-              <div class="actions">
-                <%= f.submit "Update", :onclick => "return confirm('Are you sure to update?')", class:"btn btn-danger mt-2" %>
+              <h5 class='section_title mt-2'>STEP 3</h5>
+              <hr class="mt-0 mb-2">
+
+              <div class="col-30 mb-3" style='display: flex'>
+                <div>
+                  <br>
+                  <h6> CONNECT with us if you have any questions:</h6>
+                  <h6><strong> WhatsApp Message +1 669 244 4685 </strong></h6>
+                </div>
               </div>
 
             </div>

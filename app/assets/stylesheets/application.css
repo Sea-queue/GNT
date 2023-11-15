@@ -53,6 +53,10 @@
   color: #1870ef;
 }
 
+.profile_prompt {
+  font-weight: bold;
+}
+
 .section_title {
   font-weight: bold;
   font-size: 150%;
@@ -65,6 +69,6 @@
 
 .dashboard_button_disabled {
   color: white;
-  background-color:  #5175a8
+  background-color:  #b8c5d8
 }
 

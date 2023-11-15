@@ -5,60 +5,61 @@
 
       <div class="col-md-12">
         <div class="card-body p-4">
-          <%= link_to 'Edit', edit_gnt_user_path(current_gnt_user), class:"btn dashboard_button mb-3" %>
-          <h5 class='section_title' >STEP 1: Basic Information</h5>
+          <%= link_to 'Edit', edit_gnt_user_path(current_gnt_user), class:"btn dashboard_button mb-2" %>
+          <h5 class='section_title mb-3' style='text-align: center; font-size: 30px'> Getting Started</h5>
+          <h5 class='section_title mb-2' >STEP 1: Basic Information</h5>
           <hr class="mt-0 mb-4">
 
           <div class="row pt-1">
             <div class="col-30 mb-3" style='display:flex'>
-              <h6>Full legal name: &nbsp</h6>
+              <h6 class='profile_prompt'>Full legal name: &nbsp</h6>
               <h6 class='profile_text'><%= @user.legal_name %></h6>
             </div>
 
             <div class="col-30 mb-3" style="display: flex">
-              <h6>Email address: &nbsp</h6>
+              <h6 class='profile_prompt'>Email address: &nbsp</h6>
               <h6 class='profile_text'><%= @user.email%></h6>
             </div>
 
             <% if false %>
               <div class="col-30 mb-3" style="display: flex">
-                <h6>Languages spoken: &nbsp</h6>
+                <h6 class='profile_prompt'>Languages spoken: &nbsp</h6>
                 <h6 class='profile_text'><%= @user.languages_spoken %></h6>
               </div>
             <% end %>
 
             <div class="col-30 mb-3" style="display: flex">
-              <h6>Nationality: &nbsp</h6>
+              <h6 class='profile_prompt'>Nationality: &nbsp</h6>
               <h6 class='profile_text'><%= @user.nationality %></h6>
             </div>
 
             <div class="col-30 mb-3" style="display: flex">
-              <h6>Current residence: &nbsp</h6>
+              <h6 class='profile_prompt'>Current residence: &nbsp</h6>
               <h6 class='profile_text'><%= @user.current_resident %>, <%= @user.current_resident %></h6>
             </div>
 
             <div class="col-20 mb-3" style="display: flex">
-              <h6>I am a: &nbsp</h6>
+              <h6 class='profile_prompt'>I am a: &nbsp</h6>
               <h6 class='profile_text'><%= @user.i_am %></h6>
             </div>
 
             <div class="field mb-2" style="display: flex">
-              <h6>Year of expected graduation: &nbsp</h6>
+              <h6 class='profile_prompt'>Year of expected graduation: &nbsp</h6>
               <h6 class='profile_text'><%= @user.year_of_graduation %></h6>
             </div>
 
             <div class="field mb-2" style='display:flex'>
-              <h6>I am currently working as a nurse in a clinical setting: &nbsp</h6>
+              <h6 class='profile_prompt'>I am currently working as a nurse in a clinical setting: &nbsp</h6>
               <h6 class='profile_text'><%= @user.currently_working %></h6>
             </div>
 
             <div class="col-30 mb-3" style="display: flex">
-              <h6>Years of nursing work experience: &nbsp</h6>
+              <h6 class='profile_prompt'>Years of nursing work experience: &nbsp</h6>
               <h6 class='profile_text'><%= @user.years_of_experience %></h6>
             </div>
 
             <div class="col-20 mb-3" style="display: flex">
-              <h6>Resume: &nbsp</h6>
+              <h6 class='profile_prompt'>Resume: &nbsp</h6>
               <% if @user.resume.attached? %>
                 <%= link_to @user.resume.filename, url_for(@user.resume) %>
               <% end %>
@@ -66,23 +67,23 @@
 
             <% if false %>
             <div class="col-30 mb-3" style="display: flex">
-              <h6>Specialty: &nbsp</h6>
+              <h6 class='profile_prompt'>Specialty: &nbsp</h6>
               <h6 class='profile_text'><%= @user.years_of_experience %></h6>
             </div>
             <% end %>
 
             <div class="col-30 mb-3" style='display:flex'>
-              <h6>Phone number: &nbsp</h6>
+              <h6 class='profile_prompt'>Phone number: &nbsp</h6>
               <h6 class='profile_text'> <%= "#{@user.country_code} #{@user.phone_number} " %></h6>
             </div>
 
             <div class="field mb-2" style='display:flex'>
-              <h6>I authorize contact by WhatsApp: &nbsp</h6>
+              <h6 class='profile_prompt'>I authorize contact by WhatsApp: &nbsp</h6>
               <h6 class='profile_text'><%= @user.auth_whatsapp %></h6>
             </div>
 
             <div class="field mb-2" style='display:flex'>
-              <h6>I authorize contact by telephone and text messaging (messaging rates may apply): &nbsp</h6>
+              <h6 class='profile_prompt'>I authorize contact by telephone, email and text messaging (messaging rates may apply): &nbsp</h6>
               <h6 class='profile_text'><%= @user.auth_text %></h6>
             </div>
           </div>

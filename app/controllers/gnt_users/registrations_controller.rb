@@ -71,6 +71,10 @@ class GntUsers::RegistrationsController < Devise::RegistrationsController
 
   private
 
+  def after_sign_up_path_for(resource)
+    register_path(current_gnt_user)
+  end
+
   def gnt_user_params
     params.require(:gnt_user).permit(
       :full_name,
