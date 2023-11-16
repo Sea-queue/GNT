@@ -76,7 +76,7 @@
 
     <li class="nav-item mt-1 mb-1">
       <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
-        <%= link_to image_tag('screening.svg')+' Screening', screening_path(current_gnt_user), class:'btn dashboard_button rounded-0 col-12' %>
+        <%= link_to image_tag('screening.svg')+' Screening', screening_show_path(current_gnt_user), class:'btn dashboard_button rounded-0 col-12' %>
       <% else %>
         <%= link_to image_tag('screening.svg')+' Screening', '', class:"btn text-decoration-none dashboard_button_disabled" %>
       <% end %>

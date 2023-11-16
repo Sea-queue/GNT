@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     get 'immigration/:id', to: 'gnt_users#immigration', as: :immigration
     get 'immigration_show/:id', to: 'gnt_users#immigration_show', as: :immigration_show
     get 'screening/:id', to: 'gnt_users#screening', as: :screening
+    get 'screening_show/:id', to: 'gnt_users#screening_show', as: :screening_show
     get 'onboarding/:id', to: 'gnt_users#onboarding', as: :onboarding
   end
   resources :gnt_users, only: [:index, :show, :edit, :update] do 

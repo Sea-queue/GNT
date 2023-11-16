@@ -22,11 +22,17 @@
               <h5 class='section_sub_title'>STEP 1</h5>
               <hr class="mt-0 mb-4">
               <h6 class="mt-1"><strong>Click <a href="https://forms.gle/r6fdDb3f2bNwPniW7" target="_blank">HERE</a> to register for the next webinar.</strong></h6>
+              
+              <div class="field mb-2" style='display: flex'>
+                <h6 class='mt-2'>Registration Complete. *</h6>
+              </div>
+
               <%= image_tag 'landing_eng.svg', style:'margin-left: 5%; width:90%; height:90%' %>
 
               <h5 class='section_sub_title'>STEP 2</h5>
               <hr class="mt-0 mb-2">
 
+              <h6>Choose one of the below options: *</h6>
               <div class="col-30 mb-3" style='display: flex'> 
                 <div>
                   <div style='display: flex'>
@@ -60,11 +66,6 @@
                 </div>
               </div>
 
-              <hr class="mt-0 mb-3">
-              <div class="actions mb-5">
-                <%= f.submit "Update", :onclick => "return confirm('Are you sure to update?')", class:"btn btn-danger mt-2" %>
-              </div>
-
               <h5 class='section_sub_title mt-2'>STEP 3</h5>
               <hr class="mt-0 mb-2">
 
@@ -74,6 +75,11 @@
                   <h6> CONNECT with us if you have any questions:</h6>
                   <h6><strong> WhatsApp Message +1 669 244 4685 </strong></h6>
                 </div>
+              </div>
+
+              <hr class="mt-0 mb-3">
+              <div class="actions">
+                <%= f.submit "Update", :onclick => "return confirm('Are you sure to update?')", class:"btn btn-danger mt-2" %>
               </div>
 
             </div>

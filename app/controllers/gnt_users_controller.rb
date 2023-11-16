@@ -110,6 +110,10 @@ class GntUsersController < ApplicationController
     @user = current_gnt_user
   end
 
+  def screening_show
+    @user = current_gnt_user
+  end
+
   def onboarding
     @user = current_gnt_user
   end

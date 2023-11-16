@@ -23,11 +23,11 @@
             <hr class="mt-0 mb-4">
 
             <div class="col-30 mb-3">
-              <h6>Interview Date:</h6>
+              <h6>Interview Date: * &nbsp;</h6>
             </div>
 
             <div class="field mb-2" style='display: flex'>
-              <h6>Status: &nbsp;</h6>
+              <h6>Status: * &nbsp;</h6>
               <%= f.select(:i_am, ['Pending Scheduling', 'Interview Scheduled', 'Interview Complete'], {:prompt => current_gnt_user.i_am}) %>
             </div>
 

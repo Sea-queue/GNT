@@ -21,18 +21,18 @@
             <h5 class='section_title mt-2'>Licensing</h5>
             <hr class="mt-0 mb-4">
             <div class="field mb-2" style="display: flex">
-              <%= f.check_box :rn_in_us %>
-              <h6>I have an active license to work as a Registered Nurse in the United States.</h6>
+              <%= f.check_box :rn_in_us %> &nbsp;
+              <h6 class='mt-1'>I have an active license to work as a Registered Nurse in the United States. *</h6>
             </div>
 
             <div class="field mb-2" style="display: flex">
-              <h6>Select Licensure State: &nbsp</h6>
+              <h6>Select Licensure State: * &nbsp</h6>
               <%= f.select :rn_in_us_state, options_for_select(us_states), :prompt => current_gnt_user.rn_in_us_state %>
             </div>
 
             <div class="field mb-2" style='display: flex'>
-              <%= f.check_box :background_check %>
-              <h6>By checking this box, I affirm that my fingerprints have been submitted for the purpose of state licensure, and I understand that my application may be subject to verification by the respective state nursing board.</h6>
+              <%= f.check_box :background_check %> &nbsp;
+              <h6>By checking this box, I affirm that my fingerprints have been submitted for the purpose of state licensure, and I understand that my application may be subject to verification by the respective state nursing board. *</h6>
             </div>
 
             <hr class="mt-0 mb-4">
