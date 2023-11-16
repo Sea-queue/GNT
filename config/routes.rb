@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     get 'licensing/:id', to: 'gnt_users#licensing', as: :licensing
     get 'licensing_show/:id', to: 'gnt_users#licensing_show', as: :licensing_show
     get 'jobs/:id', to: 'gnt_users#jobs', as: :jobs
+    get 'jobs_show/:id', to: 'gnt_users#jobs_show', as: :jobs_show
     get 'immigration/:id', to: 'gnt_users#immigration', as: :immigration
     get 'immigration_show/:id', to: 'gnt_users#immigration_show', as: :immigration_show
     get 'screening/:id', to: 'gnt_users#screening', as: :screening

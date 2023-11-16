@@ -17,41 +17,32 @@
         <div class="col-md-12">
           <div class="card-body p-4">
 
-            <%= link_to 'Edit', english_exam_path(current_gnt_user), class:"btn dashboard_button mb-3" %>
+            <%= link_to 'Edit', english_exam_path(current_gnt_user), class:"btn dashboard_button_edit mb-3" %>
 
-            <h6 style='color:red'> * required fields </h6>
             <h5 class='section_title mt-2'>English Exam</h5>
+
+            <h5 class='section_sub_title'>STEP 1</h5>
+            <hr class="mt-0 mb-4">
+
+            <a href="https://www.pearsonpte.com/" target="_blank"> Schedule PTE </a> &nbsp; OR &nbsp; <a href="https://ielts.org/ielts-usa" target="_blank"> Schedule IELTS </a>
+
+            <h5 class='section_sub_title mt-3'>STEP 2</h5>
             <hr class="mt-0 mb-4">
 
             <div class="col-30 mb-3" style="display: flex">
-              <div>
-                <h6 class="mt-1"> STEP 1: &nbsp; </h6>
-              </div>
-              <div>
-                <br>
-                <a href="https://www.pearsonpte.com/" target="_blank"> Schedule PTE </a> &nbsp; OR &nbsp; <a href="https://ielts.org/ielts-usa" target="_blank"> Schedule IELTS </a>
-              </div>
-            </div>
-
-            <div>
-              <h6 class="mt-1"> STEP 2: &nbsp; </h6>
-              <br>
-            </div>
-
-            <div class="col-30 mb-3" style="display: flex">
-              <h6>English proficiency exam status: &nbsp</h6>
+              <h6 class='profile_prompt'>English proficiency exam status: &nbsp</h6>
               <h6 class='profile_text'><%= @user.english_proficiency %></h6>
             </div>
     
             <div class="col-20 mb-3" style="display: flex">
-              <h6>English proficiency exam result: &nbsp</h6>
+              <h6 class='profile_prompt'>English proficiency exam result: &nbsp</h6>
               <% if @user.english_proficiency_result.attached? %>
                 <%= link_to @user.english_proficiency_result.filename, url_for(@user.english_proficiency_result) %>
               <% end %>
             </div>
     
             <div class="col-20 mb-3" style="display: flex">
-              <h6>English proficiency exam passed date: &nbsp</h6>
+              <h6 class='profile_prompt'>English proficiency exam pass date: &nbsp</h6>
               <h6 class='profile_text'><%= @user.english_exam_pass_date %></h6>
             </div>
 

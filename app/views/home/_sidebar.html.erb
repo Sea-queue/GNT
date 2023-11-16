@@ -14,6 +14,8 @@
   </div>
 
   <hr>
+  <strong><h6> Begin Here </h6></strong> 
+  <%= image_tag('begin_here.svg')%>
 
   <ul class="nav nav-pills flex-column mb-auto" style="margin-left: 0%; margin-right: 0%;">
     <li class="nav-item mt-1 mb-1">
@@ -58,7 +60,7 @@
 
     <li class="nav-item mt-1 mb-1">
       <% if current_gnt_user.id == @user.id and current_gnt_user.grant_apply_request %>
-        <%= link_to image_tag('jobs.svg')+' Jobs', jobs_path(current_gnt_user), class:'btn dashboard_button rounded-0 col-12' %>
+        <%= link_to image_tag('jobs.svg')+' Jobs', jobs_show_path(current_gnt_user), class:'btn dashboard_button rounded-0 col-12' %>
       <% else %>
         <%= link_to image_tag('jobs.svg')+' Jobs', '', class:"btn text-decoration-none dashboard_button_disabled" %>
       <% end %>

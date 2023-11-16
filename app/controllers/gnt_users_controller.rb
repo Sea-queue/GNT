@@ -94,6 +94,10 @@ class GntUsersController < ApplicationController
     @user = current_gnt_user
   end
 
+  def jobs_show
+    @user = current_gnt_user
+  end
+
   def immigration
     @user = current_gnt_user
   end

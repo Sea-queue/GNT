@@ -17,20 +17,20 @@
         <div class="col-md-12">
           <div class="card-body p-4">
 
-            <%= link_to 'Edit', licensing_path(current_gnt_user), class:"btn dashboard_button mb-3" %>
+            <%= link_to 'Edit', licensing_path(current_gnt_user), class:"btn dashboard_button_edit mb-3" %>
 
-            <h6 style='color:red'> * required fields </h6>
             <h5 class='section_title mt-2'>Licensing</h5>
-            <hr class="mt-0 mb-4">
+            <h5 class='section_sub_title'>STEP 1</h5>
+            <hr class="mt-0 mb-3">
+            <h6 class="mt-1">Click <a href="https://forms.gle/r6fdDb3f2bNwPniW7" target="_blank">HERE</a> Review USA Nursing License Information </h6>
 
-            <div class="col-30 mb-3" style="display: flex">
-              <h6 class="col-1 mt-1"> <strong>STEP 1: </strong></h6>
-              <div>
-                <br>
-                <h6 class="mt-1">Click <a href="https://forms.gle/r6fdDb3f2bNwPniW7" target="_blank">HERE</a> Review USA Nursing License Informatio </h6>
-              </div>
-            </div>
+            <h5 class='section_sub_title'>STEP 2</h5>
+            <hr class="mt-0 mb-3">
+            <h6> <a href=" https://www.ncsbn.org/membership/us-members/contact-bon.page" target="_blank"> Begin here </a> </h6>
+            <h6>Follow this link to find the state board of nursing's website that you plan to receive your nursing license in. Select "visit website" and create a profile to apply. Review that state website's application instructions and costs for "Licensure by Exam".</h6>
 
+            <h5 class='section_sub_title'>STEP 3</h5>
+            <hr class="mt-0 mb-3">
             <div class="col-20 mb-3" style="display: flex">
               <h6>I have an active license to work as a Registered Nurse in the United States.: &nbsp</h6>
               <h6 class='profile_text'><%= @user.rn_in_us %></h6>
@@ -41,7 +41,7 @@
               <h6 class='profile_text'><%= @user.rn_in_us_state %></h6>
             </div>
 
-            <div class="col-20 mb-3" style="display: flex">
+            <div class="col-20 mb-3">
               <h6>I affirm that my fingerprints have been submitted for the purpose of state licensure, and I understand that my application may be subject to verification by the respective state nursing board.: &nbsp</h6>
               <h6 class='profile_text'><%= @user.background_check %></h6>
             </div>

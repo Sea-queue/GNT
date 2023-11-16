@@ -17,6 +17,12 @@
  .navbar-custom {
    background-color:  #FFFFFF;
   }
+
+.header_button {
+  color: #40403f;
+  /* background-color:  #FB8E02 */
+  background-color:  #EF7C18
+}
   
 .header_text {
   color: #40403f;
@@ -60,6 +66,15 @@
 .section_title {
   font-weight: bold;
   font-size: 150%;
+  text-align: center; 
+  font-size: 30px;
+  margin-bottom: 2%;
+}
+
+.section_sub_title {
+  font-weight: bold;
+  font-size: 120%;
+  margin-top: 5%;
 }
 
 .dashboard_button {
@@ -71,4 +86,11 @@
   color: white;
   background-color:  #b8c5d8
 }
+
+.dashboard_button_edit {
+  color: black;
+  background-color:  #FB8E02
+}
+
+
 

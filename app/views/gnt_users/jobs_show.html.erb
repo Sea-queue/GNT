@@ -1,0 +1,74 @@
+<div class="mb-3 mt-3" style="display: flex; border-radius: .5rem">
+  <%= render 'home/sidebar' %>
+  <%= form_with(model: @user) do |f| %>
+    <% if @user.errors.any? %>
+      <div id='error_explanation'>
+        <h2><%= pluralize(user.errors.count, 'error') %> prohibited this user from being saved:</h2>
+        <ul>
+          <% @user.errors.full_message.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="card" style="border-radius: .5rem;">
+      <div class="row g-0">
+        <div class="col-md-12">
+          <div class="card-body p-4">
+
+            <%= link_to 'Edit', jobs_path(current_gnt_user), class:"btn dashboard_button_edit mb-3" %>
+
+            <h5 class='section_title'>Jobs</h5>
+            <h5 class='section_sub_title' >Interview Plan</h5>
+            <hr class="mt-0 mb-4">
+
+            <div class="col-30 mb-3">
+              <h6 class='profile_prompt'>Interview Date:</h6>
+            </div>
+
+            <div class="field mb-2" style='display: flex'>
+              <h6 class='profile_prompt'>Status: &nbsp;</h6>
+            </div>
+
+            <h5 class='section_sub_title mb-2' >Interview Preparation</h5>
+            <hr class="mt-0 mb-4">
+
+            <h6><strong> Sample Questions to Ask Employers: </strong></h6>
+            <p>
+              <h6>&emsp; 1. Can you describe the typical patient care team I would be working with? </h6>
+              <h6>&emsp; 2. How does the hospital or facility support ongoing education and professional development for nurses? </h6>
+              <h6>&emsp; 3. What is the nurse-to-patient ratio on this unit? </h6>
+              <h6>&emsp; 4. Can you tell me about the orientation process for new nurses? </h6>
+              <h6>&emsp; 5. What is the orientation schedule? </h6>
+              <h6>&emsp; 6. How is feedback typically given and received in this nursing team? </h6>
+              <h6>&emsp; 7. What are the biggest challenges that the nursing staff faces on this unit and what are tools I can use to overcome the challenges? </h6>
+              <h6>&emsp; 8. How do I plan my schedule and submit my timesheet on this unit? </h6>
+              <h6>&emsp; 9. What opportunities are there for specialized training or certifications? </h6>
+              <h6>&emsp; 10. What is a typical nurses shift schedule on the unit? </h6>
+            </p>
+
+            <h6><strong> Sample Interview Questions:</strong></h6>
+            <p>
+              <h6>&emsp; 1. Summarize your work experience in a 2-minute pitch, including specialties and certificates. </h6>
+              <h6>&emsp; 2. What is your schedule availability? </h6>
+              <h6>&emsp; 3. Can you describe your experience with electronic health record systems? How do you ensure accuracy and privacy in documentation? </h6>
+              <h6>&emsp; 4. Can you describe your experience with wound care management and the prevention of infections? </h6>
+              <h6>&emsp; 5. Can you provide an example of a time when you had to handle a difficult patient situation? How did you manage it? </h6>
+              <h6>&emsp; 6. Can you describe a situation where you had to work as part of a team to provide patient care? What was your role? </h6>
+              <h6>&emsp; 7. What motivates you in your nursing career, and how do you maintain your passion for patient care? </h6>
+              <h6>&emsp; 8. Can you give an example of how you have handled a medical emergency or a critical situation in the past? </h6>
+              <h6>&emsp; 9. <strong> Describe your experience with: pain assessment and management, patient physical assessments, telemetry or vital signs, patient and family education, and developing care plans. </strong> </h6>
+              <h6>&emsp; 10. What are your strengths and weaknesses? </h6>
+            </p>
+
+
+
+            
+
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
