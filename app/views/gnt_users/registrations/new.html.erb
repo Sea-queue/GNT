@@ -13,33 +13,33 @@
           <form class="">
             <div class="form-floating mb-3">
               <%= f.text_field :full_name, autofocus: true, class: "form-control rounded-3", placeholder:"Full Name" %>
-              <label for="floatingInput">Full Name</label>
+              <label for="floatingInput">Full Name *</label>
             </div>
 
             <div class="form-control mb-3" style='display: flex'>
-              <label>I am a: &nbsp</label>
+              <label>I am a: *&nbsp</label>
               <%= f.select(:i_am, ['Select One','Registered Nurse', 'Student Nurse']) %>
             </div>
 
             <div class="form-control mb-3" style='display: flex'>
-              <label>Years of nursing work experience: &nbsp</label>
+              <label>Years of nursing work experience: *&nbsp</label>
               <%= f.select :years_of_experience, ['0', '1', '2', '3+'] %>
             </div>
 
             
-            <div class="form-control mb-3" style="display: flex">
-              <%= f.label :'Resume:' %> &nbsp
+            <div class="form-control mb-3 col-6" style="display: flex">
+              <label>Resume: * &emsp;</label>
               <%= f.file_field :resume %>
             </div>
             
 
             <div class="form-control mb-3">
-              <label>Nationality: &nbsp</label>
+              <label>Nationality: *&nbsp</label>
               <%= f.country_select :nationality, priority_countries = ["Singapore", "Chile", "Mexico", "Philippines", "UK", "Canada", "Spain", "US"] %>
             </div>
 
             <div class="form-control mb-3">
-              <label>Phone number +1 123 456 7890:</label>
+              <label>Phone number * +1 123 456 7890:</label>
               <%= f.text_field :phone_number %>
             </div>
 
