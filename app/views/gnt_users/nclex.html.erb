@@ -22,12 +22,12 @@
             <hr class="mt-0 mb-4">
 
             <div class="col-30 mb-3" style="display: flex">
-              <h6>NCLEX exam status: * &nbsp;</h6>
+              <h6 class='profile_prompt'>NCLEX exam status: * &nbsp;</h6>
               <%= f.select :nclex_rn, ['passed', 'exam scheduled', 'traning in progress'] %>
             </div>
 
             <div class="field mb-2" style="display: flex">
-              <h6>Select NCLEX-RN State: * &nbsp</h6>
+              <h6 class='profile_prompt'>Select NCLEX-RN State: * &nbsp</h6>
               <%= f.select :nclex_rn_state, options_for_select(us_states), :prompt => current_gnt_user.rn_in_us_state %>
             </div>
 

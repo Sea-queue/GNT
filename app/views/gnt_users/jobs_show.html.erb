@@ -23,12 +23,14 @@
             <h5 class='section_sub_title' >Interview Plan</h5>
             <hr class="mt-0 mb-4">
 
-            <div class="col-30 mb-3">
-              <h6 class='profile_prompt'>Interview Date:</h6>
-            </div>
-
             <div class="field mb-2" style='display: flex'>
               <h6 class='profile_prompt'>Status: &nbsp;</h6>
+              <h6 class='profile_text'><%= @user.interview_status %></h6>
+            </div>
+
+            <div class="col-30 mb-3" style='display: flex'>
+              <h6 class='profile_prompt'>Interview Date: &nbsp;</h6>
+              <h6 class='profile_text'><%= @user.interview_date %></h6>
             </div>
 
             <h5 class='section_sub_title mb-2' >Interview Preparation</h5>
