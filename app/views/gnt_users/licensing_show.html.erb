@@ -1,4 +1,4 @@
-<div class="mb-3 mt-3" style="display: flex; border-radius: .5rem">
+<div class="mb-3 mt-3 d-md-flex align-items-start gap-2 gap-lg-0"> 
   <%= render 'home/sidebar' %>
   <%= form_with(model: @user) do |f| %>
     <% if @user.errors.any? %>
@@ -15,7 +15,7 @@
     <div class="card" style="border-radius: .5rem;">
       <div class="row g-0">
         <div class="col-md-12">
-          <div class="card-body p-4">
+          <div class="card-body p-md-4 p-3">
 
             <%= link_to 'Edit', licensing_path(current_gnt_user), class:"btn dashboard_button_edit mb-3" %>
 

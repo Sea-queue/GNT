@@ -1,4 +1,4 @@
-<div class="mb-3 mt-3" style="display: flex; border-radius: .5rem">
+<div class="mb-3 mt-3 d-md-flex align-items-start gap-2 gap-lg-0">
   <%= render 'home/sidebar' %>
   <%= form_with(model: @user) do |f| %>
     <% if @user.errors.any? %>
@@ -13,36 +13,36 @@
     <% end %>
 
     <div class="card" style="border-radius: .5rem;">
-      <div class="row g-0">
+      <div class="row g-0 gnt_professional_info_form">
         <div class="col-md-12">
-          <div class="card-body p-4">
+          <div class="card-body p-md-4 p-3">
 
             <h6 style='color:red'> * required fields </h6>
             <h5 class='section_title mt-3'>Professional Info</h5>
             <hr class="mt-0 mb-4">
             <div class="row pt-1">
 
-              <div class="field mb-2" style="display: flex">
+              <div class="field mb-2 d-flex gap-2 gap-md-3 align-items-baseline">
                 <%= f.check_box :auth_text %>
                 <h6>I have a Nursing License outside the U.S.</h6>
               </div>
 
-              <div class="col-30 mb-3" style="display: flex">
+              <div class="col-12 mb-3 align-items-center d-flex flex-wrap">
                 <%= f.label :'License Type: *' %> &nbsp;
                 <%= f.select :license_type, ['None', 'Registered Nurse', 'Licensed Practical Nurse', 'Nurse Practitioner'] %>
               </div>
 
-              <div class="col-30 mb-3">
+              <div class="col-12 mb-3">
                 <%= f.label :'Upload Nursing License: *' %> &nbsp;
                 <%= f.file_field :rn_license_upload %>
               </div>
 
-              <div class="field mb-2" style="display: flex">
+              <div class="field mb-2 d-flex gap-2 gap-md-3 align-items-baseline">
                 <%= f.check_box :stage3_1 %>
                 <h6>I hereby declare that my nursing license or certification has never been subject to any investigation, legal action, disciplinary measures, suspension, or malpractice claims. *</h6>
               </div>
 
-              <h6 class='mt-5'>If applicable, upload Diploma of Nursing Education:</h6>
+              <h6 class='mt-md-5 mt-3'>If applicable, upload Diploma of Nursing Education:</h6>
               <%= f.file_field :diploma %>
 
               <h6 class='mt-3'>If applicable, upload English translation of nursing education diploma:</h6>
@@ -54,7 +54,7 @@
               <h6 class='mt-3'>If applicable, upload English translation of nursing education transcripts:</h6>
               <%= f.file_field :transcript_translate, multiple: true %>
 
-              <div class="col-20 mb-3 mt-5">
+              <div class="col-12 mb-3 mt-md-5 mt-4">
                 <h6>Indicate number of clinical hours in the nursing program by specialty:</h6>
                 
                 <h6 class='mt-3'>Medical-Surgical:</h6>
@@ -79,8 +79,10 @@
                 <%= f.text_field :geriatrics_nursing_home %>
                 
                 <h6 class='mt-3'>Other (Please Specify):</h6>
+                <div class="row-gap-3 gap-3 d-flex flex-wrap">
                 <%= f.text_field :other_specialty_name, placeholder:'name' %>
                 <%= f.text_field :other_specialty_hour, placeholder:'hours' %>
+                </div>
               </div>
             </div>
 

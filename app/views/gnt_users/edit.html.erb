@@ -1,4 +1,4 @@
-<div class="mb-3 mt-3" style="display: flex; border-radius: .5rem">
+<div class="mb-3 mt-3 d-md-flex align-items-start gap-2 gap-lg-0">
   <%= render 'home/sidebar' %>
   <%= form_with(model: @user) do |f| %>
     <% if @user.errors.any? %>
@@ -16,8 +16,8 @@
       <div class="row g-0">
         
         <div class="col-md-12">
-          <div class="card-body p-4">
-            <div class="col-md-4 text-center" >
+          <div class="card-body p-3 p-md-4">
+            <div class="col-md-4" >
               <div class='filed mt-5 mb-3'>
                 <% if @user.avatar.attached? %>
                   <%= image_tag(@user.avatar, height: '100px', width: '100px', class:'border border-2 rounded-circle') %>
@@ -26,7 +26,7 @@
                 <% end %>
               </div>
 
-              <%= f.file_field :avatar, style:"margin-left: 15%"%>
+              <%= f.file_field :avatar%>
 
               <div>
                 <h6 class='mt-3' style='color:black'> Full Name *</h6>
@@ -39,38 +39,38 @@
             <hr class="mt-0 mb-2">
             <h6 style='color:red'> * required fields </h6>
 
-            <div class="row pt-1">
+            <div class="row pt-1 gnt_basic_info_form">
             
               <% if false %>
-                <div class="col-30 mb-3">
+                <div class="col-12 mb-3">
                   <h6>Full legal name (Exactly as it appears on official documents i.e. national ID, nursing license, birth certificate)*:</h6>
                   <%= f.text_field :legal_name %>
                 </div>
               <% end %>
 
-              <div class="col-30 mb-3">
+              <div class="col-12 mb-3">
                 <h6>Email address: *</h6>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'mw-100' %>
               </div>
 
               <% if false %>
-                <div class="col-30 mb-3">
+                <div class="col-12 mb-3">
                   <h6>Check all languages spoken: *</h6>
                   <%= f.select(:languages_spoken, ['English', 'Spanish', 'Mandarin', 'Portuguese', 'German', 'Franch', 'Japanese'], {:multiple => true, :size => 3}, {:prompt => current_gnt_user.languages_spoken}) %>
                 </div>
               <% end %>
 
-              <div class="col-30 mb-3">
+              <div class="col-12 mb-3">
                 <h6>Nationality: *</h6>
                 <%= f.country_select :nationality, priority_countries = ["Singapore", "Chile", "Mexico", "Philippines", "UK", "Canada", "Spain", "US"] %>
               </div>
 
-              <div class="col-30 mb-3">
+              <div class="col-12 mb-3">
                 <h6>Current country of residence: *</h6>
                 <%= f.country_select :current_resident, priority_countries = ["Singapore", "Chile", "Mexico", "Philippines", "UK", "Canada", "Spain", "US"] %>
               </div>
 
-              <div class="col-30 mb-3">
+              <div class="col-12 mb-3">
                 <h6>Current state / province of residence: *</h6>
                 <%= f.text_field :current_resident_state %>
               </div>
@@ -80,7 +80,7 @@
                 <%= f.select(:i_am, ['Select One', 'Registered Nurse', 'Student Nurse'], {:prompt => current_gnt_user.i_am}) %>
               </div>
 
-              <div class="col-30 mb-3">
+              <div class="col-12 mb-3">
                 <h6>If applicable, insert year of expected graduation:</h6>
                 <%= f.text_field :year_of_graduation %>
               </div>
@@ -90,24 +90,24 @@
                 <h6 class='mt-2'>I am currently working as a nurse in a clinical setting.</h6>
               </div>
 
-              <div class="col-30 mb-3">
+              <div class="col-12 mb-3 d-flex gap-2 gap-md-3 align-items-center">
                 <h6>Years of nursing work experience: *</h6>
                 <%= f.select :years_of_experience, ['0', '1', '2', '3+'], :prompt => current_gnt_user.years_of_experience %>
               </div>
 
-              <div class="col-10 mb-4 mt-3" style="display: flex">
+              <div class="col-12 mb-4 mt-3" style="display: flex">
                 <h6> Upload Resume: * &nbsp</h6>
                 <%= f.file_field :resume %>
               </div>
 
               <% if false %>
-                <div class="col-30 mb-3">
+                <div class="col-12 mb-3">
                   <h6>Select up to 3 preferred specialties: *</h6>
                   <%= f.select :years_of_experience, ['None', 'Medical-Surgical', 'Pediatrics', 'Obstetrics/Gynecology', 'Psychiatry', 'Emergency', 'Behavioral Health/Psychology', 'Critical Care (ICU)', 'Geriatrics/Nursing Home'], :prompt => current_gnt_user.years_of_experience %>
                 </div>
               <% end %>
 
-              <div class="col-6 mb-3">
+              <div class=" mb-3">
                 <h6>Phone number +1 123 456 7890: *</h6>
                 <h6>country code: </h6>
                 <%= f.text_field :country_code %>
@@ -115,17 +115,17 @@
                 <%= f.text_field :phone_number %>
               </div>
 
-              <div class="field mb-2" style='display: flex'>
+              <div class="field mb-2 align-items-baseline" style='display: flex'>
                 <%= f.check_box :auth_whatsapp %> &nbsp
                 <h6 class='mt-2'>I authorize contact by WhatsApp. *</h6>
               </div>
 
-              <div class="field mb-2" style='display: flex'>
+              <div class="field mb-2 align-items-baseline" style='display: flex'>
                 <%= f.check_box :auth_text %> &nbsp
                 <h6 class='mt-2'>I authorize contact by telephone, email and text messaging (messaging rates may apply). *</h6>
               </div>
 
-              <div class="col-20 mb-3">
+              <div class="col-12 mb-3">
                 <h6>Is there anything else our Recruitment Team should know?</h6>
                 <%= f.text_area :other_1, :cols => "70", :rows => "5" %>
               </div>

@@ -1,4 +1,4 @@
-<div class="mb-3 mt-3" style="display: flex; border-radius: .5rem">
+<div class="mb-3 mt-3 d-md-flex align-items-start gap-2 gap-lg-0"> 
   <%= render 'home/sidebar' %>
   <%= form_with(model: @user) do |f| %>
     <% if @user.errors.any? %>
@@ -13,15 +13,15 @@
     <% end %>
             
     <div class="card" style="border-radius: .5rem;">
-      <div class="row g-0">
+      <div class="row g-0 gnt_immigration_form">
         <div class="col-md-12">
-          <div class="card-body p-4">
+          <div class="card-body p-md-4 p-3">
 
             <h6 style='color:red'> * required fields </h6>
             <h5 class='section_title mt-2'>Immigration</h5>
             <hr class="mt-0 mb-4">
             
-            <div class="field mb-2" style="display: flex">
+            <div class="field mb-2 d-flex align-items-baseline">
               <%= f.check_box :cgfns %> &nbsp;
               <h6 class='mt-1'>I have a CGFNS VisaScreen approval</h6>
             </div>
@@ -41,7 +41,7 @@
             <h6 class='mt-3'>If applicable, upload current or former US Visa(s):</h6>
             <%= f.file_field :visa, multiple: true %>
 
-            <div class="col-30 mb-3 mt-3" style="display: flex">
+            <div class="col-12 mb-3 mt-3 d-flex flex-wrap">
               <h6>Current visa application for: * &nbsp;</h6>
               <%= f.select :apply_visa_for, ['None', 'Self', 'Self and Family'], :prompt => current_gnt_user.apply_visa_for %>
             </div>
@@ -49,17 +49,17 @@
             <h6>If applicable, upload U.S. Entry Stamp or I-94 Departure/Arrival record:</h6>
             <%= f.file_field :entry_stamp %>
 
-            <div class="field mb-2 mt-2" style="display: flex">
+            <div class="field mb-2 mt-2 d-flex align-items-baseline">
               <%= f.check_box :convicted_crime %> &nbsp;
               <h6 class='mt-1'>I have never been convicted of a crime. *</h6>
             </div>
 
-            <div class="field mb-2" style="display: flex">
+            <div class="field mb-2 d-flex align-items-baseline">
               <%= f.check_box :disorder %> &nbsp;
               <h6 class='mt-1'>I have not had any substance use disorder in the last five years. *</h6>
             </div>
 
-            <div class="col-20 mb-3">
+            <div class="col-12 mb-3 d-flex flex-wrap">
               <h6>Is there anything else our Recruitment Team should know?</h6>
               <%= f.text_area :other_3, :cols => "70", :rows => "5" %>
             </div>

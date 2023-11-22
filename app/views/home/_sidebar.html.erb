@@ -1,10 +1,13 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary align-items-center" style="width: 250px; padding-left: 0px; padding-right:0px">
-  <div>
-    <br>
+  <div class="navbar gnt_navbar_slider_btn nav-bg-dark p-0 mb-3 mb-md-0">
+    <button class="navbar-toggler shadow-none " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+<div class="gnt_navbar_slider d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary align-items-center offcanvas-lg offcanvas-start col-md-2 col-lg-3" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="d-flex flex-column align-items-center justify-content-center ">
     <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none"  aria-expanded="false">
       <%= image_tag(@user.avatar, height: '100px', width:"100px", class:'border border-2 rounded-circle') %>
     </a>
-    <br>
     <div>
       <a style="font-size: 20px;">Welcome,</a>
     </div>
