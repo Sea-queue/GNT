@@ -181,6 +181,12 @@ class GntUsersController < ApplicationController
       :geriatrics_nursing_home,
       :other_specialty_name,
       :other_specialty_hour,
+      :license_number,
+      :expiration_date,
+      :additional_active_compact_license,
+      :visascreen_status,
+      :interview_status,
+      :interview_date, 
       transcript: [],
       transcript_translate: [],
       visa: []

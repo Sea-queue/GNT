@@ -136,7 +136,12 @@ header ul li .header_logo {
   }
 
   .gnt_NCLEX_form select,
-  .gnt_immigration_form input[type="file"] {
+  .gnt_immigration_form input[type="file"],
+  .gnt_Licensing_form input[type="date"],
+  .gnt_Licensing_form #gnt_user_license_number,
+  .gnt_Licensing_form select,
+  .gnt_job_form select,
+  .gnt_job_form input[type="date"]{
     width: 100%;
   }
 }

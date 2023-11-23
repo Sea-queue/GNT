@@ -1,4 +1,4 @@
-<div class="mb-3 mt-3 d-md-flex align-items-start gap-2 gap-lg-0"> 
+<div class="mb-3 mt-3 d-md-flex align-items-start gap-2 gap-lg-0">
   <%= render 'home/sidebar' %>
   <%= form_with(model: @user) do |f| %>
     <% if @user.errors.any? %>
@@ -11,9 +11,9 @@
         </ul>
       </div>
     <% end %>
-            
+
     <div class="card" style="border-radius: .5rem;">
-      <div class="row g-0">
+      <div class="row g-0 gnt_Licensing_form">
         <div class="col-md-12">
           <div class="card-body p-md-4 p-3">
 
@@ -22,17 +22,32 @@
             <hr class="mt-0 mb-4">
             <div class="field mb-2 d-flex align-items-baseline">
               <%= f.check_box :rn_in_us %> &nbsp;
-              <h6 class='mt-1'>I have an active license to work as a Registered Nurse in the United States. *</h6>
+              <h6 class='profile_prompt mt-1'>I have an active license to work as a Registered Nurse in the United States. *</h6>
             </div>
 
             <div class="field mb-2 d-flex flex-wrap">
-              <h6>Select Licensure State: * &nbsp</h6>
+              <h6 class='profile_prompt'>Select Licensure State: * &nbsp</h6>
               <%= f.select :rn_in_us_state, options_for_select(us_states), :prompt => current_gnt_user.rn_in_us_state %>
+            </div>
+
+            <div class="field mb-2 d-flex flex-wrap">
+              <h6 class='profile_prompt'>License number: * &nbsp</h6>
+              <%= f.text_field :license_number %>
+            </div>
+
+            <div class="field mb-2 d-flex flex-wrap">
+              <h6 class='profile_prompt'>Expiration date: * &nbsp</h6>
+              <%= f.date_field :expiration_date%>
+            </div>
+
+            <div class="field mb-2 d-flex align-items-baseline">
+              <%= f.check_box :additional_active_compact_license %> &nbsp;
+              <h6 class="profile_prompt mt-2" >Additional active compact license</h6>
             </div>
 
             <div class="field mb-2 d-flex align-items-baseline">
               <%= f.check_box :background_check %> &nbsp;
-              <h6>By checking this box, I affirm that my fingerprints have been submitted for the purpose of state licensure, and I understand that my application may be subject to verification by the respective state nursing board. *</h6>
+              <h6 class='profile_prompt'>By checking this box, I affirm that my fingerprints have been submitted for the purpose of state licensure, and I understand that my application may be subject to verification by the respective state nursing board. *</h6>
             </div>
 
             <hr class="mt-0 mb-4">

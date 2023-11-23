@@ -1,4 +1,4 @@
-<div class="mb-3 mt-3 d-md-flex align-items-start gap-2 gap-lg-0"> 
+<div class="mb-3 mt-3 d-md-flex align-items-start gap-2 gap-lg-0">
   <%= render 'home/sidebar' %>
   <%= form_with(model: @user) do |f| %>
     <% if @user.errors.any? %>
@@ -13,7 +13,7 @@
     <% end %>
 
     <div class="card" style="border-radius: .5rem;">
-      <div class="row g-0">
+      <div class="row g-0 gnt_job_form">
         <div class="col-md-12">
           <div class="card-body p-md-4 p-3">
 
@@ -22,13 +22,14 @@
             <h5 class='section_sub_title mb-2' >Interview Plan</h5>
             <hr class="mt-0 mb-4">
 
-            <div class="col-12 mb-3">
-              <h6>Interview Date: * &nbsp;</h6>
+            <div class="field mb-2 d-flex flex-wrap">
+              <h6 class='profile_prompt'>Status: * &nbsp;</h6>
+              <%= f.select(:interview_status, ['Pending', 'Scheduled', 'Complete'], {:prompt => current_gnt_user.interview_status}) %>
             </div>
 
-            <div class="field mb-2 d-flex flex-wrap">
-              <h6>Status: * &nbsp;</h6>
-              <%= f.select(:i_am, ['Pending Scheduling', 'Interview Scheduled', 'Interview Complete'], {:prompt => current_gnt_user.i_am}) %>
+            <div class="col-30 mb-3 d-flex flex-wrap">
+              <h6 class='profile_prompt'>Interview Date: * &nbsp;</h6>
+              <%= f.date_field :interview_date%>
             </div>
 
             <hr class="mt-3 mb-3">
