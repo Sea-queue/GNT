@@ -106,6 +106,10 @@ header ul li .header_logo {
   background-color: #FB8E02
 }
 
+.gnt_navbar_slider {
+  overflow: overlay;
+}
+
 @media (min-width: 992px) {
   .gnt_navbar_slider_btn {
     display: none !important;
@@ -141,7 +145,7 @@ header ul li .header_logo {
   .gnt_Licensing_form #gnt_user_license_number,
   .gnt_Licensing_form select,
   .gnt_job_form select,
-  .gnt_job_form input[type="date"]{
+  .gnt_job_form input[type="date"] {
     width: 100%;
   }
 }
