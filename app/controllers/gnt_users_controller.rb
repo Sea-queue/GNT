@@ -34,7 +34,7 @@ class GntUsersController < ApplicationController
         elsif params[:gnt_user][:grant_apply_request]
           format.html {redirect_to admin_pages_statistics_path, notice: "Grant Success!"}
         else
-          format.html {redirect_to current_gnt_user, notice: "you sccessfully updated your profile!"}
+          format.html {redirect_back fallback_location: root_path, notice: "you successfully updated your profile!"}
         end
       else
         format.hmtl {render :edit}
