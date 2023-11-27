@@ -1,4 +1,4 @@
-<div class="mb-3 mt-3" style="display: flex; border-radius: .5rem">
+<div class="mb-3 mt-3 d-md-flex align-items-start gap-2 gap-lg-0">
   <%= render 'home/sidebar' %>
   <%= form_with(model: @user) do |f| %>
     <% if @user.errors.any? %>
@@ -11,28 +11,28 @@
         </ul>
       </div>
     <% end %>
-            
+
     <div class="card" style="border-radius: .5rem;">
       <div class="row g-0">
         <div class="col-md-12">
-          <div class="card-body p-4">
+          <div class="card-body p-md-4 p-3">
 
             <h6 style='color:red'> * required fields </h6>
             <h5 class='section_title mt-2'>English Exam</h5>
             <hr class="mt-0 mb-4">
-            <div class="col-30 mb-3" style="display: flex">
+            <div class="col-12 mb-3 d-flex flex-wrap column-gap-3">
             <h6>English proficiency exam status: * &nbsp;</h6>
               <%= f.select :english_proficiency, ['passed', 'exam scheduled', 'training in progress'] %>
             </div>
 
-            <div class="col-20 mb-3" style="display: flex">
-              <h6>If applicable, upload copy of English proficiency exam results: &nbsp;</h6>
+            <div class="col-12 mb-3 d-flex flex-wrap column-gap-3">
+              <h6>If applicable, upload copy of English proficiency exam results:</h6>
               <%= f.file_field :english_proficiency_result %>
             </div>
 
-            <div class="col-20 mb-3" style="display: flex">
-              <h6>If applicable, enter the date English proficiency exam was passed (DD/MM/YYYY): &nbsp;</h6>
-              <%= f.date_field :english_exam_pass_date %>
+            <div class="col-20 mb-3 d-flex flex-wrap column-gap-3">
+              <h6>If applicable, enter the date English proficiency exam was passed (DD/MM/YYYY):</h6>
+              <%= f.text_field :english_exam_pass_date %>
             </div>
 
             <hr class="mt-0 mb-4">

@@ -14,21 +14,27 @@
  *= require_self
  */
 
- .navbar-custom {
-   background-color:  #FFFFFF;
-  }
+.navbar-custom {
+  background-color: #FFFFFF;
+}
 
 .header_button {
   color: #40403f;
   /* background-color:  #FB8E02 */
-  background-color:  #EF7C18
+  background-color: #EF7C18
 }
-  
+
 .header_text {
   color: #40403f;
   font-size: 35px;
   font-weight: bold;
-  margin-top: 2%;
+}
+
+header ul li .header_logo {
+  max-width: 100%;
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
 }
 
 .footer_customize {
@@ -43,6 +49,14 @@
 .footer_customize.text:hover {
   text-decoration: underline;
   color: black;
+}
+
+.footer_social_icon img {
+  max-width: 40px;
+  max-height: 40px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .sign_in_out {
@@ -66,7 +80,7 @@
 .section_title {
   font-weight: bold;
   font-size: 150%;
-  text-align: center; 
+  text-align: center;
   font-size: 30px;
   margin-bottom: 2%;
 }
@@ -79,18 +93,102 @@
 
 .dashboard_button {
   color: white;
-  background-color:  #114fa7
+  background-color: #114fa7
 }
 
 .dashboard_button_disabled {
   color: white;
-  background-color:  #b8c5d8
+  background-color: #b8c5d8
 }
 
 .dashboard_button_edit {
   color: black;
-  background-color:  #FB8E02
+  background-color: #FB8E02
 }
 
+.gnt_navbar_slider {
+  overflow: overlay;
+}
 
+@media (min-width: 992px) {
+  .gnt_navbar_slider_btn {
+    display: none !important;
+  }
+}
 
+@media (max-width: 991px) {
+  .header_text {
+    font-size: 24px;
+  }
+
+  header ul li .header_logo {
+    width: 100px;
+    height: 70px;
+  }
+
+  .gnt_basic_info_form input[type="text"],
+  .gnt_basic_info_form input[type="email"],
+  .gnt_basic_info_form textarea,
+  .gnt_basic_info_form #gnt_user_nationality,
+  .gnt_basic_info_form #gnt_user_current_resident,
+  #gnt_user_avatar {
+    width: 100% !important;
+  }
+
+  .gnt_professional_info_form input[type="text"] {
+    width: 100%;
+  }
+
+  .gnt_NCLEX_form select,
+  .gnt_immigration_form input[type="file"],
+  .gnt_Licensing_form input[type="date"],
+  .gnt_Licensing_form #gnt_user_license_number,
+  .gnt_Licensing_form select,
+  .gnt_job_form select,
+  .gnt_job_form input[type="date"] {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  #new_gnt_user .modal.modal-sheet {
+    background-color: transparent !important;
+  }
+
+  #new_gnt_user .modal #gnt_user_nationality {
+    width: 50% !important;
+  }
+
+  #new_gnt_user .form-floating>label {
+    font-size: 14px;
+  }
+
+  #new_gnt_user .gnt_terms_checkbox {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  #gnt_user_english_proficiency_result {
+    width: -webkit-fill-available !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .header_wrap {
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 375px) {
+
+  .footer_text,
+  .footer_customize.text {
+    font-size: 14px;
+  }
+
+  .footer_social_icon img {
+    max-width: 35px;
+    max-height: 35px;
+  }
+}

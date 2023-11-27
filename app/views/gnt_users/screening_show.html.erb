@@ -1,4 +1,4 @@
-<div class="mb-3 mt-3" style="display: flex; border-radius: .5rem">
+<div class="mb-3 mt-3 d-md-flex align-items-start gap-2 gap-lg-0">
   <%= render 'home/sidebar' %>
   <%= form_with(model: @user) do |f| %>
     <% if @user.errors.any? %>
@@ -15,19 +15,19 @@
     <div class="card" style="border-radius: .5rem;">
       <div class="row g-0">
         <div class="col-md-12">
-          <div class="card-body p-4">
-          
+          <div class="card-body p-md-4 p-3">
+
             <%= link_to 'Edit', screening_path(current_gnt_user), class:"btn dashboard_button_edit mb-3" %>
 
             <h5 class='section_title'>Screening</h5>
             <h5 class='section_sub_title'>STEP 1</h5>
             <hr class="mt-0 mb-4">
-            <h6 class='profile_prompt mt-3'> Set up a CGFNS account <a href="https://start.cgfns.org/?ref=www_register" target="_blank"> HERE </a></h6>  
-            <h6 class='profile_prompt mt-3'> Review Visascreen® fees <a href="https://www.cgfns.org/support/fee-schedule/#visascreen" target="_blank"> HERE </a></h6>  
-            
+            <h6 class='profile_prompt mt-3'> Set up a CGFNS account <a href="https://start.cgfns.org/?ref=www_register" target="_blank"> HERE </a></h6>
+            <h6 class='profile_prompt mt-3'> Review Visascreen® fees <a href="https://www.cgfns.org/support/fee-schedule/#visascreen" target="_blank"> HERE </a></h6>
+
             <h5 class='section_sub_title'>STEP 2</h5>
             <hr class="mt-0 mb-4">
-            <h6 class='profile_prompt mb-3'> Apply and upload the below required documents to your VisaScreen® account <a href="https://www.cgfns.org/services/certification/visascreen-visa-credentials-assessment/" target="_blank"> HERE </a></h6>  
+            <h6 class='profile_prompt mb-3'> Apply and upload the below required documents to your VisaScreen® account <a href="https://www.cgfns.org/services/certification/visascreen-visa-credentials-assessment/" target="_blank"> HERE </a></h6>
             <h6>✔ Education History: secondary school, professional education and diplomas</h6>
             <h6>✔ Licensure: all current and past licenses</h6>
             <h6>✔ English Language Proficiency Exam results</h6>
