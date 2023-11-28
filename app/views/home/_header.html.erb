@@ -2,12 +2,9 @@
   <div class="container">
     <div class="header_wrap d-flex flex-wrap align-items-center justify-content-between ">
       <ul class=" col-md-8 d-flex p-0 mb-md-0 align-items-center">
-        <li class="nav-item list-unstyled">
-          <%= image_tag 'ta_logo.png', class:'header_logo' %>
-        </li>
 
+      <%= link_to image_tag('kynd_logo.svg'), root_path, class:'nav-link active header_text header_logo'%>
         <% if current_gnt_user %>
-          <%= link_to 'TALENT ANGELS', root_path, class:'nav-link active header_text'%>
           <% if false %>
             <li class="nav-item dropdown">
               <% if current_gnt_user.languages_spoken == 'Español' %>
@@ -33,7 +30,6 @@
             </li>
           <% end %>
         <% else %>
-          <%= link_to 'TALENT ANGELS', root_path, class:'nav-link active header_text fs-md-2 fs-sm-4'%>
           <% if false %>
             <li class="nav-item" >
               <%= link_to 'Home', root_path, class:'nav-link active'%>
@@ -111,7 +107,7 @@
             <% end %>
           <% end %>
           <div class="btn-group">
-            <button type="button" class="btn header_button"><%= link_to image_tag('user.svg')+' Profile', register_path(current_gnt_user), class:'text-decoration-none text-dark', style:"font-size: 20px;" %></button>
+            <button type="button" class="btn header_button"><%= link_to image_tag('user.svg')+' Profile', register_path(current_gnt_user), class:'text-decoration-none text-light', style:"font-size: 20px;" %></button>
             <button type="button" class="btn header_button dropdown-toggle dropdown-toggle-split" style="font-size: 20px;" data-bs-toggle="dropdown" aria-expanded="false">
               <span class="visually-hidden">Toggle Dropdown</span>
             </button>

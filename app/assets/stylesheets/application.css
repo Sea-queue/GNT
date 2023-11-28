@@ -19,9 +19,13 @@
 }
 
 .header_button {
-  color: #40403f;
+  color: white;
   /* background-color:  #FB8E02 */
-  background-color: #EF7C18
+  background-color: #114fa7
+}
+
+.header_button.text:hover {
+  color: black;
 }
 
 .header_text {
