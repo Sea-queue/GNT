@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_20_202435) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_07_034734) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -104,6 +104,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_20_202435) do
     t.string "visascreen_status"
     t.string "interview_status"
     t.date "interview_date"
+    t.boolean "stage_1", default: false
+    t.boolean "stage_2", default: false
+    t.boolean "stage_3", default: false
+    t.boolean "stage_4", default: false
+    t.boolean "stage_5", default: false
+    t.boolean "stage_6", default: false
+    t.boolean "stage_7", default: false
+    t.boolean "stage_8", default: false
+    t.boolean "stage_9", default: false
+    t.boolean "stage_10", default: false
     t.index ["email"], name: "index_gnt_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_gnt_users_on_reset_password_token", unique: true
   end

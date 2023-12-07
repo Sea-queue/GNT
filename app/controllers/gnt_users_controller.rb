@@ -40,6 +40,8 @@ class GntUsersController < ApplicationController
         format.hmtl {render :edit}
       end
     end
+    # update stage status for progress bar
+    update_stage_status()
   end
 
   def delete_image
@@ -187,10 +189,92 @@ class GntUsersController < ApplicationController
       :visascreen_status,
       :interview_status,
       :interview_date, 
+      :stage_1,
+      :stage_2,
       transcript: [],
       transcript_translate: [],
       visa: []
     )
+  end
+
+  # update stage status for progress bar
+  def update_stage_status()
+    puts("stage_status", gnt_user_params)
+    puts("done")
+    # getting started
+    if !@user.stage_1
+      if false
+        @user.stage_1 = true
+        @user.save
+      end
+    end
+    # Basic info
+    if !@user.stage_2
+      if gnt_user_params[:full_name] and
+         gnt_user_params[:nationality] and
+         gnt_user_params[:current_resident] and
+         gnt_user_params[:i_am] and
+         gnt_user_params[:years_of_experience]
+        @user.stage_2 = true
+        @user.save
+      end
+    end
+    # Professional Info
+    if !@user.stage_3
+      if false
+        @user.stage_3 = true
+        @user.save
+      end
+    end
+    # English Exam
+    if !@user.stage_4
+      if false
+        @user.stage_4 = true
+        @user.save
+      end
+    end
+    # NCLEX
+    if !@user.stage_5
+      if false
+        @user.stage_5 = true
+        @user.save
+      end
+    end
+    # Licensing
+    if !@user.stage_6
+      if false
+        @user.stage_6 = true
+        @user.save
+      end
+    end
+    # Job Interview
+    if !@user.stage_7
+      if false
+        @user.stage_7 = true
+        @user.save
+      end
+    end
+    # Immigration
+    if !@user.stage_8
+      if false
+        @user.stage_8 = true
+        @user.save
+      end
+    end
+    # Screening
+    if !@user.stage_9
+      if false
+        @user.stage_9 = true
+        @user.save
+      end
+    end
+    # Onboarding
+    if !@user.stage_10
+      if false
+        @user.stage_10 = true
+        @user.save
+      end
+    end
   end
 
 end

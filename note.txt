@@ -38,12 +38,12 @@ flash.now[:notice]
 
 - to add a column in database
 rails g migrate add_role_to_gnt_user role:string 
-rake db:migrate
+rails db:migrate
 https://gist.github.com/withoutwax/46a05861aa4750384df971b641170407#step-04-check-migration-file
 
 - to change column in database
 rails g migration change_defualt_role
-rake db:migrate
+rails db:migrate
 
 - rails devise current_user 
 https://www.reddit.com/r/rails/comments/icxg4c/rails_and_devise_current_user_method/
