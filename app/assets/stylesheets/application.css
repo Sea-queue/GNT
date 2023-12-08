@@ -128,162 +128,12 @@ ol.privacy .l2 {
   list-style-type: lower-roman;
 }
 
-@media (min-width: 992px) {
-  .gnt_navbar_slider_btn {
-    display: none !important;
-  }
-}
-
-@media (max-width: 991px) {
-  .header_text {
-    font-size: 24px;
-  }
-
-  header ul li .header_logo {
-    width: 100px;
-    height: 70px;
-  }
-
-  .google_form {
-    width: 100%;
-  }
-
-  .gnt_basic_info_form input[type="text"],
-  .gnt_basic_info_form input[type="email"],
-  .gnt_basic_info_form textarea,
-  .gnt_basic_info_form #gnt_user_nationality,
-  .gnt_basic_info_form #gnt_user_current_resident,
-  #gnt_user_avatar {
-    width: 100% !important;
-  }
-
-  .gnt_professional_info_form input[type="text"] {
-    width: 100%;
-  }
-
-  .gnt_NCLEX_form select,
-  .gnt_immigration_form input[type="file"],
-  .gnt_Licensing_form input[type="date"],
-  .gnt_Licensing_form #gnt_user_license_number,
-  .gnt_Licensing_form select,
-  .gnt_job_form select,
-  .gnt_job_form input[type="date"] {
-    width: 100%;
-  }
-}
-
-@media (max-width: 767px) {
-  #new_gnt_user .modal.modal-sheet {
-    background-color: transparent !important;
-  }
-
-  #new_gnt_user .modal #gnt_user_nationality {
-    width: 50% !important;
-  }
-
-  #new_gnt_user .form-floating>label {
-    font-size: 14px;
-  }
-
-  #new_gnt_user .gnt_terms_checkbox {
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-  }
-
-  #gnt_user_english_proficiency_result {
-    width: -webkit-fill-available !important;
-  }
-
-  .google_form {
-    width: 100%;
-  }
-}
-
-@media (max-width: 500px) {
-  .header_wrap {
-    justify-content: center !important;
-  }
-
-  .google_form {
-    width: 100%;
-  }
-}
-
-@media (max-width: 375px) {
-
-  .footer_text,
-  .footer_customize.text {
-    font-size: 14px;
-  }
-
-  .footer_social_icon img {
-    max-width: 35px;
-    max-height: 35px;
-  }
-
-  .google_form {
-    width: 100%;
-  }
-}
-
-
-* { 
-	margin: 0; 
-	padding: 0
-} 
-
-html { 
-	height: 100%
-} 
-
-h2{ 
-	color: #2F8D46; 
-} 
 #form { 
 	text-align: center; 
 	position: relative; 
-	margin-top: 20px
-} 
-
-#form fieldset { 
-	background: white; 
-	border: 0 none; 
-	border-radius: 0.5rem; 
-	box-sizing: border-box; 
-	width: 100%; 
-	margin: 0; 
-	padding-bottom: 20px; 
-	position: relative
-} 
-
-.finish { 
-	text-align: center
-} 
-
-#form fieldset:not(:first-of-type) { 
-	display: none
-} 
-
-#form .previous-step, .next-step { 
-	width: 100px; 
-	font-weight: bold; 
-	color: white; 
-	border: 0 none; 
-	border-radius: 0px; 
-	cursor: pointer; 
-	padding: 10px 5px; 
-	margin: 10px 5px 10px 0px; 
-	float: right
 }
 
-.text { 
-	color: #2F8D46; 
-	font-weight: normal
-} 
-
 #progressbar { 
-	margin-bottom: 30px; 
 	overflow: hidden; 
 	color: lightgrey 
 } 
@@ -295,10 +145,10 @@ h2{
 #progressbar li { 
 	list-style-type: none; 
 	font-size: 15px; 
-	width: 25%; 
+	width: 10%; 
 	float: left; 
 	position: relative; 
-	font-weight: 400
+	font-weight: 400;
 } 
 
 #progressbar #step1:before { 
@@ -349,7 +199,7 @@ h2{
 	font-size: 20px; 
 	color: #ffffff; 
 	background: lightgray; 
-	border-radius: 50%; 
+	border-radius: 40%; 
 	margin: 0 auto 10px auto; 
 	padding: 2px
 } 
@@ -368,4 +218,116 @@ h2{
 #progressbar li.active:before, 
 #progressbar li.active:after { 
 	background: #2F8D46
+}
+
+@media (min-width: 992px) {
+  .gnt_navbar_slider_btn {
+    display: none !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .header_text {
+    font-size: 24px;
+  }
+
+  header ul li .header_logo {
+    width: 100px;
+    height: 70px;
+  }
+
+  .google_form {
+    width: 100%;
+  }
+
+  .gnt_basic_info_form input[type="text"],
+  .gnt_basic_info_form input[type="email"],
+  .gnt_basic_info_form textarea,
+  .gnt_basic_info_form #gnt_user_nationality,
+  .gnt_basic_info_form #gnt_user_current_resident,
+  #gnt_user_avatar {
+    width: 100% !important;
+  }
+
+  .gnt_professional_info_form input[type="text"] {
+    width: 100%;
+  }
+
+  .gnt_NCLEX_form select,
+  .gnt_immigration_form input[type="file"],
+  .gnt_Licensing_form input[type="date"],
+  .gnt_Licensing_form #gnt_user_license_number,
+  .gnt_Licensing_form select,
+  .gnt_job_form select,
+  .gnt_job_form input[type="date"] {
+    width: 100%;
+  }
+
+  #progressbar li { 
+    font-size: 10px; 
+    width: 20%;
+  } 
+}
+
+@media (max-width: 767px) {
+  #new_gnt_user .modal.modal-sheet {
+    background-color: transparent !important;
+  }
+
+  #new_gnt_user .modal #gnt_user_nationality {
+    width: 50% !important;
+  }
+
+  #new_gnt_user .form-floating>label {
+    font-size: 14px;
+  }
+
+  #new_gnt_user .gnt_terms_checkbox {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  #gnt_user_english_proficiency_result {
+    width: -webkit-fill-available !important;
+  }
+
+  .google_form {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .header_wrap {
+    justify-content: center !important;
+  }
+
+  .google_form {
+    width: 100%;
+  }
+
+  #progressbar li {
+    font-size: 7px; 
+  } 
+}
+
+@media (max-width: 375px) {
+
+  .footer_text,
+  .footer_customize.text {
+    font-size: 14px;
+  }
+
+  .footer_social_icon img {
+    max-width: 35px;
+    max-height: 35px;
+  }
+
+  .google_form {
+    width: 100%;
+  }
+
+  #progressbar li {
+    font-size: 5px;
+  } 
 }

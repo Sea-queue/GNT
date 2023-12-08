@@ -201,10 +201,17 @@ class GntUsersController < ApplicationController
   def update_stage_status()
     puts("stage_status", gnt_user_params)
     puts("done")
+    # @user.stage_1 = false
+    # @user.save
     # getting started
     if !@user.stage_1
-      if false
+      if @user.english_proficiency_result.attached? or gnt_user_params[:request_english_assessment] == "1"
         @user.stage_1 = true
+        @user.save
+      end
+    else
+      if !@user.english_proficiency_result.attached? and gnt_user_params[:request_english_assessment] == "0"
+        @user.stage_1 = false
         @user.save
       end
     end
@@ -218,17 +225,40 @@ class GntUsersController < ApplicationController
         @user.stage_2 = true
         @user.save
       end
+    else
+      if !gnt_user_params[:full_name] or
+         !gnt_user_params[:nationality] or
+         !gnt_user_params[:current_resident] or
+         !gnt_user_params[:i_am] or
+         !gnt_user_params[:years_of_experience]
+        @user.stage_2 = false
+        @user.save
+      end
     end
     # Professional Info
     if !@user.stage_3
-      if false
+      if @user.rn_license_upload.attached? and 
+         gnt_user_params[:license_type] != '' and 
+         gnt_user_params[:stage3_1] == '1'
         @user.stage_3 = true
+        @user.save
+      end
+    else 
+      if !@user.rn_license_upload.attached? or 
+         gnt_user_params[:license_type] == '' or 
+         gnt_user_params[:stage3_1] == '0'
+        @user.stage_3 = false
         @user.save
       end
     end
     # English Exam
     if !@user.stage_4
-      if false
+      if @user.english_proficiency_result.attached?
+        @user.stage_4 = true
+        @user.save
+      end
+    else 
+      if !@user.english_proficiency_result.attached?
         @user.stage_4 = true
         @user.save
       end

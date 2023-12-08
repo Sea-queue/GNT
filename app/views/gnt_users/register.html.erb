@@ -1,4 +1,4 @@
-
+<%= render 'home/progress' %>
 <div class="mb-3 d-md-flex align-items-start gap-2 gap-lg-0">  
   <%= render 'home/sidebar' %>
   <%= form_with(model: @user) do |f| %>
@@ -43,7 +43,13 @@
                       <h6><strong> Option 1: </strong></h6>
                     </div>
                     <div class="col-md-10 col-9">
-                      <h6><strong> If you have passed an English proficiency exam (e.g. IELTS, PTE) within the last 2 years, please upload your test results HERE: <%= f.file_field :english_proficiency_result %></strong></h6>
+                      <h6><strong> 
+                        If you have passed an English proficiency exam (e.g. IELTS, PTE) within the last 2 years, please upload your test results HERE: 
+                        <%= f.file_field :english_proficiency_result %>
+                        <% if @user.english_proficiency_result.attached? %>
+                          <%= link_to @user.english_proficiency_result.filename, url_for(@user.english_proficiency_result) %>
+                        <% end %>
+                      </strong></h6>
                     </div>
                   </div>
 

@@ -11,7 +11,7 @@ class GntUsers::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    puts("check terms before", params)
+    # puts("check terms before", GntUser.new.resume.blank?)
     respond_to do |format|
       if params[:gnt_user][:terms_of_use] == "0" or 
          params[:gnt_user][:full_name] == "" or 

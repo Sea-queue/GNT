@@ -1,71 +1,67 @@
 <div class="container"> 
     <div class="row justify-content-center"> 
-        <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0"> 
-            <div class="px-0 pt-4 pb-0"> 
-                <form id="form"> 
-                    <ul id="progressbar"> 
-                        <% if @user.stage_1 %>
-                          <li class="active" id="step1"><strong>Getting Started</strong></li>
-                        <% else %> 
-                          <li id="step1"><strong>Getting Started</strong></li>
-                        <% end %>
-                        
-                        <% if @user.stage_2 %>
-                          <li class="active" id="step2"><strong>Basic Info</strong></li> 
-                        <% else %> 
-                          <li id="step2"><strong>Basic Info</strong></li> 
-                        <% end %>
+        <form id="form"> 
+            <ul id="progressbar"> 
+                <% if @user.stage_1 %>
+                  <li class="active" id="step1"><strong>Getting Started</strong></li>
+                <% else %> 
+                  <li id="step1"><strong>Getting Started</strong></li>
+                <% end %>
+                
+                <% if @user.stage_2 %>
+                  <li class="active" id="step2"><strong>Basic Info</strong></li> 
+                <% else %> 
+                  <li id="step2"><strong>Basic Info</strong></li> 
+                <% end %>
 
-                        <% if @user.stage_3 %>
-                          <li id="step3"><strong>Professional Info</strong></li> 
-                        <% else %>
-                          <li id="step3"><strong>Professional Info</strong></li> 
-                        <% end %>
+                <% if @user.stage_3 %>
+                  <li class="active" id="step3"><strong>Professional Info</strong></li> 
+                <% else %>
+                  <li id="step3"><strong>Professional Info</strong></li> 
+                <% end %>
 
-                        <% if @user.stage_4 %>
-                          <li id="step4"><strong>English Exam</strong></li>
-                        <% else %>
-                          <li id="step4"><strong>English Exam</strong></li>
-                        <% end %>
+                <% if @user.stage_4 %>
+                  <li class="active" id="step4"><strong>English Exam</strong></li>
+                <% else %>
+                  <li id="step4"><strong>English Exam</strong></li>
+                <% end %>
 
-                        <% if @user.stage_5 %>
-                          <li id="step5"><strong>NCLEX</strong></li> 
-                        <% else %>
-                          <li id="step5"><strong>NCLEX</strong></li> 
-                        <% end %>
+                <% if @user.stage_5 %>
+                  <li class="active" id="step5"><strong>NCLEX</strong></li> 
+                <% else %>
+                  <li id="step5"><strong>NCLEX</strong></li> 
+                <% end %>
 
-                        <% if @user.stage_6 %>
-                          <li id="step6"><strong>Licensing</strong></li> 
-                        <% else %>
-                          <li id="step6"><strong>Licensing</strong></li> 
-                        <% end %>
+                <% if @user.stage_6 %>
+                  <li class="active" id="step6"><strong>Licensing</strong></li> 
+                <% else %>
+                  <li id="step6"><strong>Licensing</strong></li> 
+                <% end %>
 
-                        <% if @user.stage_7 %>
-                          <li id="step7"><strong>Job Interview</strong></li> 
-                        <% else %>
-                          <li id="step7"><strong>Job Interview</strong></li> 
-                        <% end %>
+                <% if @user.stage_7 %>
+                  <li class="active" id="step7"><strong>Job Interview</strong></li> 
+                <% else %>
+                  <li id="step7"><strong>Job Interview</strong></li> 
+                <% end %>
 
-                        <% if @user.stage_8 %>
-                          <li id="step8"><strong>Immigration</strong></li> 
-                        <% else %>
-                          <li id="step8"><strong>Immigration</strong></li> 
-                        <% end %>
+                <% if @user.stage_8 %>
+                  <li class="active" id="step8"><strong>Immigration</strong></li> 
+                <% else %>
+                  <li id="step8"><strong>Immigration</strong></li> 
+                <% end %>
 
-                        <% if @user.stage_9 %>
-                          <li id="step9"><strong>Screening</strong></li>
-                        <% else %>
-                          <li id="step9"><strong>Screening</strong></li>
-                        <% end %>
+                <% if @user.stage_9 %>
+                  <li class="active" id="step9"><strong>Screening</strong></li>
+                <% else %>
+                  <li id="step9"><strong>Screening</strong></li>
+                <% end %>
 
-                        <% if @user.stage_10 %>
-                          <li id="step10"><strong>Onboarding</strong></li>
-                        <% else %>
-                          <li id="step10"><strong>Onboarding</strong></li>
-                        <% end %>
-                    </ul>
-                </form> 
-            </div> 
-        </div> 
+                <% if @user.stage_10 %>
+                  <li class="active" id="step10"><strong>Onboarding</strong></li>
+                <% else %>
+                  <li id="step10"><strong>Onboarding</strong></li>
+                <% end %>
+            </ul>
+        </form> 
     </div> 
 </div>
