@@ -295,6 +295,11 @@ ol.privacy .l2 {
   .google_form {
     width: 100%;
   }
+
+  #progressbar li { 
+    font-size: 8px; 
+    width: 20%;
+  } 
 }
 
 @media (max-width: 500px) {
@@ -308,6 +313,10 @@ ol.privacy .l2 {
 
   #progressbar li {
     font-size: 7px; 
+  } 
+  #progressbar li { 
+    font-size: 6px; 
+    width: 20%;
   } 
 }
 
