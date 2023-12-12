@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-md-10 col-9">
                       <h6><strong> 
-                        If you have passed an English proficiency exam (e.g. IELTS, PTE) within the last 2 years, please upload your test results HERE: 
+                        If you have passed an English proficiency exam (e.g. IELTS, PTE) within the last 2 years, please upload your test results: 
                         <%= f.file_field :english_proficiency_result %>
                         <% if @user.english_proficiency_result.attached? %>
                           <%= link_to @user.english_proficiency_result.filename, url_for(@user.english_proficiency_result) %>
@@ -59,13 +59,13 @@
                     </div>
                     <div class="col-md-10 col-9">
                       <h6><strong> If you have NOT recently passed an English proficiency exam (e.g. IELTS, PTE), we can provide a pathway for your preparation:</strong> </h6>
-                      <h6> &nbsp; &nbsp; i. First, register for a FREE English assessment to determine your current level of English proficiency: 
+                      <h6> First, register for a FREE English assessment to determine your current level of English proficiency: 
                         <div class="field mb-2 d-flex text-dark">
                           <%= f.check_box :request_english_assessment %> &nbsp
-                          <h6 class='mt-2'> Check HERE to request English Assessment.</h6>
+                          <h6 class='mt-2'> Check the box to request English Assessment.</h6>
                         </div>  
                       </h6>
-                      <h6> &nbsp; &nbsp; ii. After your English Assessment, we will reach out to you with your results and offer an individualized language preparation plan. Scholarships are available now!</h6>  
+                      <h6> After your English Assessment, we will reach out to you with your results and offer an individualized language preparation plan. Scholarships are available now!</h6>  
                     </div>
                   </div>
                 </div>

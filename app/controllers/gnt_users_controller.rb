@@ -216,6 +216,7 @@ class GntUsersController < ApplicationController
       end
     end
     # Basic info
+    # TODO: add resume and phone, check of start application
     if !@user.stage_2
       if gnt_user_params[:full_name] and
          gnt_user_params[:nationality] and

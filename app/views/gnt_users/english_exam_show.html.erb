@@ -20,21 +20,28 @@
 
             <%= link_to 'Edit', english_exam_path(current_gnt_user), class:"btn dashboard_button_edit mb-3" %>
 
-            <h5 class='section_title mt-2'>English Exam</h5>
-
-            <h5 class='section_sub_title'>STEP 1</h5>
-            <hr class="mt-0 mb-4">
-
-            <a href="https://www.pearsonpte.com/" target="_blank"> Schedule PTE </a> &nbsp; OR &nbsp; <a href="https://ielts.org/ielts-usa" target="_blank"> Schedule IELTS </a>
-
-            <h5 class='section_sub_title mt-3'>STEP 2</h5>
-            <hr class="mt-0 mb-4">
+            <h5 class='section_title mt-2 mb-5'>English Proficiency</h5>
 
             <div class="col-30 mb-3" style="display: flex">
               <h6 class='profile_prompt'>English proficiency exam status: &nbsp</h6>
               <h6 class='profile_text'><%= @user.english_proficiency %></h6>
             </div>
-    
+
+            <h5 class='section_sub_title'>STEP 1</h5>
+            <hr class="mt-0 mb-4">
+            <div class="field mb-2" style='display:flex'>
+            <h6 class='profile_prompt'>English Assessment: &nbsp</h6>
+              <h6 class='profile_text'><%= @user.request_english_assessment %></h6>
+            </div>
+
+            
+            <h5 class='section_sub_title mt-3'>STEP 2</h5>
+            <hr class="mt-0 mb-4">
+            <a href="https://www.pearsonpte.com/" target="_blank"> Schedule PTE </a> &nbsp; OR &nbsp; <a href="https://ielts.org/ielts-usa" target="_blank"> Schedule IELTS </a>
+
+            <h5 class='section_sub_title mt-3'>STEP 3</h5>
+            <hr class="mt-0 mb-4">
+
             <div class="col-20 mb-3" style="display: flex">
               <h6 class='profile_prompt'>English proficiency exam result: &nbsp</h6>
               <% if @user.english_proficiency_result.attached? %>
