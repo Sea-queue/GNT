@@ -217,7 +217,6 @@ class GntUsersController < ApplicationController
       end
     end
     # Basic info
-    # TODO:  and phone, check of start application
     if !@user.stage_2
       if gnt_user_params[:full_name] != '' and
          gnt_user_params[:nationality] != '' and
@@ -265,19 +264,26 @@ class GntUsersController < ApplicationController
         @user.save
       end
     else 
-      if !@user.english_proficiency == 'Complete'
-        @user.stage_4 = true
+      if @user.english_proficiency != 'Complete'
+        @user.stage_4 = false
         @user.save
       end
     end
     # NCLEX
     if !@user.stage_5
-      if false
+      if gnt_user_params[:nclex_rn] != '' and 
+         gnt_user_params[:nclex_rn_state] != ''
         @user.stage_5 = true
         @user.save
       end
+    else
+      if gnt_user_params[:nclex_rn] == '' or 
+         gnt_user_params[:nclex_rn_state] == 'None'
+        @user.stage_5 = false
+        @user.save
+      end 
     end
-    # Licensing
+    # Employer Interview
     if !@user.stage_6
       if @user.interview_status == 'Complete'
         @user.stage_6 = true
@@ -289,29 +295,42 @@ class GntUsersController < ApplicationController
         @user.save
       end
     end
-    # Job Interview
+    # Licensing
     if !@user.stage_7
-      if false
+      if gnt_user_params[:rn_in_us] == '1' and
+         gnt_user_params[:rn_in_us_state] != '' and
+         gnt_user_params[:license_number] != '' and
+         gnt_user_params[:expiration_date] != '' and
+         gnt_user_params[:background_check] == '1'
         @user.stage_7 = true
         @user.save
       end
-    end
-    # Immigration
-    if !@user.stage_8
-      if false
-        @user.stage_8 = true
+    else
+      if gnt_user_params[:rn_in_us] == '0' or
+         gnt_user_params[:rn_in_us_state] == '' or
+         gnt_user_params[:license_number] == '' or
+         gnt_user_params[:expiration_date] == '' or
+         gnt_user_params[:background_check] == '0'
+        @user.stage_7 = false
         @user.save
-      end
+      end 
     end
-    # Screening
-    if !@user.stage_9
+    # VisaScreen
+    if !@user.stage_8
       if @user.visascreen_status == 'Complete'
-        @user.stage_9 = true
+        @user.stage_8 = true
         @user.save
       end
     else 
       if !@user.visascreen_status == 'Complete'
-        @user.stage_9 = false
+        @user.stage_8 = false
+        @user.save
+      end
+    end
+    # Immigration
+    if !@user.stage_9
+      if false
+        @user.stage_9 = true
         @user.save
       end
     end

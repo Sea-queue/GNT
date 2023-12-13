@@ -22,6 +22,8 @@
             <h5 class='section_title mt-2'>Immigration</h5>
             <hr class="mt-0 mb-4">
 
+
+            <h6><strong>Checklist of documents to begin collecting:</strong></h6>
             <div class="field" style='display: flex'>
               <%= f.check_box :currently_working %> &nbsp
               <h6 class='mt-2'>Valid Passport</h6>
@@ -52,6 +54,10 @@
               <h6 class='mt-2'>Copy of any current or former US Visa(s), Form I-94(s) or any other US immigration-related documentation</h6>
             </div>
 
+            <div class="col-12 mb-3 mt-3 d-flex flex-wrap">
+              <h6>Current visa application for: * &nbsp;</h6>
+              <%= f.select :apply_visa_for, ['None', 'Self', 'Self and Family'], :prompt => current_gnt_user.apply_visa_for %>
+            </div>
             <h6><strong>If you anticipate being accompanied by family members (spouse or children under 21) to the United States, collect the applicable documents:</strong></h6>
             <div class="field mt-2" style='display: flex'>
               <%= f.check_box :currently_working %> &nbsp
@@ -86,57 +92,28 @@
 
             <div class="field mt-2" style='display: flex'>
               <%= f.check_box :currently_working %> &nbsp
-              <h6 class='mt-2'>Passing an approved English Proficiency Exam</h6>
+              <h6 class='mt-2'>English Proficiency Exam Report with Passing Score</h6>
             </div>
 
             <div class="field mt-2" style='display: flex'>
               <%= f.check_box :currently_working %> &nbsp
-              <h6 class='mt-2'>Passing the NCLEX</h6>
+              <h6 class='mt-2'>NCLEX Report with Passing Score</h6>
             </div>
 
-            <div class="field mt-2" style='display: flex'>
-              <%= f.check_box :currently_working %> &nbsp
-              <h6 class='mt-2'>VisaScreen Certificate</h6>
+            <div class="field mt-2 mb-4" style='display: flex'>
+              <%= f.check_box :cgfns %> &nbsp
+              <h6 class='mt-2'>CGFNS VisaScreen Certificate</h6>
             </div>
 
-
-
-            <div class="field mb-2 d-flex align-items-baseline">
-              <%= f.check_box :cgfns %> &nbsp;
-              <h6 class='profile_prompt mt-1'>I have a CGFNS VisaScreen approval</h6>
-            </div>
-
-            <h6 class='profile_prompt mt-4'>If applicable, upload Copy of CGFNS VisaScreen Report:</h6>
-            <%= f.file_field :cgfns_upload %>
-
-            <h6 class='profile_prompt mt-3'>Upload original, or certified copy, of Birth Certificate: * </h6>
-            <%= f.file_field :birth_certificate %>
-
-            <h6 class='profile_prompt mt-3'>If applicable, upload translation of Birth Certificate:</h6>
-            <%= f.file_field :birth_certificate_translate %>
-
-            <h6 class='profile_prompt mt-3'>Upload copy of your valid Passport (biographic page): *</h6>
-            <%= f.file_field :passport %>
-
-            <h6 class='profile_prompt mt-3'>If applicable, upload current or former US Visa(s):</h6>
-            <%= f.file_field :visa, multiple: true %>
-
-            <div class="col-12 mb-3 mt-3 d-flex flex-wrap">
-              <h6>Current visa application for: * &nbsp;</h6>
-              <%= f.select :apply_visa_for, ['None', 'Self', 'Self and Family'], :prompt => current_gnt_user.apply_visa_for %>
-            </div>
-
-            <h6 class='profile_prompt'>If applicable, upload U.S. Entry Stamp or I-94 Departure/Arrival record:</h6>
-            <%= f.file_field :entry_stamp %>
-
+            <h6><strong>Additionally, please confirm the following statements to assure your eligibility:</strong></h6>
             <div class="field mb-2 mt-2 d-flex align-items-baseline">
               <%= f.check_box :convicted_crime %> &nbsp;
-              <h6 class='profile_prompt mt-1'>I have never been convicted of a crime. *</h6>
+              <h6 class='mt-1'>I have never been convicted of a crime. *</h6>
             </div>
 
             <div class="field mb-2 d-flex align-items-baseline">
               <%= f.check_box :disorder %> &nbsp;
-              <h6 class='profile_prompt mt-1'>I have not had any substance use disorder in the last five years. *</h6>
+              <h6 class='mt-1'>I have not had any substance use disorder in the last five years. *</h6>
             </div>
 
             <div class="col-12 mb-3 d-flex flex-wrap">
