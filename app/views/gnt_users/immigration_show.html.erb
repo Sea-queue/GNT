@@ -33,52 +33,8 @@
             <h6 class="mt-1"> Once you accept a job offer with a U.S. hospital, you will be connected to our immigration portal to submit all documents to process your visa(s). </h6>
 
             <div class="col-12 mb-3" style="display: flex">
-              <h6 class='profile_prompt'> CGFNS VisaScreen Report: &nbsp</h6>
-              <% if @user.cgfns_upload.attached? %>
-                <%= link_to @user.cgfns_upload.filename, url_for(@user.cgfns_upload) %>
-              <% end %>
-            </div>
-
-            <div class="col-12 mb-3" style="display: flex">
-              <h6 class='profile_prompt'>Original or certified copy of Birth Certificate: &nbsp</h6>
-              <% if @user.birth_certificate.attached? %>
-                <%= link_to @user.birth_certificate.filename, url_for(@user.birth_certificate) %>
-              <% end %>
-            </div>
-
-            <div class="col-12 mb-3" style="display: flex">
-              <h6 class='profile_prompt'>Translation of Birth Certificate: &nbsp</h6>
-              <% if @user.birth_certificate_translate.attached? %>
-                <%= link_to @user.birth_certificate_translate.filename, url_for(@user.birth_certificate_translate) %>
-              <% end %>
-            </div>
-
-            <div class="col-12 mb-3" style="display: flex">
-              <h6 class='profile_prompt'>Valid Passport (biographic page): &nbsp</h6>
-              <% if @user.passport.attached? %>
-                <%= link_to @user.passport.filename, url_for(@user.passport) %>
-              <% end %>
-            </div>
-
-            <div class="col-12 mb-3" style="display: flex">
-              <h6 class='profile_prompt'>Current or former US Visa(s): &nbsp</h6>
-              <% if @user.visa.attached? %>
-                <% for item in @user.visa %>
-                  <%= link_to item.filename, url_for(item) %>
-                <% end %>
-              <% end %>
-            </div>
-
-            <div class="col-12 mb-3" style="display: flex">
               <h6 class='profile_prompt'>Current visa application for: &nbsp</h6>
               <h6 class='profile_text'><%= @user.apply_visa_for %></h6>
-            </div>
-
-            <div class="col-12 mb-3" style="display: flex">
-              <h6 class='profile_prompt'>U.S. Entry Stamp or I-94 Departure/Arrival record: &nbsp</h6>
-              <% if @user.entry_stamp.attached? %>
-                <%= link_to @user.entry_stamp.filename, url_for(@user.entry_stamp) %>
-              <% end %>
             </div>
 
             <div class="col-12 mb-3" style="display: flex">
