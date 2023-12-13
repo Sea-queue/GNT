@@ -125,6 +125,7 @@ class GntUsersController < ApplicationController
   def gnt_user_params
     params.require(:gnt_user).permit(
       :avatar,
+      :email,
       :full_name,
       :nationality,
       :i_am,
@@ -216,22 +217,27 @@ class GntUsersController < ApplicationController
       end
     end
     # Basic info
-    # TODO: add resume and phone, check of start application
+    # TODO:  and phone, check of start application
     if !@user.stage_2
-      if gnt_user_params[:full_name] and
-         gnt_user_params[:nationality] and
-         gnt_user_params[:current_resident] and
-         gnt_user_params[:i_am] and
-         gnt_user_params[:years_of_experience]
+      if gnt_user_params[:full_name] != '' and
+         gnt_user_params[:nationality] != '' and
+         gnt_user_params[:current_resident] != '' and
+         gnt_user_params[:i_am] != '' and
+         gnt_user_params[:years_of_experience] != '' and
+         gnt_user_params[:phone_number] != '' and
+         @user.resume.attached? and
+         gnt_user_params[:request_to_apply] == '1'
         @user.stage_2 = true
         @user.save
       end
     else
-      if !gnt_user_params[:full_name] or
-         !gnt_user_params[:nationality] or
-         !gnt_user_params[:current_resident] or
-         !gnt_user_params[:i_am] or
-         !gnt_user_params[:years_of_experience]
+      if gnt_user_params[:full_name] == '' or
+         gnt_user_params[:nationality] == '' or
+         gnt_user_params[:current_resident] == '' or
+         gnt_user_params[:i_am] == '' or
+         gnt_user_params[:years_of_experience] == '' or
+         !@user.resume.attached? or
+         gnt_user_params[:request_to_apply] == '0'
         @user.stage_2 = false
         @user.save
       end
@@ -254,12 +260,12 @@ class GntUsersController < ApplicationController
     end
     # English Exam
     if !@user.stage_4
-      if @user.english_proficiency_result.attached?
+      if @user.english_proficiency == 'Complete'
         @user.stage_4 = true
         @user.save
       end
     else 
-      if !@user.english_proficiency_result.attached?
+      if !@user.english_proficiency == 'Complete'
         @user.stage_4 = true
         @user.save
       end
@@ -273,8 +279,13 @@ class GntUsersController < ApplicationController
     end
     # Licensing
     if !@user.stage_6
-      if false
+      if @user.interview_status == 'Complete'
         @user.stage_6 = true
+        @user.save
+      end
+    else
+      if !@user.interview_status == 'Complete'
+        @user.stage_6 = false
         @user.save
       end
     end
@@ -294,8 +305,13 @@ class GntUsersController < ApplicationController
     end
     # Screening
     if !@user.stage_9
-      if false
+      if @user.visascreen_status == 'Complete'
         @user.stage_9 = true
+        @user.save
+      end
+    else 
+      if !@user.visascreen_status == 'Complete'
+        @user.stage_9 = false
         @user.save
       end
     end
