@@ -19,9 +19,18 @@
 }
 
 .header_button {
+  color: #3F37C9;
+  font-weight: bold;
+  background-color: #25B9CE;
+  border-radius: 25px;
+  width: 140px;
+}
+
+.header_button_2 {
   color: white;
-  /* background-color:  #FB8E02 */
-  background-color: #114fa7
+  background-color: #25B9CE;
+  border-radius: 25px;
+  width: 35px;
 }
 
 .header_button.text:hover {
@@ -29,7 +38,7 @@
 }
 
 .header_text {
-  color: #40403f;
+  color: #3F37C9;
   font-size: 35px;
   font-weight: bold;
 }
@@ -106,8 +115,11 @@ header ul li .header_logo {
 }
 
 .dashboard_button_edit {
-  color: black;
-  background-color: #FB8E02
+  color: white;
+  font-size: 130%;
+  background-color: #25B9CE;
+  border-radius: 25px;
+  width: 80px;
 }
 
 .gnt_navbar_slider {
@@ -139,7 +151,7 @@ ol.privacy .l2 {
 } 
 
 #progressbar .active { 
-	color: #2F8D46
+	color: #3F37C9
 } 
 
 #progressbar li { 
@@ -217,7 +229,7 @@ ol.privacy .l2 {
 
 #progressbar li.active:before, 
 #progressbar li.active:after { 
-	background: #2F8D46
+	background: #3F37C9
 }
 
 @media (min-width: 992px) {

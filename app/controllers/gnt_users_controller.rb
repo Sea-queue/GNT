@@ -34,7 +34,7 @@ class GntUsersController < ApplicationController
         elsif params[:gnt_user][:grant_apply_request]
           format.html {redirect_to admin_pages_statistics_path, notice: "Grant Success!"}
         else
-          format.html {redirect_back fallback_location: root_path, notice: "you successfully updated your profile!"}
+          format.html {redirect_back fallback_location: root_path, notice: "You successfully updated your profile!"}
         end
       else
         format.hmtl {render :edit}
@@ -192,6 +192,18 @@ class GntUsersController < ApplicationController
       :interview_date, 
       :stage_1,
       :stage_2,
+      :check_list_0,
+      :check_list_1,
+      :check_list_2,
+      :check_list_3,
+      :check_list_4,
+      :check_list_5,
+      :check_list_6,
+      :check_list_7,
+      :check_list_8,
+      :check_list_9,
+      :check_list_11,
+      :check_list_12,
       transcript: [],
       transcript_translate: [],
       visa: []
@@ -259,12 +271,12 @@ class GntUsersController < ApplicationController
     end
     # English Exam
     if !@user.stage_4
-      if @user.english_proficiency == 'Complete'
+      if @user.english_proficiency == 'passed'
         @user.stage_4 = true
         @user.save
       end
     else 
-      if @user.english_proficiency != 'Complete'
+      if @user.english_proficiency != 'passed'
         @user.stage_4 = false
         @user.save
       end
@@ -329,8 +341,35 @@ class GntUsersController < ApplicationController
     end
     # Immigration
     if !@user.stage_9
-      if false
+      if gnt_user_params[:check_list_0] == '1' and
+         gnt_user_params[:check_list_1] == '1' and
+         gnt_user_params[:check_list_2] == '1' and
+         gnt_user_params[:check_list_3] == '1' and
+         gnt_user_params[:check_list_4] == '1' and
+         gnt_user_params[:check_list_5] == '1' and
+         gnt_user_params[:check_list_6] == '1' and
+         gnt_user_params[:check_list_7] == '1' and
+         gnt_user_params[:check_list_8] == '1' and
+         gnt_user_params[:check_list_9] == '1' and
+         gnt_user_params[:check_list_11] == '1' and
+         gnt_user_params[:check_list_12] == '1' and
         @user.stage_9 = true
+        @user.save
+      end
+    else
+      if gnt_user_params[:check_list_0] == '0' or
+         gnt_user_params[:check_list_1] == '0' or
+         gnt_user_params[:check_list_2] == '0' or
+         gnt_user_params[:check_list_3] == '0' or
+         gnt_user_params[:check_list_4] == '0' or
+         gnt_user_params[:check_list_5] == '0' or
+         gnt_user_params[:check_list_6] == '0' or
+         gnt_user_params[:check_list_7] == '0' or
+         gnt_user_params[:check_list_8] == '0' or
+         gnt_user_params[:check_list_9] == '0' or
+         gnt_user_params[:check_list_11] == '0' or
+         gnt_user_params[:check_list_12] == '0'
+        @user.stage_9 = false
         @user.save
       end
     end

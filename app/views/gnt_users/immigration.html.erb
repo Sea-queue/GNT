@@ -22,22 +22,21 @@
             <h5 class='section_title mt-2'>Immigration</h5>
             <hr class="mt-0 mb-4">
 
-
             <h6><strong>Checklist of documents to begin collecting:</strong></h6>
             <div class="field" style='display: flex'>
-              <%= f.check_box :currently_working %> &nbsp
+              <%= f.check_box :check_list_1 %> &nbsp
               <h6 class='mt-2'>Valid Passport</h6>
             </div>
             <h7>with validity for more than 6-months after expected entry to the United States</h7>
 
             <div class="field mt-2" style='display: flex'>
-              <%= f.check_box :currently_working %> &nbsp
+              <%= f.check_box :check_list_2 %> &nbsp
               <h6 class='mt-2'>Passport photos</h6>
             </div>
             <h7>The passport photos should be square 51mm X 51mm, in color.</h7>
 
             <div class="field mt-2" style='display: flex'>
-              <%= f.check_box :currently_working %> &nbsp
+              <%= f.check_box :check_list_3 %> &nbsp
               <h6 class='mt-2'>Copy of Secondary School Diploma</h6>
             </div>
             <h7>Applicants must submit a photocopy of their secondary school diploma or external exam certificate for the highest level of secondary education they attained. Secondary school (high school) is the school attended between elementary school (primary school) and university, usually offering general, technical, vocational, or college-preparatory courses. </h7>
@@ -45,12 +44,12 @@
             <h7>This requirement is waived for applicants that completed secondary education more than 10 years ago.</h7>
 
             <div class="field mt-2" style='display: flex'>
-              <%= f.check_box :currently_working %> &nbsp
+              <%= f.check_box :check_list_4 %> &nbsp
               <h6 class='mt-2'>Copy of all Nursing Licenses, Registrations, Diplomas</h6>
             </div>
 
             <div class="field mt-2 mb-4" style='display: flex'>
-              <%= f.check_box :currently_working %> &nbsp
+              <%= f.check_box :check_list_5 %> &nbsp
               <h6 class='mt-2'>Copy of any current or former US Visa(s), Form I-94(s) or any other US immigration-related documentation</h6>
             </div>
 
@@ -58,45 +57,46 @@
               <h6>Current visa application for: * &nbsp;</h6>
               <%= f.select :apply_visa_for, ['None', 'Self', 'Self and Family'], :prompt => current_gnt_user.apply_visa_for %>
             </div>
+
             <h6><strong>If you anticipate being accompanied by family members (spouse or children under 21) to the United States, collect the applicable documents:</strong></h6>
             <div class="field mt-2" style='display: flex'>
-              <%= f.check_box :currently_working %> &nbsp
+              <%= f.check_box :check_list_6 %> &nbsp
               <h6 class='mt-2'>Birth Certificates for each individual</h6>
             </div>
             <h7>Original or Certified Copy</h7>
 
             <div class="field mt-2" style='display: flex'>
-              <%= f.check_box :currently_working %> &nbsp
+              <%= f.check_box :check_list_7 %> &nbsp
               <h6 class='mt-2'>Passports for each individual</h6>
             </div>
             <h7>with validity for more than 6-months after expected entry to the United States</h7>
 
             <div class="field mt-2" style='display: flex'>
-              <%= f.check_box :currently_working %> &nbsp
+              <%= f.check_box :check_list_8 %> &nbsp
               <h6 class='mt-2'>Marriage Certificate, if applicable</h6>
             </div>
             <h7>Original or Certified Copy</h7>
 
             <div class="field mt-2" style='display: flex'>
-              <%= f.check_box :currently_working %> &nbsp
+              <%= f.check_box :check_list_9 %> &nbsp
               <h6 class='mt-2'>Divorce Certificates, if applicable</h6>
             </div>
             <h7>Original or Certified Copy</h7>
 
             <div class="field mt-2" style='display: flex'>
-              <%= f.check_box :currently_working %> &nbsp
+              <%= f.check_box :check_list_0 %> &nbsp
               <h6 class='mt-2'>Copy of any current or former US Visa(s), Form I-94(s) or any other US immigration-related documentation, for each individual</h6>
             </div>
 
             <h6 class='mt-4'><strong>Throughout the preparation process, keep copies of the following documents:</strong></h6>
 
             <div class="field mt-2" style='display: flex'>
-              <%= f.check_box :currently_working %> &nbsp
+              <%= f.check_box :check_list_11 %> &nbsp
               <h6 class='mt-2'>English Proficiency Exam Report with Passing Score</h6>
             </div>
 
             <div class="field mt-2" style='display: flex'>
-              <%= f.check_box :currently_working %> &nbsp
+              <%= f.check_box :check_list_12 %> &nbsp
               <h6 class='mt-2'>NCLEX Report with Passing Score</h6>
             </div>
 
