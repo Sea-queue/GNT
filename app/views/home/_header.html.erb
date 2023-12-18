@@ -3,7 +3,7 @@
     <div class="header_wrap d-flex flex-wrap align-items-center justify-content-between ">
       <ul class="col-md-15 d-flex p-0 mb-md-0 align-items-center">
 
-        <%= link_to image_tag('kynd_longlogo.svg'), root_path, class:'nav-link active header_text header_logo'%>
+        <%= link_to image_tag('kynd_longlogo.svg'), root_path, class:'nav-link active header_logo'%>
         
         <% if current_gnt_user %>
           <% if false %>
@@ -108,10 +108,8 @@
             <% end %>
           <% end %>
           <div class="btn-group">
-            <button type="button" class="btn header_button"><%= link_to image_tag('user.svg'), register_path(current_gnt_user)%> &nbsp; <%= link_to 'Profile', register_path(current_gnt_user), class:'text-decoration-none text-light', style:"font-size: 20px;" %></button>
-            <button type="button" class="btn header_button_2 dropdown-toggle dropdown-toggle-split" style="font-size: 20px;" data-bs-toggle="dropdown" aria-expanded="false">
-              <span class="visually-hidden">Toggle Dropdown</span>
-            </button>
+            <%= link_to image_tag('user.svg'), register_path(current_gnt_user), class:'btn profile_icon' %><%= link_to 'Profile', register_path(current_gnt_user), class:'btn profile_button text-decoration-none' %>
+            <button type="button" class="btn profile_arrow dropdown-toggle dropdown-toggle-split" style="font-size: 20px;" data-bs-toggle="dropdown" aria-expanded="false"></button>
             <ul class="dropdown-menu">
               <li><%= link_to image_tag('settings.svg')+'  Settings', edit_gnt_user_registration_path, class:'text-decoration-none text-dark', style:'margin-left: 20px' %></li>
               <li><hr class="dropdown-divider"></li>
