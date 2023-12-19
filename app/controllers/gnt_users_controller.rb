@@ -302,7 +302,7 @@ class GntUsersController < ApplicationController
         @user.save
       end
     else
-      if !@user.interview_status == 'Complete'
+      if @user.interview_status != 'Complete'
         @user.stage_6 = false
         @user.save
       end
@@ -319,7 +319,7 @@ class GntUsersController < ApplicationController
       end
     else
       if gnt_user_params[:rn_in_us] == '0' or
-         gnt_user_params[:rn_in_us_state] == '' or
+         gnt_user_params[:rn_in_us_state] == 'None' or
          gnt_user_params[:license_number] == '' or
          gnt_user_params[:expiration_date] == '' or
          gnt_user_params[:background_check] == '0'
