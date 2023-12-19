@@ -334,7 +334,7 @@ class GntUsersController < ApplicationController
         @user.save
       end
     else 
-      if !@user.visascreen_status == 'Complete'
+      if @user.visascreen_status != 'Complete'
         @user.stage_8 = false
         @user.save
       end
@@ -353,6 +353,7 @@ class GntUsersController < ApplicationController
          gnt_user_params[:check_list_9] == '1' and
          gnt_user_params[:check_list_11] == '1' and
          gnt_user_params[:check_list_12] == '1' and
+         gnt_user_params[:cgfns] == '1'
         @user.stage_9 = true
         @user.save
       end
@@ -368,7 +369,8 @@ class GntUsersController < ApplicationController
          gnt_user_params[:check_list_8] == '0' or
          gnt_user_params[:check_list_9] == '0' or
          gnt_user_params[:check_list_11] == '0' or
-         gnt_user_params[:check_list_12] == '0'
+         gnt_user_params[:check_list_12] == '0' or
+         gnt_user_params[:cgfns] == '0'
         @user.stage_9 = false
         @user.save
       end
