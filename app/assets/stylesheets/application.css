@@ -40,7 +40,7 @@
 }
 
 .profile_button:hover{
-  color: #3F37C9;
+  color: #fa9f0c;
   background-color: #04ABC8;
 }
 
@@ -121,6 +121,11 @@ header ul li .header_logo {
 .dashboard_button {
   color: white;
   background-color: #114fa7
+}
+
+.dashboard_button:hover {
+  color: white;
+  background-color: #75a6eb
 }
 
 .dashboard_button_disabled {
