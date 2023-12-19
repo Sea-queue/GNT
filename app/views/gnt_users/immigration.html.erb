@@ -22,6 +22,7 @@
             <h5 class='section_title mt-2'>Immigration</h5>
             <hr class="mt-0 mb-4">
 
+            <% if false %>
             <h6><strong>Checklist of documents to begin collecting:</strong></h6>
             <div class="field" style='display: flex'>
               <%= f.check_box :check_list_1 %> &nbsp
@@ -104,8 +105,9 @@
               <%= f.check_box :cgfns %> &nbsp
               <h6 class='mt-2'>CGFNS VisaScreen Certificate</h6>
             </div>
+            <% end %>
 
-            <h6><strong>Additionally, please confirm the following statements to assure your eligibility:</strong></h6>
+            <h6><strong>Please confirm the following statements to assure your eligibility:</strong></h6>
             <div class="field mb-2 mt-2 d-flex align-items-baseline">
               <%= f.check_box :convicted_crime %> &nbsp;
               <h6 class='mt-1'>I have never been convicted of a crime. *</h6>

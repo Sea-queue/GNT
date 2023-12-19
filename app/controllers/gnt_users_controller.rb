@@ -283,8 +283,8 @@ class GntUsersController < ApplicationController
     end
     # NCLEX
     if !@user.stage_5
-      if gnt_user_params[:nclex_rn] != '' and 
-         gnt_user_params[:nclex_rn_state] != ''
+      if gnt_user_params[:nclex_rn] == 'passed' and 
+         gnt_user_params[:nclex_rn_state] != 'None'
         @user.stage_5 = true
         @user.save
       end
