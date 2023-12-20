@@ -19,36 +19,36 @@
 }
 
 .profile_icon{
-  background-color: #04ABC8;
+  background-color: #04bdde;
   border-radius: 25px 0px 0px 25px;
   width: 50px;
-  padding: auto;
+  padding-top: 10px;
 }
 
 .profile_icon:hover {
-  background-color: #04ABC8;
+  background-color: #04bdde;
 }
 
 .profile_button{
   color: white;
   font-weight: bold;
   font-size: 20px;
-  background-color: #04ABC8;
-  width: 80px;
+  background-color: #04bdde;
+  width: 120px;
   padding-left: 0;
-  padding: auto;
+  padding-top: 9px;
 }
 
 .profile_button:hover{
-  color: #fa9f0c;
-  background-color: #04ABC8;
+  color: black;
+  background-color: #04bdde;
 }
 
 .profile_arrow {
-  color: black;
-  background-color: #A0EDE6;
+  color: white;
+  background-color: #03869d;
   border-radius: 25px;
-  width: 35px;
+  width: 45px;
 }
 
 .header_text {
@@ -120,7 +120,7 @@ header ul li .header_logo {
 
 .dashboard_button {
   color: white;
-  background-color: #114fa7
+  background-color: #114fa7;
 }
 
 .dashboard_button:hover {

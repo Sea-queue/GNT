@@ -21,95 +21,98 @@
             <%= link_to 'Edit', immigration_path(current_gnt_user), class:"btn dashboard_button_edit mb-3" %>
 
             <h5 class='section_title'>Immigration</h5>
-            <h5 class='section_sub_title' >Step 1: Begin collecting documents you will need for the immigration process. It is important to begin collecting these documents early in the process because some documents can time to collect, and in some cases, to translate. </h5>
-            <hr class="mt-0 mb-4">
+            <h5 class='section_sub_title' >STEP 1</h5>
+            <hr class="mt-0 mb-3">
 
+            <h6><strong><i>Begin collecting documents for the immigration process. It is important to begin collecting these documents early in the process because some documents can take time to collect and translate.</i></strong></h6>
+            <h6 class="mb-4"><i> Note: All documents should be translated to English. Academic documents should be translated by the academic institution, or by CGFNS during the VisaScreen® process. For non-academic documents, connect with us if you need support to translate your documents.</i> </h6>
+            
             <h6><strong>Checklist of documents to begin collecting:</strong></h6>
             <% if @user.check_list_1 %>
               <h6>✔ Valid Passport</h6>
             <% else %>
-              <h6>&#9819; Valid Passport</h6>
+              <h6>▢ Valid Passport</h6>
             <% end %>
            
             <% if @user.check_list_2 %>
               <h6>✔ Passport photos</h6>
             <% else %>
-              <h6>&emsp; Passport photos</h6>
+              <h6>▢ Passport photos</h6>
             <% end %>
 
             <% if @user.check_list_3 %>
               <h6>✔ Copy of Secondary School Diploma</h6>
             <% else %>
-              <h6>&emsp; Copy of Secondary School Diploma</h6>
+              <h6>▢ Copy of Secondary School Diploma</h6>
             <% end %>
 
             <% if @user.check_list_4 %>
-              <h6>✔ Copy of all Nursing Licenses, Registrations, Diplomas</h6>
+              <h6>✔ Copy of all Nursing Licenses and Diplomas</h6>
             <% else %>
-              <h6>&#128286; Copy of all Nursing Licenses, Registrations, Diplomas</h6>
+              <h6>▢ Copy of all Nursing Licenses and Diplomas</h6>
             <% end %>
 
             <% if @user.check_list_5 %>
-              <h6>✔ Copy of any current or former US Visa(s), Form I-94(s) or any other US immigration-related documentation</h6>
+              <h6>✔ Copy of any current or former US Visa(s), Form I-94(s), or any other US immigration-related documentation</h6>
             <% else %>
-              <h6>&#128162; Copy of any current or former US Visa(s), Form I-94(s) or any other US immigration-related documentation</h6>
+              <h6>▢ Copy of any current or former US Visa(s), Form I-94(s), or any other US immigration-related documentation</h6>
             <% end %>
 
             <h6 class='mt-4'><strong>If you anticipate being accompanied by family members (spouse or children under 21) to the United States, collect the applicable documents:</strong></h6>
             <% if @user.check_list_6 %>
               <h6>✔ Birth Certificates for each individual</h6>
             <% else %>
-              <h6>&#9758; Birth Certificates for each individual</h6>
+              <h6>▢ Birth Certificates for each individual</h6>
             <% end %>
 
             <% if @user.check_list_7 %>
               <h6>✔ Passports for each individual</h6>
             <% else %>
-              <h6>&emsp; Passports for each individual</h6>
+              <h6>▢ Passports for each individual</h6>
             <% end %>
 
             <% if @user.check_list_8 %>
               <h6>✔ Marriage Certificate, if applicable</h6>
             <% else %>
-              <h6>&emsp; Marriage Certificate, if applicable</h6>
+              <h6>▢ Marriage Certificate, if applicable</h6>
             <% end %>
 
             <% if @user.check_list_9 %>
               <h6>✔ Divorce Certificates, if applicable</h6>
             <% else %>
-              <h6>&emsp; Divorce Certificates, if applicable</h6>
+              <h6>▢ Divorce Certificates, if applicable</h6>
             <% end %>
 
             <% if @user.check_list_0 %>
               <h6>✔ Copy of any current or former US Visa(s), Form I-94(s) or any other US immigration-related documentation, for each individual</h6>
             <% else %>
-              <h6>&emsp; Copy of any current or former US Visa(s), Form I-94(s) or any other US immigration-related documentation, for each individual</h6>
+              <h6>▢ Copy of any current or former US Visa(s), Form I-94(s) or any other US immigration-related documentation, for each individual</h6>
             <% end %>
 
             <h6 class='mt-4'><strong>Throughout the preparation process, keep copies of the following documents:</strong></h6>
             <% if @user.check_list_11 %>
-              <h6>✔ English Proficiency Exam Report with Passing Score</h6>
+              <h6>✔ English Proficiency Exam Report with passing score</h6>
             <% else %>
-              <h6>&emsp; English Proficiency Exam Report with Passing Score</h6>
+              <h6>▢ English Proficiency Exam Report with passing score</h6>
             <% end %>
 
             <% if @user.check_list_12 %>
-              <h6>✔ NCLEX Report with Passing Score</h6>
+              <h6>✔ NCLEX Report with passing score</h6>
             <% else %>
-              <h6>&emsp; NCLEX Report with Passing Score</h6>
+              <h6>▢ NCLEX Report with passing score</h6>
             <% end %>
 
             <% if @user.cgfns %>
-              <h6>✔ CGFNS VisaScreen Certificate</h6>
+              <h6>✔ CGFNS VisaScreen® Certificate</h6>
             <% else %>
-              <h6>&emsp; CGFNS VisaScreen Certificate</h6>
+              <h6>▢ CGFNS VisaScreen® Certificate</h6>
             <% end %>
 
-            <h6 class="mt-3"> Note: All documents should be translated to English. Academic documents should be translated by the academic institution, or CGFNS during the VisaScreen process. For non-academic documents, connect with us if you need support to translate your documents. </h6>
-            
-            <h5 class='section_sub_title' >Step 2: Once you accept a job offer with a U.S. hospital, you will be connected to our immigration portal to submit all documents to process your visa(s). </h5>
-            <hr class="mt-0 mb-4">
+            <h5 class='section_sub_title' >STEP 2</h5>
+            <hr class="mt-0 mb-2">
 
+            <h6 class="mb-4"><strong><i>Once the job offer is signed between you and the employer in the U.S., you will be given a link to access the immigration portal. The immigration portal is where you will submit all the documents for yourself, and any dependents', visas. </i></strong></h6>
+            
             <div class="col-12 mb-3" style="display: flex">
               <h6 class='profile_prompt'>Current visa application for: &nbsp</h6>
               <h6 class='profile_text'><%= @user.apply_visa_for %></h6>
@@ -125,7 +128,7 @@
               <h6 class='profile_text'><%= @user.disorder %></h6>
             </div>
 
-            <div class="col-12 mb-3" style="display: flex">
+            <div class="col-12 mb-3">
               <h6 class='profile_prompt'>Is there anything else our Recruitment Team should know?</h6>
               <h6 class='profile_text'><%= @user.other_3 %></h6>
             </div>
