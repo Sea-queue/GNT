@@ -14,8 +14,10 @@ class GntUser < ApplicationRecord
   has_many_attached :transcript_translate
   has_one_attached :english_proficiency_result
   has_one_attached :nclex_rn_upload
+  has_one_attached :interview_tamplate
   validates :avatar, content_type: { in: ['image/png', 'image/jpg', 'image/jpeg'], message: 'is not an image' } 
   after_commit :add_default_avatar, on: %i[create update]
+  after_commit :add_default_interview_tamplate, on: [:create, :update]
   
 
   def admin?
@@ -49,4 +51,14 @@ class GntUser < ApplicationRecord
         content_type: 'image/png/svg'
       )
   end 
+
+  def add_default_interview_tamplate
+    unless interview_tamplate.attached?
+      self.interview_tamplate.attach(
+        io: File.open(Rails.root.join("app", "assets", "images", "Interview_template.pdf")), 
+        filename: 'Interview_template.pdf', 
+        content_type: "pdf"
+      )
+    end
+  end
 end

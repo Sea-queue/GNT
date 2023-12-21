@@ -63,7 +63,7 @@
             <div class="col-20 mb-3" style="display: flex">
               <h6 class='profile_prompt'>Resume: &nbsp</h6>
               <% if @user.resume.attached? %>
-                <%= link_to @user.resume.filename, url_for(@user.resume) %>
+                <%= link_to @user.resume.filename, url_for(@user.resume), target:"_blank" %>
               <% end %>
             </div>
 

@@ -36,7 +36,9 @@
 
             <div class="col-30 mb-3" style='display: flex'>
               <h6 class='profile_prompt'>KYND Interview tamplate: &nbsp;</h6>
-              
+              <% if @user.interview_tamplate.attached? %>
+                <%= link_to @user.interview_tamplate.filename, url_for(@user.interview_tamplate), target:"_blank" %>
+              <% end %>
             </div>
 
             <h5 class='section_sub_title mb-2' >Interview Preparation</h5>
