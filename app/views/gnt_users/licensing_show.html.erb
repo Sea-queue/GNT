@@ -59,6 +59,16 @@
               <h6 class='profile_text'><%= @user.background_check %></h6>
             </div>
 
+            <div class="col-20 mb-3" style="display: flex">
+              <h6 class='profile_prompt'>Board of Nursing fingerprint status: &nbsp</h6>
+              <h6 class='profile_text'><%= @user.fingerprint_status %></h6>
+            </div>
+
+            <div class="col-20 mb-3" style="display: flex">
+              <h6 class='profile_prompt'>Fingerprint submission date: &nbsp</h6>
+              <h6 class='profile_text'><%= @user.fingerprint_date %></h6>
+            </div>
+
           </div>
         </div>
       </div>

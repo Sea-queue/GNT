@@ -192,7 +192,6 @@ class GntUsersController < ApplicationController
       :interview_date, 
       :stage_1,
       :stage_2,
-      :check_list_0,
       :check_list_1,
       :check_list_2,
       :check_list_3,
@@ -202,8 +201,12 @@ class GntUsersController < ApplicationController
       :check_list_7,
       :check_list_8,
       :check_list_9,
+      :check_list_10,
       :check_list_11,
       :check_list_12,
+      :registration_status,
+      :fingerprint_status,
+      :fingerprint_date,
       transcript: [],
       transcript_translate: [],
       visa: []
@@ -218,12 +221,12 @@ class GntUsersController < ApplicationController
     # @user.save
     # getting started
     if !@user.stage_1
-      if @user.english_proficiency_result.attached? or gnt_user_params[:request_english_assessment] == "1"
+      if @user.registration_status and (@user.english_proficiency_result.attached? or gnt_user_params[:request_english_assessment] == "1")
         @user.stage_1 = true
         @user.save
       end
     else
-      if !@user.english_proficiency_result.attached? and gnt_user_params[:request_english_assessment] == "0"
+      if !@user.registration_status or (!@user.english_proficiency_result.attached? and gnt_user_params[:request_english_assessment] == "0")
         @user.stage_1 = false
         @user.save
       end
@@ -310,10 +313,12 @@ class GntUsersController < ApplicationController
     # Licensing
     if !@user.stage_7
       if gnt_user_params[:rn_in_us] == '1' and
-         gnt_user_params[:rn_in_us_state] != '' and
+         gnt_user_params[:rn_in_us_state] != 'None' and
          gnt_user_params[:license_number] != '' and
          gnt_user_params[:expiration_date] != '' and
-         gnt_user_params[:background_check] == '1'
+         gnt_user_params[:background_check] == '1' and
+         gnt_user_params[:fingerprint_status] == 'Complete' and
+         gnt_user_params[:fingerprint_date] != ''
         @user.stage_7 = true
         @user.save
       end
@@ -322,7 +327,9 @@ class GntUsersController < ApplicationController
          gnt_user_params[:rn_in_us_state] == 'None' or
          gnt_user_params[:license_number] == '' or
          gnt_user_params[:expiration_date] == '' or
-         gnt_user_params[:background_check] == '0'
+         gnt_user_params[:background_check] == '0' or
+         gnt_user_params[:fingerprint_status] != 'Complete' or
+         gnt_user_params[:fingerprint_date] == ''
         @user.stage_7 = false
         @user.save
       end 
@@ -341,8 +348,7 @@ class GntUsersController < ApplicationController
     end
     # Immigration
     if !@user.stage_9
-      if gnt_user_params[:check_list_0] == '1' and
-         gnt_user_params[:check_list_1] == '1' and
+      if gnt_user_params[:check_list_1] == '1' and
          gnt_user_params[:check_list_2] == '1' and
          gnt_user_params[:check_list_3] == '1' and
          gnt_user_params[:check_list_4] == '1' and
@@ -351,6 +357,7 @@ class GntUsersController < ApplicationController
          gnt_user_params[:check_list_7] == '1' and
          gnt_user_params[:check_list_8] == '1' and
          gnt_user_params[:check_list_9] == '1' and
+         gnt_user_params[:check_list_10] == '1' and
          gnt_user_params[:check_list_11] == '1' and
          gnt_user_params[:check_list_12] == '1' and
          gnt_user_params[:cgfns] == '1'

@@ -50,6 +50,16 @@
               <%= f.check_box :background_check %> &nbsp;
               <h6 class='profile_prompt'>By checking this box, I affirm that my fingerprints have been submitted for the purpose of state licensure, and I understand that my application may be subject to verification by the respective state nursing board. *</h6>
             </div>
+            
+            <div class="col-30 mb-3 d-flex flex-wrap">
+              <h6 class='profile_prompt'> Board of Nursing fingerprint status: * &nbsp; </h6>
+              <%= f.select(:fingerprint_status, ['submitted', 'Complete']) %>
+            </div>
+
+            <div class="col-30 mb-3 d-flex flex-wrap">
+              <h6 class='profile_prompt'>Fingerprint submission date: * &nbsp; </h6>
+              <%= f.date_field :fingerprint_date%>
+            </div>
 
             <hr class="mt-0 mb-4">
             <div class="actions">

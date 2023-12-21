@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_14_192259) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_21_173104) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -123,10 +123,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_14_192259) do
     t.boolean "check_list_7", default: false
     t.boolean "check_list_8", default: false
     t.boolean "check_list_9", default: false
-    t.boolean "check_list_0", default: false
+    t.boolean "check_list_10", default: false
     t.boolean "check_list_11", default: false
     t.boolean "check_list_12", default: false
     t.boolean "check_list_13", default: false
+    t.boolean "registration_status", default: false
+    t.string "fingerprint_status", default: "false"
+    t.date "fingerprint_date"
     t.index ["email"], name: "index_gnt_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_gnt_users_on_reset_password_token", unique: true
   end
