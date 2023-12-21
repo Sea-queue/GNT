@@ -192,6 +192,7 @@ class GntUsersController < ApplicationController
       :interview_date, 
       :stage_1,
       :stage_2,
+      :stage_7,
       :check_list_1,
       :check_list_2,
       :check_list_3,
@@ -217,8 +218,6 @@ class GntUsersController < ApplicationController
   def update_stage_status()
     puts("stage_status", gnt_user_params)
     puts("done")
-    # @user.stage_1 = false
-    # @user.save
     # getting started
     if !@user.stage_1
       if @user.registration_status and (@user.english_proficiency_result.attached? or gnt_user_params[:request_english_assessment] == "1")
@@ -317,7 +316,7 @@ class GntUsersController < ApplicationController
          gnt_user_params[:license_number] != '' and
          gnt_user_params[:expiration_date] != '' and
          gnt_user_params[:background_check] == '1' and
-         gnt_user_params[:fingerprint_status] == 'Complete' and
+         @user.visascreen_status == 'Complete' and
          gnt_user_params[:fingerprint_date] != ''
         @user.stage_7 = true
         @user.save
@@ -328,7 +327,7 @@ class GntUsersController < ApplicationController
          gnt_user_params[:license_number] == '' or
          gnt_user_params[:expiration_date] == '' or
          gnt_user_params[:background_check] == '0' or
-         gnt_user_params[:fingerprint_status] != 'Complete' or
+         @user.visascreen_status != 'Complete' or
          gnt_user_params[:fingerprint_date] == ''
         @user.stage_7 = false
         @user.save
@@ -365,8 +364,7 @@ class GntUsersController < ApplicationController
         @user.save
       end
     else
-      if gnt_user_params[:check_list_0] == '0' or
-         gnt_user_params[:check_list_1] == '0' or
+      if gnt_user_params[:check_list_1] == '0' or
          gnt_user_params[:check_list_2] == '0' or
          gnt_user_params[:check_list_3] == '0' or
          gnt_user_params[:check_list_4] == '0' or
@@ -375,6 +373,7 @@ class GntUsersController < ApplicationController
          gnt_user_params[:check_list_7] == '0' or
          gnt_user_params[:check_list_8] == '0' or
          gnt_user_params[:check_list_9] == '0' or
+         gnt_user_params[:check_list_10] == '0' or
          gnt_user_params[:check_list_11] == '0' or
          gnt_user_params[:check_list_12] == '0' or
          gnt_user_params[:cgfns] == '0'

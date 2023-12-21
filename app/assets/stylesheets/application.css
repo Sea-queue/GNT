@@ -67,6 +67,7 @@ header ul li .header_logo {
 .footer_customize {
   background-color: #114fa7;
   color: #FFFFFF;
+  font-size: 13px;
 }
 
 .footer_customize.text {
@@ -121,6 +122,7 @@ header ul li .header_logo {
 .dashboard_button {
   color: white;
   background-color: #114fa7;
+  font-weight: bold;
 }
 
 .dashboard_button:hover {
